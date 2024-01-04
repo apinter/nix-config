@@ -1,13 +1,6 @@
 { config, pkgs, callPackage, ... }:
 
-## Sway configuration 
 let
-  # bash script to let dbus know about important env variables and
-  # propagate them to relevent services run at the end of sway config
-  # see
-  # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/"It-doesn't-work"-Troubleshooting-Checklist
-  # note: this is pretty much the same as  /etc/sway/config.d/nixos.conf but also restarts  
-  # some user services to make sure they have the correct environment variables
   dbus-sway-environment = pkgs.writeTextFile {
     name = "dbus-sway-environment";
     destination = "/bin/dbus-sway-environment";
@@ -20,12 +13,6 @@ let
     '';
   };
 
-  # currently, there is some friction between sway and gtk:
-  # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
-  # the suggested way to set gtk settings is with gsettings
-  # for gsettings to work, we need to tell it where the schemas are
-  # using the XDG_DATA_DIR environment variable
-  # run at the end of sway config
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
@@ -40,11 +27,10 @@ let
     '';
   };
 
-
 in
 {
   environment.systemPackages = with pkgs; [
-    alacritty # gpu accelerated terminal
+    alacritty
     pulseaudio
     pavucontrol
     dbus-sway-environment
@@ -52,19 +38,19 @@ in
     wayland
     waybar
     wofi
-    xdg-utils # for opening default programs when clicking links
-    glib # gsettings
-    dracula-theme # gtk theme
-    gnome3.adwaita-icon-theme  # default gnome cursors
+    xdg-utils
+    glib
+    dracula-theme
+    gnome3.adwaita-icon-theme
     swaylock
     swayidle
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    bemenu # wayland clone of dmenu
-    mako # notification system developed by swaywm maintainer
-    wdisplays # tool to configure displays
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    grim
+    slurp
+    wl-clipboard
+    bemenu
+    mako
+    wdisplays
+    vim
     wget
     tmux
     curl
@@ -108,20 +94,19 @@ in
   ];
 
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
-      #<home-manager/nixos>
       ./networking/wg.nix
       ./systemd-user/flatpak-auto-update.nix
-      #./print/printer.nix
+      ./system/autoupgrade.nix
+      ./system/garbagecollect.nix
     ];
 
-  ## Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  ## Grub configuration
   boot.loader.efi.canTouchEfiVariables = true;
-  
+  networking.hostName = "umbra";
+  networking.networkmanager.enable = true;
+
   boot.loader.grub = {
     enable = true;
     device = "nodev";
@@ -135,27 +120,8 @@ in
     };
   };
 
-  ## Network configuration
-  networking.hostName = "umbra";
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-  #services.printing.enable = true;
-  #services.avahi.enable = true;
-  #services.avahi.nssmdns = true;
-  #services.printing.drivers = [ pkgs.gutenprint ];
-  # for a WiFi printer
-  #services.avahi.openFirewall = true;
-  #services.avahi.publish.enable = true;
-  #services.avahi.publish.userServices = true;
-  #services.printing.browsing = true;
-  #services.printing.listenAddresses = [ "*:631" ]; # Not 100% sure this is needed and you might want to restrict to the local network
-  #services.printing.allowFrom = [ "all" ]; # this gives access to anyone on the interface you might want to limit it see the official documentation
-  #services.printing.defaultShared = true; # If you want
 
   ## Enalbe hw accelerated video decoding
   nixpkgs.config.packageOverrides = pkgs: {
@@ -164,8 +130,8 @@ in
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      intel-media-driver
+      vaapiIntel        
       vaapiVdpau
       libvdpau-va-gl
     ];
@@ -179,12 +145,6 @@ in
     pulse.enable = true;
   };
 
-  # xdg-desktop-portal works by exposing a series of D-Bus interfaces
-  # known as portals under a well-known name
-  # (org.freedesktop.portal.Desktop) and object path
-  # (/org/freedesktop/portal/desktop).
-  # The portal interfaces include APIs for file access, opening URIs,
-  # printing and others.
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
