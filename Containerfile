@@ -10,3 +10,5 @@ RUN curl -L https://nixos.org/nix/install | sh -s --  --daemon --yes
 RUN mkdir -p /flake
 
 WORKDIR /flake
+
+ENTRYPOINT ["/bin/bash"]
