@@ -42,8 +42,7 @@ jobs:
       - name: Update flakes
         shell: bash
         run: |
-            echo $SHELL
-            echo $PATH
+            export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
             git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
             cd nix-config 
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
