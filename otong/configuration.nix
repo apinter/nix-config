@@ -16,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  networking.hostName = "nathan";
+  networking.hostName = "otong";
   networking.networkmanager.enable = true;
   zramSwap.enable = true;
 
@@ -140,7 +140,8 @@
       device = "172.168.1.3:/shirayuki/Home/nathan";
       fsType = "nfs";
   };
-  
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;  
   system.stateVersion = "23.05";
 }

@@ -17,6 +17,7 @@
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.efiSupport = false;
   security.rtkit.enable = true;
+  zramSwap.enable = true;
   networking.hostName = "brenda";
   networking.networkmanager.enable = true;
   boot.supportedFilesystems = [ "zfs" ];
@@ -44,7 +45,7 @@
 
   environment.systemPackages = with pkgs; [
     vim 
-    wget
+    curl
     htop
     cryptsetup
   ];
@@ -69,8 +70,8 @@
 
   services.openssh.enable = true;
   networking.firewall.enable = false;
-  zramSwap.enable = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.11";
 }
 

@@ -146,7 +146,8 @@
       device = "172.168.1.3:/shirayuki/Home/skye";
       fsType = "nfs";
   };
-
+  
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true; 
   system.stateVersion = "23.05"; 
 }
