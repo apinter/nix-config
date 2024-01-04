@@ -1,10 +1,16 @@
 { config, lib, pkgs, ... }:
 
 {
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.dates = "daily";
-  system.autoUpgrade.persistent = true;
-  system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.11";
-  system.autoUpgrade.allowReboot = false;
-  system.autoUpgrade.randomizedDelaySec = "15min";
+  system.autoUpgrade = {
+    enable = true;
+    dates = "daily";
+    persistent = true;
+    flake = "/home/apinter/nix-config";
+    flags = [ 
+      "--recreate-lock-file"
+      "-L"
+      ];
+    allowReboot = false;
+    randomizedDelaySec = "15min";
+  };
 }
