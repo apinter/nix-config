@@ -46,8 +46,17 @@ jobs:
             git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
             cd nix-config 
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+      - name: Commit and push
+        shell: bash
+        run: |
+            cd nix-config
             git config --global user.email "adathor+flakes@opensuse.org"
             git config --global user.name "Flake Updater"
             git add .
-            git commit -m "Automatic flake update"
-            git push || exit 0
+            if git diff --cached --quiet; then
+              echo "No changes to commit"
+              exit 0
+            else
+              git commit -m "Automatic flake update"
+              git push
+            fi
