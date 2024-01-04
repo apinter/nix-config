@@ -40,12 +40,15 @@ jobs:
           COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
       - name: Update flakes
+        shell: bash
         run: |
-            cat /etc/os-release
+            echo $SHELL
+            echo $PATH
             git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
             cd nix-config 
-            bash -c "nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update"
+            nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
       - name: Commit and push
+        shell: bash
         run: |
             git add .
             git commit -m "Automatic flake update"
