@@ -50,4 +50,4 @@ jobs:
             git config --global user.name "Flake Updater"
             git add .
             git commit -m "Automatic flake update"
-            git push
+            git push || exit 0
