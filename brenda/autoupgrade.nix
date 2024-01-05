@@ -8,7 +8,6 @@
     flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
-      "-L"
       ];
     rebootWindow = {
       lower = "03:00";
