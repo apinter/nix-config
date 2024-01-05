@@ -8,7 +8,7 @@
     flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
-      "--recreate-lock-file"
+      "--update-input" "nixpkgs"
       "-L"
       ];
     allowReboot = false;
