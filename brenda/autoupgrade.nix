@@ -8,7 +8,6 @@
     flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
-      "--update-input" "nixpkgs"
       "-L"
       ];
     rebootWindow = {
