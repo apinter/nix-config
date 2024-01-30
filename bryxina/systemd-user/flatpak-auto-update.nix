@@ -19,7 +19,7 @@ systemd.user.timers.flatpak-auto-update = {
       timerConfig = {
         OnCalendar = "daily";
         Persistent = "true";
-      wantedBy = [ "timers.target" ];
       };
+      wantedBy = [ "timers.target" ];
     };
 }
