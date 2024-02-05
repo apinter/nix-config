@@ -9,7 +9,7 @@
     flags = [ 
       "--no-write-lock-file"
       ];
-    allowReboot = false;
+    allowReboot = true;
     randomizedDelaySec = "15min";
   };
 }
