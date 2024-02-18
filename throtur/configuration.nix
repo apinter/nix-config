@@ -7,7 +7,7 @@
       ./systemd-user/flatpak-auto-update.nix
       # ./print/printer.nix
       ./hardware/accel.nix
-      #./containers/containers.nix
+      ./containers/containers.nix
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
     ];
