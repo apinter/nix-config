@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, lib-usntable, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 systemd.user.services.flatpak-auto-update = {
@@ -8,7 +8,7 @@ systemd.user.services.flatpak-auto-update = {
       };
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "${pkgs-unstable.flatpak}/bin/flatpak --user update -y";
+        ExecStart = "${pkgs.flatpak}/bin/flatpak --user update -y";
       };
       #wantedBy = [ "default.target" ];
     };

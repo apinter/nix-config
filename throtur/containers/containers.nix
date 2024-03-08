@@ -1,4 +1,4 @@
-{ config, lib-usntable, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 

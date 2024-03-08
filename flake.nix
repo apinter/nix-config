@@ -3,20 +3,16 @@
   description = "Adathor's flake - just manages my fleet";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-23.11"; 
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, nixpkgs-unstable, home-manager, ...}:
+  outputs = {self, nixpkgs, home-manager, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-      lib-usntable = nixpkgs-unstable.lib;
-
     in {
     nixosConfigurations = {
       umbra = lib.nixosSystem {
@@ -38,10 +34,6 @@
       throtur = lib.nixosSystem {
         inherit system;
         modules = [ ./throtur/configuration.nix ];
-        specialArgs = {
-          inherit pkgs-unstable;
-          inherit lib-usntable;
-          };
         };
       otong = lib.nixosSystem {
         inherit system;

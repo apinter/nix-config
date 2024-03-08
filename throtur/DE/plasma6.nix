@@ -1,4 +1,4 @@
-{ config, pkgs-unstable, lib-usntable, callPackage, ... }:
+{ config, pkgs, callPackage, ... }:
 
 {
 
