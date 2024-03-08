@@ -1,6 +1,8 @@
 { config, pkgs, callPackage, ... }:
 
 {
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-kde ];
 
   services.xserver.enable = true;
   # services.xserver.displayManager.sddm.enable = true;
