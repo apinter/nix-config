@@ -82,7 +82,7 @@
     firefox
     python3
     distrobox
-    gnome.gnome-keyring
+    # gnome.gnome-keyring
     conmon
     crun
     slirp4netns
@@ -121,7 +121,7 @@
     };
   };
   virtualisation.oci-containers.backend = "podman";
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.lightdm.enableGnomeKeyring = true;
 
   fileSystems."/home/throtur/Common" = {
