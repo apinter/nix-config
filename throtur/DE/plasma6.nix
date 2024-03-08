@@ -22,10 +22,9 @@
     kdePackages.kate
     kdePackages.konsole
     kdePackages.konversation
-    kdePackages.kopete
     kdePackages.kwrite
     kdePackages.kalk
-    kdePackages.kdeconnect
+    kdePackages.kdeconnect-kde
     kdePackages.kdeplasma-addons
     kdePackages.okular
   ];
