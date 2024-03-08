@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs-unstable, lib-usntable, ... }:
 
 {
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  nixpkgs.config.packageOverrides = pkgs-unstable: {
+    vaapiIntel = pkgs-unstable.vaapiIntel.override { enableHybridCodec = true; };
   };
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [
+    extraPackages = with pkgs-unstable; [
       intel-media-driver
       vaapiIntel
       vaapiVdpau

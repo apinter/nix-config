@@ -1,10 +1,10 @@
-{ pkgs, ...  }:
+{ pkgs, pkgs-unstable, lib-usntable ...  }:
 { 
 nixpkgs.config.allowUnfree = true;
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
-  services.printing.drivers = [ pkgs.gutenprint pkgs.brlaser ];
+  services.printing.drivers = [ pkgs-unstable.gutenprint pkgs.brlaser ];
   services.avahi.openFirewall = true;
   services.avahi.publish.enable = true;
   services.avahi.publish.userServices = true;

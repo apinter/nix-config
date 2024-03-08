@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs-unstable, lib-usntable, ... }:
 
 {
   services.prometheus = {

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib-usntable, ... }:
 
 {
   nix.gc.automatic = true;

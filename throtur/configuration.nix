@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ config, pkgs, pkgs-unstable, callPackage, ... }:
 {
   imports =
     [
@@ -15,7 +15,7 @@
     ];
     
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs-unstable.linuxPackages_latest;
   security.rtkit.enable = true;
   zramSwap.enable = true;
   boot.loader.systemd-boot.enable = true;
@@ -49,7 +49,7 @@
   
   users.groups.devops.gid = 5000;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     ark
     zip
     unzip
@@ -78,11 +78,11 @@
   ];
 
   hardware.opengl.enable = true; 
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+  hardware.opengl.extraPackages = [ pkgs-unstable.mesa.drivers ];
   hardware.opengl.driSupport32Bit = true;
   services.openssh.enable = true;
   hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.sane-backends ];
+  hardware.sane.extraBackends = [ pkgs-unstable.sane-backends ];
   networking.firewall.enable = false;
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
@@ -97,7 +97,7 @@
   programs.dconf.enable = true;
   services.flatpak.enable = true;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs-unstable.xdg-desktop-portal-gtk ];
 
   virtualisation = {
     podman = {
