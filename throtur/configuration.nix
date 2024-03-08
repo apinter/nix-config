@@ -110,7 +110,7 @@
   };
   virtualisation.oci-containers.backend = "podman";
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+  # security.pam.services.lightdm.enableGnomeKeyring = true;
 
   fileSystems."/home/throtur/Common" = {
       device = "172.168.1.3:/shirayuki/Common";
