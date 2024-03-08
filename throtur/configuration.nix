@@ -10,7 +10,10 @@
       ./containers/containers.nix
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
+      # ./DE/xfce.nix
+      ./DE/plasma6.nix
     ];
+    
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   security.rtkit.enable = true;
@@ -48,10 +51,8 @@
 
   environment.systemPackages = with pkgs; [
     ark
-    xfce.thunar-archive-plugin
     zip
     unzip
-    albert
     bash
     vim
     mesa
@@ -67,13 +68,7 @@
     policycoreutils
     python3
     distrobox
-    xfce.xfce4-whiskermenu-plugin
-    xorg.xhost
     gnome.gnome-keyring
-    xfce.xfce4-volumed-pulse
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-timer-plugin
-    xfce.xfce4-notes-plugin
     conmon
     crun
     slirp4netns
@@ -99,15 +94,7 @@
     pulse.enable = true;
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    displayManager.defaultSession = "xfce";
-  };   
-
+  programs.dconf.enable = true;
   services.flatpak.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
