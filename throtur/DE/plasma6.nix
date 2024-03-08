@@ -22,7 +22,7 @@
     kdePackages.kate
     kdePackages.konsole
     kdePackages.konversation
-    kdePackages.kwrite
+    kdePackages.kwrited
     kdePackages.kalk
     kdePackages.kdeconnect-kde
     kdePackages.kdeplasma-addons
