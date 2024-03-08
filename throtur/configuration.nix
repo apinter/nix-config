@@ -50,7 +50,6 @@
   users.groups.devops.gid = 5000;
 
   environment.systemPackages = with pkgs; [
-    ark
     zip
     unzip
     bash
@@ -65,7 +64,6 @@
     nfs-utils
     git
     firefox
-    policycoreutils
     python3
     distrobox
     gnome.gnome-keyring
@@ -96,8 +94,6 @@
 
   programs.dconf.enable = true;
   services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   virtualisation = {
     podman = {
