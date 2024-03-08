@@ -50,6 +50,22 @@
   users.groups.devops.gid = 5000;
 
   environment.systemPackages = with pkgs; [
+    kdePackages.full
+    kdePackages.ark
+    kdePackages.dolphin
+    kdePackages.kate
+    kdePackages.konsole
+    kdePackages.konversation
+    kdePackages.kwrited
+    kdePackages.kalk
+    kdePackages.kdeconnect-kde
+    kdePackages.kdeplasma-addons
+    kdePackages.okular
+    kdePackages.wayland-protocols
+    kdePackages.wayland
+    kdePackages.kwin
+    kdePackages.plasma-wayland-protocols
+    kdePackages.plasma-workspace
     zip
     unzip
     bash

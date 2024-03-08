@@ -15,18 +15,7 @@
     style = "adwaita-dark";
   };
 
-  environment.systemPackages = with pkgs; [
-    kdePackages.full
-    kdePackages.ark
-    kdePackages.dolphin
-    kdePackages.kate
-    kdePackages.konsole
-    kdePackages.konversation
-    kdePackages.kwrited
-    kdePackages.kalk
-    kdePackages.kdeconnect-kde
-    kdePackages.kdeplasma-addons
-    kdePackages.okular
-  ];
+  # environment.systemPackages = with pkgs; [
+  # ];
 
 }
