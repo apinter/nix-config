@@ -85,6 +85,7 @@
     kdePackages.kwin
     kdePackages.plasma-wayland-protocols
     kdePackages.plasma-workspace
+    kdePackages.kcmutils
     zip
     unzip
     bash
