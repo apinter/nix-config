@@ -45,13 +45,6 @@
     extraGroups = [ "wheel" ];
   };
 
-  users.users.adathor = {
-    initialPassword = "pw123";
-    isNormalUser = true;
-    extraGroups = [ "wheel" "devops" "networkmanager" ];
-  };
-
-
   users.users.apinter = {
     isNormalUser = true;
     home = "/home/apinter";
