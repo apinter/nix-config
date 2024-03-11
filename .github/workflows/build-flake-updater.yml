@@ -1,7 +1,5 @@
 name: Automated Nix flakes update
 on:
-  push:
-    branches: [unstable]
   schedule:
     - cron: "0 3 * * *"
 

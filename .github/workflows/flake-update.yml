@@ -2,9 +2,11 @@
 name: Automated Nix flakes update
 on:
   push:
-    branches: [ unstable ]
+    branches:
+      - unstable
   schedule:
     - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   flake-update:
