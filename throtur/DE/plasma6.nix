@@ -20,6 +20,7 @@
       sddm.theme = "breeze";
       sddm.wayland.enable = true;
       sddm.package = pkgs.kdePackages.sddm;
+      lightdm.enable = false;
   };
 
   qt = {
