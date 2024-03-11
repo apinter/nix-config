@@ -12,8 +12,8 @@
   services.xserver.displayManager.defaultSession = "plasma";
 
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   qt = {

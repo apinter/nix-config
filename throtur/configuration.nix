@@ -10,7 +10,6 @@
       ./containers/containers.nix
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
-      # ./DE/xfce.nix
       ./DE/plasma6.nix
     ];
     
