@@ -14,6 +14,7 @@
       plasma6.enable = true;
     };
     displayManager = {
+      sddm.enable = true;
       sddm.wayland.enable = true;
       defaultSession = "plasma";
     };
@@ -24,5 +25,4 @@
   #   platformTheme = "gnome";
   #   style = "adwaita-dark";
   # };
-
 }
