@@ -19,5 +19,4 @@
       defaultSession = "plasma";
     };
   };
-
 }
