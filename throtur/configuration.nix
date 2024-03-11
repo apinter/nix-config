@@ -10,7 +10,8 @@
       ./containers/containers.nix
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
-      ./DE/plasma6.nix
+      ./DE/xfce.nix
+      # ./DE/plasma6.nix
     ];
     
 
@@ -26,17 +27,17 @@
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "id_ID.UTF-8";
-    LC_IDENTIFICATION = "id_ID.UTF-8";
-    LC_MEASUREMENT = "id_ID.UTF-8";
-    LC_MONETARY = "id_ID.UTF-8";
-    LC_NAME = "id_ID.UTF-8";
-    LC_NUMERIC = "id_ID.UTF-8";
-    LC_PAPER = "id_ID.UTF-8";
-    LC_TELEPHONE = "id_ID.UTF-8";
-    LC_TIME = "id_ID.UTF-8";
-  };
+  # i18n.extraLocaleSettings = {
+  #   LC_ADDRESS = "id_US.UTF-8";
+  #   LC_IDENTIFICATION = "id_US.UTF-8";
+  #   LC_MEASUREMENT = "id_US.UTF-8";
+  #   LC_MONETARY = "id_US.UTF-8";
+  #   LC_NAME = "id_US.UTF-8";
+  #   LC_NUMERIC = "id_US.UTF-8";
+  #   LC_PAPER = "id_US.UTF-8";
+  #   LC_TELEPHONE = "id_US.UTF-8";
+  #   LC_TIME = "id_US.UTF-8";
+  # };
 
   users.users.throtur = {
     initialPassword = "pw123";
@@ -69,23 +70,6 @@
   users.groups.devops.gid = 5000;
 
   environment.systemPackages = with pkgs; [
-    kdePackages.full
-    kdePackages.ark
-    kdePackages.dolphin
-    kdePackages.kate
-    kdePackages.konsole
-    kdePackages.konversation
-    kdePackages.kwrited
-    kdePackages.kalk
-    kdePackages.kdeconnect-kde
-    kdePackages.kdeplasma-addons
-    kdePackages.okular
-    kdePackages.wayland-protocols
-    kdePackages.wayland
-    kdePackages.kwin
-    kdePackages.plasma-wayland-protocols
-    kdePackages.plasma-workspace
-    kdePackages.kcmutils
     zip
     unzip
     bash
