@@ -1,4 +1,4 @@
-name: Automated Nix flakes update
+name: Build flake-updater
 on:
   schedule:
     - cron: "0 3 * * *"
