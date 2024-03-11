@@ -11,23 +11,17 @@
       variant = "";
     };
     desktopManager = {
-      xterm.enable = false;
       plasma6.enable = true;
-      xfce.enable = false;
     };
     displayManager = { 
-      defaultSession = "plasma";
-      sddm.theme = "breeze";
-      sddm.wayland.enable = true;
-      sddm.package = pkgs.kdePackages.sddm;
-      lightdm.enable = false;
+      sddm.enable = true;
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "gnome";
+  #   style = "adwaita-dark";
+  # };
 
 }
