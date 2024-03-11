@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ config, pkgs, ... }:
 
 {
   xdg.portal.enable = true;
@@ -11,6 +11,11 @@
   services.xserver.desktopManager.plasma6.enable = true;
   services.xserver.displayManager.defaultSession = "plasma";
 
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "";
+  };
+
   qt = {
     enable = true;
     platformTheme = "gnome";
@@ -19,5 +24,4 @@
 
   # environment.systemPackages = with pkgs; [
   # ];
-
 }

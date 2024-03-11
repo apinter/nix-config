@@ -25,6 +25,19 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Jakarta";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "id_ID.UTF-8";
+    LC_IDENTIFICATION = "id_ID.UTF-8";
+    LC_MEASUREMENT = "id_ID.UTF-8";
+    LC_MONETARY = "id_ID.UTF-8";
+    LC_NAME = "id_ID.UTF-8";
+    LC_NUMERIC = "id_ID.UTF-8";
+    LC_PAPER = "id_ID.UTF-8";
+    LC_TELEPHONE = "id_ID.UTF-8";
+    LC_TIME = "id_ID.UTF-8";
+  };
 
   users.users.throtur = {
     initialPassword = "pw123";
@@ -50,22 +63,6 @@
   users.groups.devops.gid = 5000;
 
   environment.systemPackages = with pkgs; [
-    kdePackages.full
-    kdePackages.ark
-    kdePackages.dolphin
-    kdePackages.kate
-    kdePackages.konsole
-    kdePackages.konversation
-    kdePackages.kwrited
-    kdePackages.kalk
-    kdePackages.kdeconnect-kde
-    kdePackages.kdeplasma-addons
-    kdePackages.okular
-    kdePackages.wayland-protocols
-    kdePackages.wayland
-    kdePackages.kwin
-    kdePackages.plasma-wayland-protocols
-    kdePackages.plasma-workspace
     zip
     unzip
     bash
@@ -82,7 +79,7 @@
     firefox
     python3
     distrobox
-    # gnome.gnome-keyring
+    gnome.gnome-keyring
     conmon
     crun
     slirp4netns
@@ -91,9 +88,8 @@
     gnome.gnome-disk-utility
   ];
 
-  hardware.opengl.enable = true; 
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  hardware.opengl.driSupport32Bit = true;
+  # hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+  # hardware.opengl.driSupport32Bit = true;
   services.openssh.enable = true;
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [ pkgs.sane-backends ];
