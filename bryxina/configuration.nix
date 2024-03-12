@@ -34,7 +34,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  programs.dconf.enable = true;
 
   users.users.bryxina = {
     initialPassword = "pw123";
