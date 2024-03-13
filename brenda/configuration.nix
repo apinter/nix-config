@@ -12,7 +12,7 @@
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "/dev/disk/by-id/usb-Kingston_DataTraveler_3.0_60A44C413DF8EE80698C0247-0:0" ];
+  boot.loader.grub.devices = [ "/dev/disk/by-id/ata-RX7_2.5_128GB_AA000000000000000897" ];
   boot.loader.grub.zfsSupport = true;
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.efiSupport = false;
