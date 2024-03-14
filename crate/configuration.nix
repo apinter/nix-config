@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   security.rtkit.enable = true;
   zramSwap.enable = true;
-  networking.hostName = "brenda";
+  networking.hostName = "crate";
   networking.networkmanager.enable = true;
   networking.hostId = "ae21239e";
 
@@ -53,10 +53,22 @@
       };
     };
   };
-  
+
+  services.fstrim.enable = true;
   virtualisation.oci-containers.backend = "podman";
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [ "/" ];
+  };
+
+  fileSystems."/home/apinter/Crate" = {
+      device = "172.168.1.3:/shirayuki/Crate-data";
+      fsType = "nfs";
+  };
 
   services.openssh.enable = true;
   networking.firewall.enable = false;
