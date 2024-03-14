@@ -7,7 +7,7 @@
       ./monitoring.nix
       ./autoupgrade.nix
       ./garbagecollect.nix
-      # ./nebula.nix
+      ./nebula.nix
     ];
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
