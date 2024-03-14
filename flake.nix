@@ -39,6 +39,10 @@
         inherit system;
         modules = [ ./otong/configuration.nix ];
         };
+      crate = lib.nixosSystem {
+        inherit system;
+        modules = [ ./crate/configuration.nix ];
+        };
       };
     homeConfigurations = {
       apinter = home-manager.lib.homeManagerConfiguration {

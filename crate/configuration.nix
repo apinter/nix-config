@@ -4,26 +4,20 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./zfs_pool.nix
-      ./autoupgrade.nix
       ./monitoring.nix
-      ./exports.nix 
+      ./autoupgrade.nix
       ./garbagecollect.nix
+      # ./nebula.nix
     ];
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "/dev/disk/by-id/ata-RX7_2.5_128GB_AA000000000000000897" ];
-  boot.loader.grub.zfsSupport = true;
-  boot.loader.grub.memtest86.enable = true;
-  boot.loader.grub.efiSupport = false;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   security.rtkit.enable = true;
   zramSwap.enable = true;
   networking.hostName = "brenda";
   networking.networkmanager.enable = true;
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportAll = false;
-  networking.hostId = "d1a3152c";
+  networking.hostId = "ae21239e";
 
   time.timeZone = "Asia/Jakarta";
 
@@ -48,7 +42,6 @@
     vim 
     curl
     htop
-    cryptsetup
   ];
 
   virtualisation = {
@@ -65,14 +58,9 @@
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  services.nfs.server = {
-    enable = true;
-  };
-
   services.openssh.enable = true;
   networking.firewall.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.11";
 }
-
