@@ -31,7 +31,7 @@
             host = "any";
             port = "any";
             proto = "any";
-        };
+        }
         ];
         firewall.inbound = [
         {
