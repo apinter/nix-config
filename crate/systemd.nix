@@ -32,22 +32,22 @@ systemd.user.services.crate = {
     serviceConfig = {
         Type = "oneshot";
         TimeoutStartSec = 900;
-        ExecStart = "/home/apinter/bin/crate_pod.sh";
+        ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
 };
 
 systemd.services.nebula = {
-        enable = true;
-        description = "Nebula VPN";
-        after = [ "network-online.target" "basic.target" ];
-        wantedBy = [ "multi-user.target" ];
-        serviceConfig = {
-            SyslogIdentifier = "nebula";
-            ExecStart = "/home/apinter/.secrets/config.yml";
-            Restart = "always";
-            RestartSec = "5";
-            };
-        };
+    enable = true;
+    description = "Nebula VPN";
+    after = [ "network-online.target" "basic.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      SyslogIdentifier = "nebula";
+      ExecStart = "${pkgs.bash}/bin/bash /root/nebula -config /home/apinter/.secrets/config.yml";
+      Restart = "always";
+      RestartSec = "5";
+      };
+    };
 }
