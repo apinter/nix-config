@@ -44,6 +44,12 @@
     curl
     htop
     git
+    ## <podman rootless requirements>
+    conmon
+    crun
+    slirp4netns
+    su
+    ## </podman rootless requirements>
   ];
 
   virtualisation = {
