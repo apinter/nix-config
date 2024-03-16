@@ -32,7 +32,7 @@ systemd.user.services.crate = {
     serviceConfig = {
         Type = "oneshot";
         TimeoutStartSec = 900;
-        ExecStart = "/home/adathor/bin/crate_pod.sh";
+        ExecStart = "/home/apinter/bin/crate_pod.sh";
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
