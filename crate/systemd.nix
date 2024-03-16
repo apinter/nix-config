@@ -28,6 +28,10 @@ systemd.user.services.crate = {
     enable = true;
     description = "Crate";
     after = [ "network-online.target" "basic.target" ];
+    path = [ 
+        pkgs.podman
+        pkgs.bash
+        ];
     unitConfig = {
     };
     serviceConfig = {
