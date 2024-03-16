@@ -43,6 +43,7 @@
     vim 
     curl
     htop
+    git
   ];
 
   virtualisation = {
