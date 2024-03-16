@@ -31,7 +31,11 @@ systemd.user.services.crate = {
     path = [ 
         pkgs.podman
         pkgs.bash
-        ];
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+    ];
     unitConfig = {
     };
     serviceConfig = {
