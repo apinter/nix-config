@@ -45,7 +45,7 @@ systemd.services.nebula = {
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
             SyslogIdentifier = "nebula";
-            ExecStart = "/root/nebula -config /home/apinter/.config/nebula/config.yml";
+            ExecStart = "/home/apinter/.secrets/config.yml";
             Restart = "always";
             RestartSec = "5";
             };
