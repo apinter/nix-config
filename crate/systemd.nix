@@ -27,13 +27,14 @@ systemd.user.timers.crate-cron = {
 systemd.user.services.crate = {
     enable = true;
     description = "Crate";
+    after = [ "network-online.target" "basic.target" ];
     unitConfig = {
     };
     serviceConfig = {
         Type = "oneshot";
         TimeoutStartSec = 900;
         ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
-        RemainAfterExit = true;
+        RemainAfterExit = false;
     };
     wantedBy = [ "default.target" ];
 };
@@ -44,10 +45,10 @@ systemd.services.nebula = {
     after = [ "network-online.target" "basic.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      SyslogIdentifier = "nebula";
-      ExecStart = "${pkgs.bash}/bin/bash /root/nebula -config /home/apinter/.secrets/config.yml";
-      Restart = "always";
-      RestartSec = "5";
-      };
+        SyslogIdentifier = "nebula";
+        ExecStart = "/root/nebula -config /home/apinter/.secrets/config.yml";
+        Restart = "always";
+        RestartSec = "5";
+        };
     };
 }
