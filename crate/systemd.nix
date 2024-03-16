@@ -35,6 +35,7 @@ systemd.user.services.crate = {
         pkgs.crun
         pkgs.slirp4netns
         pkgs.su
+        pkgs.shadow
     ];
     unitConfig = {
     };
