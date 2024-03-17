@@ -34,6 +34,7 @@ systemd.user.services.crate = {
         USER = "apinter";
     };
     path = [ 
+        "/run/wrappers"
         pkgs.podman
         pkgs.bash
         pkgs.conmon
@@ -42,6 +43,7 @@ systemd.user.services.crate = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
     ];
     unitConfig = {
     };
@@ -49,7 +51,7 @@ systemd.user.services.crate = {
         Type = "oneshot";
         TimeoutStartSec = 900;
         ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
-        RemainAfterExit = false;
+        RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
 };
