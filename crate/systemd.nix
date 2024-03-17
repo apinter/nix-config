@@ -41,6 +41,8 @@ systemd.user.services.crate = {
     };
     serviceConfig = {
         Type = "oneshot";
+        User = "apinter";
+        Group = "users";
         TimeoutStartSec = 900;
         ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
         RemainAfterExit = false;
