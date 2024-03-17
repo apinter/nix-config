@@ -28,6 +28,11 @@ systemd.user.services.crate = {
     enable = true;
     description = "Crate";
     after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
     path = [ 
         pkgs.podman
         pkgs.bash
@@ -36,13 +41,12 @@ systemd.user.services.crate = {
         pkgs.slirp4netns
         pkgs.su
         pkgs.shadow
+        pkgs.fuse-overlayfs
     ];
     unitConfig = {
     };
     serviceConfig = {
         Type = "oneshot";
-        User = "apinter";
-        Group = "users";
         TimeoutStartSec = 900;
         ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
         RemainAfterExit = false;
