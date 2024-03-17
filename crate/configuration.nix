@@ -66,7 +66,7 @@
   virtualisation.oci-containers.backend = "podman";
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
-
+  services.logind.lidSwitch = "ignore";
   services.btrfs.autoScrub = {
     enable = true;
     interval = "weekly";
