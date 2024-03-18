@@ -10,6 +10,7 @@ systemd.user.services.crate-cron = {
             Type = "oneshot";
             ExecCondition = "${pkgs.podman}/bin/podman exec -it --user www-data crate-app php -f occ status -e";
             ExecStart = "${pkgs.podman}/bin/podman exec -it --user www-data crate-app php -f cron.php";
+            Restart = "on-failure";
         };
 };
 
