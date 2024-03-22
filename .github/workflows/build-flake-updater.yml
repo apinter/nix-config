@@ -8,7 +8,8 @@ jobs:
     name: Build and push image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+        ref: 'unstable'
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
