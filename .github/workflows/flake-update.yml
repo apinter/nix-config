@@ -11,6 +11,7 @@ jobs:
   flake-update:
     name: Update flakes
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/unstable'
     # needs: flake-updater-build
     container:
         image: docker.io/adathor/flake-updater:latest
