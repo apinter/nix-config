@@ -1,5 +1,5 @@
 # Build & publish docker images
-name: Automated Nix flakes update
+name: Automated Nix flakes update - UNSTABLE
 on:
   push:
     branches:
