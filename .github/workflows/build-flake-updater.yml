@@ -1,8 +1,11 @@
 name: Build flake-updater
 on:
+  push:
+    branches:
+      - unstable
   schedule:
     - cron: "0 3 * * *"
-
+  
 jobs:
   flake-updater-build:
     name: Build and push image
