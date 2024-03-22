@@ -24,6 +24,7 @@ jobs:
             export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
             git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config -b unstable
             cd nix-config 
+            cat flake.nix | grep -i nixpkgs.url
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
       - name: Commit and push
         shell: bash
