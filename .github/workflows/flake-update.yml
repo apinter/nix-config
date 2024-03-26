@@ -12,7 +12,6 @@ jobs:
   flake-updater-build:
     name: Build and push image
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/unstable'
     steps:
       - uses: actions/checkout@v4
       - name: Docker meta
@@ -81,7 +80,6 @@ jobs:
   flake-update-unstable:
     name: Update flakes for stable
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/unstable'
     container:
         image: docker.io/adathor/flake-updater:latest
         env:
