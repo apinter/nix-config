@@ -49,6 +49,7 @@ jobs:
 
   flake-update:
     name: Update flakes
+    needs: flake-updater-build
     runs-on: ubuntu-latest
     container:
         image: docker.io/adathor/flake-updater:latest
@@ -79,6 +80,7 @@ jobs:
 
   flake-update-unstable:
     name: Update flakes for stable
+    needs: flake-updater-build
     runs-on: ubuntu-latest
     container:
         image: docker.io/adathor/flake-updater:latest
