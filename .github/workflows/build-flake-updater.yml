@@ -2,10 +2,12 @@ name: Build flake-updater
 on:
   push:
     branches:
+      - main
       - unstable
   schedule:
     - cron: '0 3 * * *'
-  
+  workflow_dispatch:
+
 jobs:
   flake-updater-build:
     name: Build and push image

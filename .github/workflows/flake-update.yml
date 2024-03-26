@@ -5,6 +5,7 @@ on:
       - main
   schedule:
     - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   flake-update:
