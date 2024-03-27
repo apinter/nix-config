@@ -1,4 +1,4 @@
-name: Automated Nix flakes update - STABLE
+name: Nix flakes update
 on:
   push:
     branches:
