@@ -27,7 +27,10 @@
     home = "/home/apinter";
     description = "Attila Pinter";
     extraGroups = [ "wheel" "devops" ];
-    openssh.authorizedKeys.keys = [ "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIMx2FC01/IaD/NxAmmz01/uyaSWMvI+Sy0EGP9JpS40TAAAABHNzaDo= kazeshini-31-07-2022)-yubikey1" ];
+    openssh.authorizedKeys.keys = [ 
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
+    ];
   };
 
   security.sudo.extraRules = [
@@ -78,7 +81,12 @@
       fsType = "nfs";
   };
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    settings.PermitRootLogin = "no";
+  };
   networking.firewall.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

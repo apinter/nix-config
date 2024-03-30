@@ -33,7 +33,10 @@
     home = "/home/apinter";
     description = "Attila Pinter";
     extraGroups = [ "wheel" "devops" ];
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICACL0UUvhrkRty9z3mv629Qg+v3AVt6G8mlMVj9iBE/ Attila Pinter" ];
+    openssh.authorizedKeys.keys = [ 
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
+    ];
   };
   
   security.sudo.extraRules = [
@@ -79,7 +82,7 @@
     winetricks
   ];
   
-  hardware. opengl. enable = true; 
+  hardware.opengl.enable = true; 
   hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
   hardware.opengl.driSupport32Bit = true;
   services.pipewire = {
@@ -110,7 +113,12 @@
   virtualisation.oci-containers.backend = "podman";
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.lightdm.enableGnomeKeyring = true;
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    settings.PermitRootLogin = "no";
+  };
   services.flatpak.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

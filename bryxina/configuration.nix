@@ -31,7 +31,10 @@
     home = "/home/apinter";
     description = "Attila Pinter";
     extraGroups = [ "wheel" "devops" ];
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICACL0UUvhrkRty9z3mv629Qg+v3AVt6G8mlMVj9iBE/ Attila Pinter" ];
+    openssh.authorizedKeys.keys = [ 
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
+    ];
   };
 
   security.sudo.extraRules = [
@@ -81,7 +84,6 @@
   hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
   hardware.opengl.driSupport32Bit = true;
   
-  services.openssh.enable = true;
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [ pkgs.sane-backends ];
 
@@ -130,6 +132,13 @@
   services.printing.allowFrom = [ "all" ];
   services.printing.defaultShared = true;
   networking.firewall.enable = false;
+
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    settings.PermitRootLogin = "no";
+  };
 
   services.btrfs.autoScrub = {
     enable = true;
