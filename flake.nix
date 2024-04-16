@@ -40,6 +40,11 @@
         modules = [ ./otong/configuration.nix ];
         };
       };
+      busybee = lib.nixosSystem {
+        inherit system;
+        modules = [ ./busybee/configuration.nix ];
+        };
+      };
     homeConfigurations = {
       apinter = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
