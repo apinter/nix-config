@@ -39,7 +39,6 @@
         inherit system;
         modules = [ ./otong/configuration.nix ];
         };
-      };
       busybee = lib.nixosSystem {
         inherit system;
         modules = [ ./busybee/configuration.nix ];
