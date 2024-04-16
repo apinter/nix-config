@@ -76,7 +76,7 @@
     fileSystems = [ "/" ];
   };
 
-  fileSystems."/home/apinter/Crate" = {
+  fileSystems."/data/Crate" = {
       device = "172.168.1.3:/shirayuki/Crate-data";
       fsType = "nfs";
   };
