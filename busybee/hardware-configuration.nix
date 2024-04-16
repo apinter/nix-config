@@ -19,12 +19,6 @@
       options = [ "subvol=ROOT" ];
     };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5db06cf4-cf50-4022-9fc2-db12370ac81a";
-      fsType = "btrfs";
-      options = [ "subvol=ROOT" ];
-    };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/7352-66E0";
       fsType = "vfat";
