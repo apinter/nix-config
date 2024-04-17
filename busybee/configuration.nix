@@ -8,7 +8,7 @@
       ./autoupgrade.nix
       ./garbagecollect.nix
       # ./nebula.nix
-      # ./systemd.nix
+      ./systemd.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
