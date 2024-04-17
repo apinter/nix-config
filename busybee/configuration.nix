@@ -79,6 +79,17 @@
   fileSystems."/data/Crate" = {
       device = "172.168.1.3:/shirayuki/Crate-data";
       fsType = "nfs";
+      options = [
+        "timeo=600";
+      ];
+  };
+
+  fileSystems."/data/Aurora" = {
+      device = "172.168.1.3:/shirayuki/Aurora";
+      fsType = "nfs";
+      options = [
+        "timeo=600";
+      ];
   };
 
   services.openssh = {
