@@ -80,7 +80,7 @@
       device = "172.168.1.3:/shirayuki/Crate-data";
       fsType = "nfs";
       options = [
-        "timeo=600";
+        "timeo=600"
       ];
   };
 
@@ -88,7 +88,7 @@
       device = "172.168.1.3:/shirayuki/Aurora";
       fsType = "nfs";
       options = [
-        "timeo=600";
+        "timeo=600"
       ];
   };
 
