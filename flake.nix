@@ -39,7 +39,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jdoe = import ./throtur/home.nix;
+            home-manager.users.apinter = import ./throtur/home.nix;
           }
         ];
         };
