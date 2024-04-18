@@ -25,17 +25,20 @@
         };
       throtur = lib.nixosSystem {
         inherit system;
-        modules = [ ./throtur/configuration.nix ];
+        modules = [ 
+          ./throtur/configuration.nix 
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.apinter = import ./home.nix;
+          }
+          ];
         };
       busybee = lib.nixosSystem {
         inherit system;
         modules = [ ./busybee/configuration.nix ];
         };
-      };
-    homeConfigurations = {
-      apinter = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home.nix ];
       };
     };
   };
