@@ -39,7 +39,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.apinter = import ./home.nix;
+            home-manager.users.apinter = import ./throtur/home.nix;
           }
         ];
         };
