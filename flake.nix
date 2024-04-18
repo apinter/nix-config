@@ -40,7 +40,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.jdoe = import ./throtur/home.nix;
-          };
+          }
         ];
         };
       otong = lib.nixosSystem {
