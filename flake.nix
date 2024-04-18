@@ -52,11 +52,6 @@
         modules = [ ./busybee/configuration.nix ];
         };
       };
-    homeConfigurations = {
-      apinter = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home.nix ];
-      };
     };
   };
 }
