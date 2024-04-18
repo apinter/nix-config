@@ -19,38 +19,24 @@
         inherit system;
         modules = [ ./umbra/configuration.nix ];
         };
-      brenda = lib.nixosSystem {
-        inherit system;
-        modules = [ ./brenda/configuration.nix ];
-        };
-      sofie = lib.nixosSystem {
-        inherit system;
-        modules = [ ./sofie/configuration.nix ];
-        };
       bryxina = lib.nixosSystem {
         inherit system;
         modules = [ ./bryxina/configuration.nix ];
         };
       throtur = lib.nixosSystem {
         inherit system;
-        modules = [ 
-          ./throtur/configuration.nix 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.apinter = import ./throtur/home.nix;
-          }
-        ];
-        };
-      otong = lib.nixosSystem {
-        inherit system;
-        modules = [ ./otong/configuration.nix ];
+        modules = [ ./throtur/configuration.nix ];
         };
       busybee = lib.nixosSystem {
         inherit system;
         modules = [ ./busybee/configuration.nix ];
         };
       };
+    homeConfigurations = {
+      apinter = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
+      };
     };
+  };
 }
