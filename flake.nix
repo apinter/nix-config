@@ -39,7 +39,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.apinter = import ./throtur/home.nix;
+            home-manager.users.apinter = import ./home.nix;
           }
         ];
         };
@@ -55,7 +55,7 @@
     homeConfigurations = {
       apinter = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./umbra/home.nix ];
+        modules = [ ./home.nix ];
       };
     };
   };
