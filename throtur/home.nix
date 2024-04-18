@@ -9,4 +9,3 @@
     EDITOR = "vim";
   };
 }
-nix-shell '<home-manager>' -A install
