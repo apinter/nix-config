@@ -57,6 +57,39 @@ systemd.user.services.crate = {
     wantedBy = [ "default.target" ];
 };
 
+systemd.user.services.jellyfin = {
+    enable = true;
+    description = "Jellyfin-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "oneshot";
+        TimeoutStartSec = 900;
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/.config/containers/systemd/jellyfin.yml";
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
+
+
 systemd.services.nebula = {
     enable = true;
     description = "Nebula VPN";
