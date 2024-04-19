@@ -83,6 +83,7 @@ systemd.user.services.jellyfin = {
     serviceConfig = {
         Type = "oneshot";
         TimeoutStartSec = 900;
+        ExecStartPre = "${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest";
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/.config/containers/systemd/jellyfin.yml";
         RemainAfterExit = true;
     };
