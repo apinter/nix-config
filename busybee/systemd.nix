@@ -85,7 +85,9 @@ systemd.user.services.jellyfin = {
         TimeoutStartSec = 900;
         ExecStartPre = "${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest";
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/.config/containers/systemd/jellyfin.yml";
-        RemainAfterExit = true;
+        ExecStop = "${pkgs.podman}/bin/podman pod stop jellyfin-pod";
+        ExecStopPost = "${pkgs.podman}/bin/podman pod rm jellyfin-pod";
+        RemainAfterExit = false;
     };
     wantedBy = [ "default.target" ];
 };
