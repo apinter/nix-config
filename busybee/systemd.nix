@@ -90,7 +90,7 @@ systemd.user.services.jellyfin = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/jellyfin.yml";
         ExecStop = "${pkgs.podman}/bin/podman pod stop jellyfin-pod";
         ExecStopPost = "${pkgs.podman}/bin/podman pod rm jellyfin-pod";
-        RemainAfterExit = false;
+        RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
 };
