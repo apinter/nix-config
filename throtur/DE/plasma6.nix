@@ -10,13 +10,14 @@
       layout = "us";
       variant = "";
     };
-    desktopManager = {
+  };
+  services.desktopManager = {
       plasma6.enable = true;
-    };
-    displayManager = {
+  };
+
+  services.displayManager = {
       sddm.enable = true;
       sddm.wayland.enable = true;
       defaultSession = "plasma";
     };
-  };
 }
