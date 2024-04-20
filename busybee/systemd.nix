@@ -87,7 +87,7 @@ systemd.user.services.jellyfin = {
         "-${pkgs.podman}/bin/podman pod rm jellyfin-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/.config/containers/systemd/jellyfin.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/jellyfin.yml";
         ExecStop = "${pkgs.podman}/bin/podman pod stop jellyfin-pod";
         ExecStopPost = "${pkgs.podman}/bin/podman pod rm jellyfin-pod";
         RemainAfterExit = false;
