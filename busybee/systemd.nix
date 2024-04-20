@@ -83,7 +83,7 @@ systemd.user.services.jellyfin = {
     serviceConfig = {
         Type = "oneshot";
         TimeoutStartSec = 900;
-        ExecStartPre = lib.mkBefore [
+        ExecStartPre =- lib.mkBefore [
         "${pkgs.podman}/bin/podman pod rm jellyfin-pod"
         "${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest"
         ];
