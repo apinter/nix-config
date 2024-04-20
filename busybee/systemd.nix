@@ -59,7 +59,7 @@ systemd.user.services.crate = {
 
 systemd.user.services.jellyfin = {
     enable = true;
-    description = "Jellyfin";
+    description = "Jellyfin-pod";
     after = [ "network-online.target" "basic.target" ];
     environment = {
         HOME = "/home/apinter";
@@ -83,8 +83,14 @@ systemd.user.services.jellyfin = {
     serviceConfig = {
         Type = "oneshot";
         TimeoutStartSec = 900;
-        ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/jellyfin_pod.sh";
-        RemainAfterExit = true;
+        ExecStartPre = lib.mkBefore [
+        "${pkgs.podman}/bin/podman pod rm jellyfin-pod"
+        "${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/.config/containers/systemd/jellyfin.yml";
+        ExecStop = "${pkgs.podman}/bin/podman pod stop jellyfin-pod";
+        ExecStopPost = "${pkgs.podman}/bin/podman pod rm jellyfin-pod";
+        RemainAfterExit = false;
     };
     wantedBy = [ "default.target" ];
 };
