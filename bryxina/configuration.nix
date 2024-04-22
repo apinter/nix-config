@@ -127,7 +127,7 @@
 
   services.printing.enable = true;
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
   services.printing.drivers = [ pkgs.gutenprint ];
   services.avahi.openFirewall = true;
   services.avahi.publish.enable = true;
