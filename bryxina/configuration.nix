@@ -44,6 +44,7 @@
 
   users.users.apinter = {
     isNormalUser = true;
+    linger = true;
     home = "/home/apinter";
     description = "Attila Pinter";
     extraGroups = [ "wheel" "devops" "podman" ];
