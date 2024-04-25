@@ -2,17 +2,16 @@
 
 {
 
-systemd.user.services.gitea-runner = {
+systemd.services.gitea-runner = {
     enable = true;
     description = "Gitea-runner-pod";
     after = [ "network-online.target" "basic.target" ];
     environment = {
-        HOME = "/home/apinter";
         LANG = "en_US.UTF-8";
-        USER = "apinter";
     };
     path = [ 
         "/run/wrappers"
+        pkgs.docker
         pkgs.podman
         pkgs.bash
         pkgs.conmon
