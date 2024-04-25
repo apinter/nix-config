@@ -51,7 +51,7 @@
     isNormalUser = true;
     home = "/home/apinter";
     description = "Attila Pinter";
-    extraGroups = [ "wheel" "devops" "podman" ];
+    extraGroups = [ "wheel" "devops" "podman" "docker" ];
     openssh.authorizedKeys.keys = [ 
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
@@ -123,7 +123,6 @@
   virtualisation = {
     podman = {
       enable = true;
-      dockerCompat = true;
       dockerSocket.enable = true;
       defaultNetwork.settings = {
         dns_enabled = true;
@@ -131,6 +130,7 @@
     };
   };
   virtualisation.oci-containers.backend = "podman";
+  virtualisation.docker.enable = true;
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.lightdm.enableGnomeKeyring = true;
 
