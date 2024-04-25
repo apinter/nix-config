@@ -5,10 +5,10 @@
       ./hardware-configuration.nix
       ./monitoring/node-exporter.nix
       ./systemd-user/flatpak-auto-update.nix
-      ./systemd-user/gitea-runner.nix
       # ./print/printer.nix
       ./hardware/accel.nix
       ./containers/containers.nix
+      ./system/gitea-runner.nix
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
       # ./DE/xfce.nix
