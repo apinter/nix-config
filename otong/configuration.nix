@@ -82,6 +82,7 @@
     su
     microsoft-edge
     gnome.gnome-disk-utility
+    pavucontrol
 ];
 
   hardware.opengl.enable = true; 

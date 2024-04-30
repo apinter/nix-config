@@ -80,6 +80,7 @@
     glxinfo
     wineWowPackages.stable
     winetricks
+    pavucontrol
   ];
   
   hardware.opengl.enable = true; 
