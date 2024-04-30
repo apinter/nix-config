@@ -27,14 +27,6 @@
         inherit system;
         modules = [ ./sofie/configuration.nix ];
         };
-      bryxina = lib.nixosSystem {
-        inherit system;
-        modules = [ ./bryxina/configuration.nix ];
-        };
-      throtur = lib.nixosSystem {
-        inherit system;
-        modules = [ ./throtur/configuration.nix ];
-        };
       otong = lib.nixosSystem {
         inherit system;
         modules = [ ./otong/configuration.nix ];
