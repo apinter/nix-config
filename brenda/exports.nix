@@ -16,7 +16,6 @@
       /shirayuki/VMs	              172.168.30.25/32(rw,async,no_root_squash,no_subtree_check,insecure)
       /shirayuki/Crate-data         172.168.1.1/32(rw,insecure,sync,no_subtree_check,no_root_squash)
       /shirayuki/Crate-data         172.168.1.5/32(rw,insecure,sync,no_subtree_check,no_root_squash)
-      #/shirayuki/Crate-data        172.168.1.1(rw,insecure,sync,no_subtree_check,no_root_squash)
       #/shirayuki/Backup/AutoYaST	  *(ro,subtree_check,root_squash)
     '';
 }
