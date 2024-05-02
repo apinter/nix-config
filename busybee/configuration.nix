@@ -7,7 +7,7 @@
       ./monitoring.nix
       ./autoupgrade.nix
       ./garbagecollect.nix
-      # ./nebula.nix
+      ./containers.nix
       ./systemd.nix
     ];
 
