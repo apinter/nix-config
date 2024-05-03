@@ -89,6 +89,7 @@
     wineWowPackages.stable
     winetricks
     gnome.gnome-disk-utility
+    kdePackages.kdeconnect-kde
   ];
 
   hardware.opengl.enable = true; 
