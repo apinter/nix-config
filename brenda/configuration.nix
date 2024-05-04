@@ -9,6 +9,7 @@
       ./monitoring.nix
       ./exports.nix 
       ./garbagecollect.nix
+      ./containers.nix
     ];
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
