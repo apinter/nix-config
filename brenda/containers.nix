@@ -1,14 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
-systemd.services.unifi = {
+systemd.user.services.unifi = {
     enable = true;
     description = "unifi-pod";
     after = [ "network-online.target" "basic.target" ];
     environment = {
-        HOME = "/root";
+        HOME = "/home/apinter";
         LANG = "en_US.UTF-8";
-        USER = "root";
+        USER = "apinter";
     };
     path = [ 
         "/run/wrappers"
