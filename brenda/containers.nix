@@ -6,9 +6,9 @@ systemd.services.unifi = {
     description = "unifi-pod";
     after = [ "network-online.target" "basic.target" ];
     environment = {
-        HOME = "/home/apinter";
+        HOME = "/root";
         LANG = "en_US.UTF-8";
-        USER = "apinter";
+        USER = "root";
     };
     path = [ 
         "/run/wrappers"
@@ -39,6 +39,4 @@ systemd.services.unifi = {
     };
     wantedBy = [ "default.target" ];
 };
-
-
 }
