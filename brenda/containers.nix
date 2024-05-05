@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-systemd.user.services.unifi = {
+systemd.services.unifi = {
     enable = true;
     description = "unifi-pod";
     after = [ "network-online.target" "basic.target" ];
