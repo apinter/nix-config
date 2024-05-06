@@ -60,13 +60,12 @@
   virtualisation = {
     podman = {
       enable = true;
-      dockerCompat = true;
-      dockerSocket.enable = true;
       defaultNetwork.settings = {
         dns_enabled = true;
       };
     };
   };
+  virtualisation.docker.enable = true;
 
   services.fstrim.enable = true;
   virtualisation.oci-containers.backend = "podman";
