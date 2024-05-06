@@ -55,6 +55,7 @@
     ## </podman rootless requirements>
     dive
     podman-tui
+    glances
   ];
 
   virtualisation = {
