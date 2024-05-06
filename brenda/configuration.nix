@@ -59,9 +59,9 @@
   virtualisation = {
     podman = {
       enable = true;
+      dockerCompat = true;
       defaultNetwork.settings = {
         dns_enabled = true;
-        dns_bind_port = 5353;
       };
       autoPrune.enable = true;
     };

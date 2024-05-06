@@ -1,6 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
+
+virtualisation.containers.containersConf.settings = {
+    [network]
+    dns_bind_port = 5353
+};
+
 systemd.user.services.unifi = {
     enable = true;
     description = "unifi-pod";
