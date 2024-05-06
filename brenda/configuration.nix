@@ -54,6 +54,7 @@
     curl
     htop
     cryptsetup
+    git
   ];
 
   virtualisation = {

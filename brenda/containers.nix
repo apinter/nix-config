@@ -2,10 +2,8 @@
 
 {
 
-virtualisation.containers.containersConf.settings = {
-    network = [
-    "dns_bind_port = 5353"
-    ];
+virtualisation.containers.containersConf.settings = { 
+        network.dns_bind_port = 5353;
 };
 
 systemd.user.services.unifi = {
