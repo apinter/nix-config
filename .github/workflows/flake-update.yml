@@ -40,6 +40,7 @@ jobs:
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
       - name: Build image
         uses: docker/build-push-action@v4
+        if: github.event.schedule
         with:
           context: .
           file: ./Containerfile
