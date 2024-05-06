@@ -9,7 +9,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = {self, nixpkgs, home-manager, ...}:
+  outputs = {self, nixpkgs, nixos-hardware, home-manager, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
