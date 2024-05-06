@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = {self, nixpkgs, nixos-hardware, home-manager, ...}:
@@ -50,6 +51,10 @@
           ./busybee/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
+          vscode-server.nixosModules.default
+          ({ config, pkgs, ... }: {
+            services.vscode-server.enable = true;
+          })
           ];
         };
       };
