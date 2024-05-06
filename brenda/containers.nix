@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-
+## Required if want to run PiHole
 virtualisation.containers.containersConf.settings = { 
         network.dns_bind_port = 5353;
 };
@@ -38,8 +38,7 @@ systemd.user.services.unifi = {
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json lscr.io/linuxserver/unifi-network-application:latest"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/unifi.yml";
-        ExecStop = "${pkgs.podman}/bin/podman pod stop unifi-pod";
-        ExecStopPost = "${pkgs.podman}/bin/podman pod rm unifi-pod";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/unifi.yml";
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -76,10 +75,47 @@ systemd.user.services.transmission = {
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/pihole/pihole:latest"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/transmission.yml";
-        ExecStop = "${pkgs.podman}/bin/podman pod stop transmission-pod";
-        ExecStopPost = "${pkgs.podman}/bin/podman pod rm transmission-pod";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/transmission.yml";
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.services.pihole = {
+    enable = true;
+    description = "pihole-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/root";
+        LANG = "en_US.UTF-8";
+        USER = "root";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "oneshot";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm pihole-pod"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/pihole/pihole:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/pihole.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/pihole.yml";
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
+
 }
