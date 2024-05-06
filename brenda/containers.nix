@@ -39,4 +39,42 @@ systemd.user.services.unifi = {
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.user.services.transmission = {
+    enable = true;
+    description = "transmission-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "oneshot";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm transmission-pod"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/pihole/pihole:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/transmission.yml";
+        ExecStop = "${pkgs.podman}/bin/podman pod stop transmission-pod";
+        ExecStopPost = "${pkgs.podman}/bin/podman pod rm transmission-pod";
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
