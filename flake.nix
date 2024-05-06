@@ -6,9 +6,10 @@
     nixpkgs.url = "nixpkgs/nixos-23.11"; 
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = {self, nixpkgs, home-manager, ...}:
+  outputs = {self, nixpkgs, nixos-hardware, home-manager, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -29,7 +30,10 @@
         };
       otong = lib.nixosSystem {
         inherit system;
-        modules = [ ./otong/configuration.nix ];
+        modules = [ 
+          ./otong/configuration.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-x260
+          ];
         };
       crate = lib.nixosSystem {
         inherit system;
