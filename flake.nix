@@ -6,6 +6,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable"; 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = {self, nixpkgs, home-manager, ...}:
@@ -26,7 +27,10 @@
       throtur = lib.nixosSystem {
         inherit system;
         modules = [ 
-          ./throtur/configuration.nix 
+          ./throtur/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
