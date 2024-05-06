@@ -22,7 +22,12 @@
         };
       bryxina = lib.nixosSystem {
         inherit system;
-        modules = [ ./bryxina/configuration.nix ];
+        modules = [ 
+          ./bryxina/configuration.nix 
+          nixos-hardware.nixosModules.common-cpu-intel
+          # nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
         };
       throtur = lib.nixosSystem {
         inherit system;
@@ -41,7 +46,12 @@
         };
       busybee = lib.nixosSystem {
         inherit system;
-        modules = [ ./busybee/configuration.nix ];
+        modules = [ 
+          ./busybee/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
         };
       };
     };
