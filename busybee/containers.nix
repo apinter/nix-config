@@ -29,7 +29,7 @@ systemd.user.services.crate = {
         TimeoutStartSec = 900;
         ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
         Restart = "always";
-        RestartSec=15s;
+        RestartSec=15;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -68,7 +68,7 @@ systemd.user.services.jellyfin = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/jellyfin.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/jellyfin.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -107,7 +107,7 @@ systemd.user.services.homepage = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/homepage.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/homepage.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -146,7 +146,7 @@ systemd.user.services.ara = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/ara.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/ara.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -186,7 +186,7 @@ systemd.user.services.hedgedoc = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/hedgedoc.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/hedgedoc.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -225,7 +225,7 @@ systemd.user.services.parallel = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/parallel.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/parallel.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -264,7 +264,7 @@ systemd.user.services.monitoring = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/monitoring.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/monitoring.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -304,7 +304,7 @@ systemd.user.services.gitea = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/gitea.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/gitea.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
