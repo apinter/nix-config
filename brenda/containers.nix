@@ -40,7 +40,7 @@ systemd.user.services.unifi = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/unifi.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/unifi.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -79,7 +79,7 @@ systemd.user.services.transmission = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/transmission.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/transmission.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
@@ -118,7 +118,7 @@ systemd.services.pihole = {
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/pihole.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/pihole.yml";
         Restart = "always";
-        RestartSec=5s;
+        RestartSec=5;
         RemainAfterExit = true;
     };
     wantedBy = [ "default.target" ];
