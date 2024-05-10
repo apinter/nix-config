@@ -25,7 +25,7 @@ systemd.user.services.crate = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStart = "${pkgs.bash}/bin/bash /home/apinter/bin/crate_pod.sh";
         Restart = "always";
@@ -59,7 +59,7 @@ systemd.user.services.jellyfin = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm jellyfin-pod"
@@ -98,7 +98,7 @@ systemd.user.services.homepage = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm homepage-pod"
@@ -137,7 +137,7 @@ systemd.user.services.ara = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm ara-api-pod"
@@ -176,7 +176,7 @@ systemd.user.services.hedgedoc = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm hedgedoc"
@@ -216,7 +216,7 @@ systemd.user.services.parallel = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm parallel-pod"
@@ -255,7 +255,7 @@ systemd.user.services.monitoring = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm monitoring"
@@ -294,7 +294,7 @@ systemd.user.services.gitea = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm gitea"
