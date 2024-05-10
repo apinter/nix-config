@@ -30,7 +30,7 @@ systemd.user.services.unifi = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm unifi-pod"
@@ -70,7 +70,7 @@ systemd.user.services.transmission = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm transmission-pod"
@@ -109,7 +109,7 @@ systemd.services.pihole = {
     unitConfig = {
     };
     serviceConfig = {
-        Type = "oneshot";
+        Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm pihole-pod"
