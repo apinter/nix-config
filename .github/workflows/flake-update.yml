@@ -13,7 +13,7 @@ jobs:
     name: Update flakes for stable
     runs-on: ubuntu-latest
     container:
-        image: docker.io/adathor/flake-updater:latest
+        image: docker.io/nixos/nix
         env:
           COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
@@ -44,7 +44,7 @@ jobs:
     name: Update flakes for unstable
     runs-on: ubuntu-latest
     container:
-        image: docker.io/adathor/flake-updater:latest
+        image: docker.io/nixos/nix
         env:
           COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
