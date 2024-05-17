@@ -7,7 +7,7 @@ virtualisation.oci-containers.containers."minecraft" = {
   image = "docker.io/itzg/minecraft-server:latest";
   ports = [ "25565:25565" ];
   volumes = [
-    "/home/minecraft:/data"
+    "minecraft:/data"
   ];
   environment = {
     OPS = "adathor";
