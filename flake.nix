@@ -32,7 +32,7 @@
         inherit system;
         modules = [ 
           ./otong/configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-x260
+          # nixos-hardware.nixosModules.lenovo-thinkpad-x260
           ];
         };
       crate = lib.nixosSystem {
