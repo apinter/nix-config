@@ -8,9 +8,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
-  outputs = {self, nixpkgs, nixos-hardware, vscode-server, home-manager, ...}:
+  outputs = {self, nixpkgs, nixos-hardware, vscode-server, home-manager, disko, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -57,6 +60,17 @@
           })
           ];
         };
+      medusa = lib.nixosSystem {
+        inherit system;
+        modules = [ 
+          ./medusa/configuration.nix
+          disko.nixosModules.disko
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
+        };
       };
     };
 }
+
+aiToh0taeQuieduxe7Ohtheshahd3yae
