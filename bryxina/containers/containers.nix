@@ -31,7 +31,6 @@ virtualisation.oci-containers.containers."minecraft2" = {
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
-    SEED = "-950547527103331411";
     };
   };
 }
