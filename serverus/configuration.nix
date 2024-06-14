@@ -22,7 +22,7 @@
     terminal_input serial;
     terminal_output serial
   '';
-#  zramSwap.enable = true;
+  zramSwap.enable = true;
   networking.hostName = "serverus";
   networking.networkmanager.enable = true;
   networking.hostId = "ffc4c072";
@@ -38,6 +38,7 @@
     openssh.authorizedKeys.keys = [
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA"
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYvFTHcwLuF8romP+YYXiWBUk2r32AlK0HvQMu4nyAd root@medusa"
     ];
   };
 
