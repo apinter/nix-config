@@ -60,10 +60,10 @@
           })
           ];
         };
-      medusa = lib.nixosSystem {
+      serverus = lib.nixosSystem {
         inherit system;
         modules = [ 
-          ./medusa/configuration.nix
+          ./serverus/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
