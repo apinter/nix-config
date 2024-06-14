@@ -11,7 +11,7 @@
       ./garbagecollect.nix
       ./disk-config.nix
       # ./containers.nix
-      # ./systemd.nix
+      ./systemd.nix
     ];
 
   boot.loader.grub.enable = true;
