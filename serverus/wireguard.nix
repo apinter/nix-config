@@ -40,6 +40,8 @@
             publicKey = "HkpL1M3q17P9oZVm6qeiTUXjy1XSwZsfFWfgQBHqmBo=";
             allowedIPs = [ "10.222.0.35/32" ];
         }
-    ];
+      ];
+     };
+   };
   };
 }
