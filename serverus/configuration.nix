@@ -5,12 +5,11 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
-      #./hardware-configuration.nix
       ./monitoring.nix
       ./autoupgrade.nix
       ./garbagecollect.nix
       ./disk-config.nix
-      # ./containers.nix
+      ./containers.nix
       ./systemd.nix
     ];
 
@@ -38,7 +37,6 @@
     openssh.authorizedKeys.keys = [
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA"
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYvFTHcwLuF8romP+YYXiWBUk2r32AlK0HvQMu4nyAd root@medusa"
     ];
   };
 
