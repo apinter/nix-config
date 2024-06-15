@@ -22,23 +22,23 @@
       peers = [
         {
             ## Kazeshini
-            publicKey = 17N4FWwZROsckJvLcCTBHDBudp4Ygepw4E7uIrtQN2E=
-            allowedIPs = 10.222.0.2/32
+            publicKey = "17N4FWwZROsckJvLcCTBHDBudp4Ygepw4E7uIrtQN2E=";
+            allowedIPs = [ "10.222.0.2/32" ];
         }
         {
             ## ADATHOR HP
-            publicKey = pTGa2kfqa+uGhqg98iLVbHby7Znx7vQyJ+D5Ji9XLhQ=
-            allowedIPs = 10.222.0.3/32
+            publicKey = "pTGa2kfqa+uGhqg98iLVbHby7Znx7vQyJ+D5Ji9XLhQ=";
+            allowedIPs = [ "10.222.0.3/32" ];
         }
         {
             ## SOFIE HP
-            publicKey = qhy3teyfKOzogIBsuQj+A9o1jizhrq3pUScljZV6fQE=
-            allowedIPs = 10.222.0.4/32
+            publicKey = "qhy3teyfKOzogIBsuQj+A9o1jizhrq3pUScljZV6fQE=";
+            allowedIPs = [ "10.222.0.4/32" ];
         }
         {
             ## MAC-XUND
-            publicKey = HkpL1M3q17P9oZVm6qeiTUXjy1XSwZsfFWfgQBHqmBo=
-            allowedIPs = 10.222.0.35/32
+            publicKey = "HkpL1M3q17P9oZVm6qeiTUXjy1XSwZsfFWfgQBHqmBo=";
+            allowedIPs = [ "10.222.0.35/32" ];
         }
     ];
   };
