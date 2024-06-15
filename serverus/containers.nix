@@ -108,7 +108,7 @@ systemd.services.coturn = {
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pod rm coturn-pod"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/sx5/coturn:latest"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/crate/coturn:latest"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/coturn.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/coturn.yml";
