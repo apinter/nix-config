@@ -11,11 +11,11 @@
 
       listenPort = 51820;
       postSetup = ''
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.222.0.0/24 -o ens18 -j MASQUERADE
       '';
 
       postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.222.0.0/24 -o ens18 -j MASQUERADE
       '';
       privateKeyFile = "/data/wireguard/pv_key";
 
