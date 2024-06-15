@@ -17,6 +17,7 @@
       postShutdown = ''
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ens18 -j MASQUERADE
       '';
+      privateKeyFile = "/data/wireguard/pv_key";
 
       peers = [
         {
