@@ -11,6 +11,7 @@
       ./disk-config.nix
       ./containers.nix
       ./systemd.nix
+      ./wireguard.nix
     ];
 
   boot.loader.grub.enable = true;
