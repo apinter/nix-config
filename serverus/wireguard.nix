@@ -22,7 +22,7 @@
       peers = [
         {
             ## Kazeshini
-            publicKey = "17N4FWwZROsckJvLcCTBHDBudp4Ygepw4E7uIrtQN2E=";
+            publicKey = "A9tNaWa17m3BeQlfKLnXbPx/tu/0VDTub/A+YgellBs=";
             allowedIPs = [ "10.222.0.2/32" ];
         }
         {
