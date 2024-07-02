@@ -173,7 +173,7 @@ systemd.user.services.fileshare= {
         pkgs.bash
         pkgs.conmon
         pkgs.crun
-        ppodkgs.slirp4netns
+        pkgs.slirp4netns
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
