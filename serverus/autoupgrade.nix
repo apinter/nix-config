@@ -44,7 +44,7 @@
       serviceConfig = {
           Type = "oneshot";
           TimeoutStartSec = 900;
-          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart crate uptime";
+          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart uptime fileshare wallabag";
           RemainAfterExit = false;
       };
   };
