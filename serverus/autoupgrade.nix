@@ -49,7 +49,7 @@
       };
   };
 
-  systemd.user.timers.update-rootfull-containers = {
+  systemd.timers.update-rootfull-containers = {
         enable = true;
         description = "Enable automatic update of rootfull containers";
         timerConfig = {
@@ -59,7 +59,7 @@
         wantedBy = [ "timers.target" ];
   };
 
-  systemd.user.services.update-rootfull-containers = {
+  systemd.services.update-rootfull-containers = {
       description = "Restart rootfull containers for updating them";
       after = [ "network-online.target" "basic.target" ];
       environment = {
