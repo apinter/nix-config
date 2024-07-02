@@ -60,7 +60,7 @@
   };
 
   systemd.user.services.update-rootfull-containers = {
-      description = "Restart rootless containers for updating them";
+      description = "Restart rootfull containers for updating them";
       after = [ "network-online.target" "basic.target" ];
       environment = {
           HOME = "/home/apinter";
@@ -76,7 +76,7 @@
       serviceConfig = {
           Type = "oneshot";
           TimeoutStartSec = 900;
-          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart crate traefik coturn pihole";
+          ExecStart = "${pkgs.systemd}/bin/systemctl restart traefik coturn pihole";
           RemainAfterExit = false;
       };
   };
