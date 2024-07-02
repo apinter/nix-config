@@ -196,4 +196,45 @@ systemd.user.services.fileshare= {
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.user.services.wallabag= {
+    enable = true;
+    description = "wallabag-pod";
+    after = [ "network-online.target" "basic.target" "data-Aurora.mount" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        ppodkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm wallabag"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/redis"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/wallabag/wallabag"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/wallabag.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/wallabag.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
