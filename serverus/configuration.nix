@@ -14,6 +14,7 @@
       ./wireguard.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.kernelParams = [ "console=ttyS0,19200n8" ];
