@@ -11,7 +11,6 @@ virtualisation.oci-containers.containers."minecraft" = {
   ];
   environment = {
     OPS = "adathor";
-    ##JVM_XX_OPTS = "-XX:MaxRAMPercentage=65";
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
