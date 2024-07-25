@@ -80,7 +80,6 @@
     python3
     distrobox
     xorg.xhost
-    gnome.gnome-keyring
     conmon
     crun
     slirp4netns
@@ -89,13 +88,14 @@
     glxinfo
     wineWowPackages.stable
     winetricks
-    gnome.gnome-disk-utility
+    gnome-disk-utility
+    gnome-keyring
     kdePackages.kdeconnect-kde
   ];
 
-  hardware.opengl.enable = true; 
+  hardware.graphics.enable = true;
   hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.enable32Bit = true;
   programs.dconf.enable = true;
 
   services.openssh = {

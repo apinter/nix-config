@@ -5,13 +5,11 @@
       ./hardware-configuration.nix
       ./monitoring/node-exporter.nix
       ./systemd-user/flatpak-auto-update.nix
-      # ./print/printer.nix
       ./hardware/accel.nix
       ./containers/containers.nix
       ./system/gitea-runner.nix
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
-      # ./DE/xfce.nix
       ./DE/plasma6.nix
     ];
     
@@ -85,17 +83,15 @@
     firefox
     python3
     distrobox
-    gnome.gnome-keyring
     conmon
     crun
     slirp4netns
     su
     microsoft-edge
-    gnome.gnome-disk-utility
+    gnome-disk-utility
+    gnome-keyring
   ];
 
-  # hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  # hardware.opengl.driSupport32Bit = true;
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [ pkgs.sane-backends ];
   networking.firewall.enable = false;
@@ -130,8 +126,6 @@
   };
   virtualisation.oci-containers.backend = "podman";
   virtualisation.docker.enable = true;
-  # services.gnome.gnome-keyring.enable = true;
-  # security.pam.services.lightdm.enableGnomeKeyring = true;
 
   fileSystems."/home/throtur/Common" = {
       device = "172.168.1.3:/shirayuki/Common";
