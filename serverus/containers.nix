@@ -245,6 +245,18 @@ systemd.user.services.wallabag= {
         LANG = "en_US.UTF-8";
         USER = "apinter";
     };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
     unitConfig = {
     };
     serviceConfig = {
