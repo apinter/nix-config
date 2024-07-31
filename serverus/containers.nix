@@ -158,6 +158,45 @@ systemd.services.pihole = {
     wantedBy = [ "default.target" ];
 };
 
+systemd.services.pihole_pub = {
+    enable = true;
+    description = "pihole-public-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/root";
+        LANG = "en_US.UTF-8";
+        USER = "root";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm pihole-public-pod"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/pihole/pihole:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/pihole_pub.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/pihole_pub.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
+
 systemd.user.services.fileshare= {
     enable = true;
     description = "file-serve-pod";
