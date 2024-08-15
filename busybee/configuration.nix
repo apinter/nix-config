@@ -57,7 +57,7 @@
     dive
     podman-tui
     glances
-    pyhton3
+    python3
   ];
 
   virtualisation = {
