@@ -94,8 +94,6 @@
   ];
 
   hardware.graphics.enable = true;
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  hardware.opengl.enable32Bit = true;
   programs.dconf.enable = true;
 
   services.openssh = {
