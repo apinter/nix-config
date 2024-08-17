@@ -15,6 +15,7 @@ virtualisation.oci-containers.containers."minecraft" = {
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
     ENABLE_COMMAND_BLOCK = "true" ;
+    SEED = "1732744564159265112";
     };
   };
 
