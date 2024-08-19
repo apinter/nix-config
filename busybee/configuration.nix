@@ -58,6 +58,7 @@
     podman-tui
     glances
     python3
+    python312Packages.pip
   ];
 
   virtualisation = {
