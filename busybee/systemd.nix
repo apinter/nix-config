@@ -37,6 +37,7 @@ systemd.services.harborw = {
         "/run/wrappers"
         pkgs.docker
         pkgs.bash
+        pkgs.curl
     ];
     unitConfig = {
         };
