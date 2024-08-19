@@ -25,6 +25,39 @@ systemd.user.timers.crate-cron = {
     wantedBy = [ "timers.target" ];
 };
 
+systemd.services.harborw = {
+    enable = true;
+    description = "Run Harbor watchdog";
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.docker
+        pkgs.bash
+    ];
+    unitConfig = {
+        };
+        serviceConfig = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.bash}/bin/bash /opt/harbor_watch.sh ";
+            Restart = "on-failure";
+        };
+};
+
+systemd.timers.harborw = {
+    enable = true;
+    description = "Run Harbor watchdog script every 15 minutes";
+    timerConfig = {
+        OnBootSec = "5min";
+        OnUnitActiveSec = "15min";
+        Persistent = "true";
+    };
+    wantedBy = [ "timers.target" ];
+};
+
 systemd.services.nebula = {
     enable = true;
     description = "Nebula VPN";
