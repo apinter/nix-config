@@ -59,6 +59,8 @@
     glances
     python3
     python312Packages.pip
+    python312Packages.docker
+    python312Packages.pyyaml
   ];
 
   virtualisation = {
