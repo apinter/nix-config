@@ -12,6 +12,7 @@
       ./containers.nix
       ./systemd.nix
       ./wireguard.nix
+      ./gitea-runner.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
