@@ -76,10 +76,6 @@
     kdePackages.kdeconnect-kde
   ];
 
-  hardware.opengl.enable = true; 
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  hardware.opengl.driSupport32Bit = true;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
