@@ -130,6 +130,12 @@
       fsType = "nfs";
   };
 
+  fileSystems."/home/nathan/SteamData" = {
+      device = "/dev/disk/by-label/STEAM";
+      fsType = "btrfs";
+      options = [ "subvol=Steam" "compress=zstd:1" ];
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;  
   system.stateVersion = "23.05";
