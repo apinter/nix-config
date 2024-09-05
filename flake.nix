@@ -28,13 +28,6 @@
         inherit system;
         modules = [ ./sofie/configuration.nix ];
         };
-      otong = lib.nixosSystem {
-        inherit system;
-        modules = [ 
-          ./otong/configuration.nix
-          # nixos-hardware.nixosModules.lenovo-thinkpad-x260
-          ];
-        };
       crate = lib.nixosSystem {
         inherit system;
         modules = [ ./crate/configuration.nix ];
