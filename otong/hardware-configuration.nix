@@ -10,13 +10,13 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/456175e9-4430-406c-8272-6c23e048c475";
       fsType = "btrfs";
-      options = [ "subvol=NIX" ];
+      options = [ "subvol=ROOT" ];
     };
 
   fileSystems."/boot" =
