@@ -11,6 +11,7 @@
       ./DE/plasma6.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.kernelModules = [ "amdgpu" ];
   security.rtkit.enable = true;
   boot.loader.systemd-boot.enable = true;
@@ -74,6 +75,7 @@
     gnome-disk-utility
     gnome-keyring
     kdePackages.kdeconnect-kde
+    microsoft-edge
   ];
 
   services.pipewire = {
