@@ -26,16 +26,23 @@
         };
       bryxina = lib.nixosSystem {
         inherit system;
-        modules = [ 
+        modules = [
           ./bryxina/configuration.nix 
           nixos-hardware.nixosModules.common-cpu-intel
           # nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           ];
         };
+      otong = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./otong/configuration.nix 
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
+        };
       throtur = lib.nixosSystem {
         inherit system;
-        modules = [ 
+        modules = [
           ./throtur/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
           # nixos-hardware.nixosModules.common-gpu-intel
