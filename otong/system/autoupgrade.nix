@@ -5,9 +5,10 @@
     enable = true;
     dates = "daily";
     persistent = true;
-    flake = "github:apinter/nix-config";
+    flake = "github:apinter/nix-config/unstable";
     flags = [ 
       "--no-write-lock-file"
+      "-L"
       ];
     allowReboot = true;
     randomizedDelaySec = "15min";
