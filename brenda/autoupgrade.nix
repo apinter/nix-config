@@ -3,7 +3,7 @@
 {
   system.autoUpgrade = {
     enable = true;
-    dates = "daily";
+    dates = "03.15";
     persistent = true;
     flake = "github:apinter/nix-config";
     flags = [ 
