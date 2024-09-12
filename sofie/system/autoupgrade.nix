@@ -3,7 +3,7 @@
 {
   system.autoUpgrade = {
     enable = true;
-    dates = "daily";
+    dates = "09:00";
     persistent = true;
     flake = "github:apinter/nix-config";
     flags = [ 
@@ -11,9 +11,5 @@
       ];
     allowReboot = true;
     randomizedDelaySec = "15min";
-    rebootWindow = {
-      lower = "07:00";
-      upper = "08:00";
-    };
   };
 }
