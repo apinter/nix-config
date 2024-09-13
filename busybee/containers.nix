@@ -350,4 +350,42 @@ systemd.user.services.ittools = {
 };
 
 
+systemd.user.services.shopping = {
+    enable = true;
+    description = "shopping-list-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 120;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm shopping-list"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/adathor/shopping-bot:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/shopping.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/shopping.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
