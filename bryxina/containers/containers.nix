@@ -20,7 +20,7 @@ virtualisation.oci-containers.containers."minecraft" = {
   };
 
 virtualisation.oci-containers.containers."minecraft3" = {
-  autoStart = true;
+  autoStart = false;
   image = "docker.io/itzg/minecraft-server:latest";
   ports = [ "25570:25565" ];
   volumes = [
