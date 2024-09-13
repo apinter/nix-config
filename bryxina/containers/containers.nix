@@ -7,7 +7,7 @@ virtualisation.oci-containers.containers."minecraft" = {
   image = "docker.io/itzg/minecraft-server:latest";
   ports = [ "25565:25565" ];
   volumes = [
-    "minecraft:/data"
+    "minecraft4:/data"
   ];
   environment = {
     OPS = "adathor";
@@ -15,7 +15,7 @@ virtualisation.oci-containers.containers."minecraft" = {
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
     ENABLE_COMMAND_BLOCK = "true" ;
-    SEED = "1732744564159265112";
+    SEED = "-7569437332291102067";
     };
   };
 
