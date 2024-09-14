@@ -3,14 +3,14 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./systemd-user/flatpak-auto-update.nix
+      ../common/systemd-user/flatpak-auto-update.nix
       # ./system/gitea-runner.nix
-      ./monitoring/node-exporter.nix
-      ./hardware/accel.nix
-      ./system/garbagecollect.nix
-      ./system/autoupgrade.nix
-      ./DE/plasma6.nix
-      ./containers/containers.nix
+      ../common/monitoring/node-exporter.nix
+      ../common/hardware/accel.nix
+      ../common/system/garbagecollect.nix
+      ../common/system/autoupgrade.nix
+      ../common/DE/plasma6.nix
+      ./containers.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;

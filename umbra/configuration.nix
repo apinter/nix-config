@@ -97,9 +97,9 @@ in
     [ 
       ./hardware-configuration.nix
       ./networking/wg.nix
-      ./systemd-user/flatpak-auto-update.nix
-      ./system/autoupgrade.nix
-      ./system/garbagecollect.nix
+      ../common/systemd-user/flatpak-auto-update.nix
+      ../common/system/autoupgrade.nix
+      ../common/system/garbagecollect.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
