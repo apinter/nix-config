@@ -99,8 +99,8 @@
     };
   };
   virtualisation.oci-containers.backend = "podman";
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+#  services.gnome.gnome-keyring.enable = true;
+#  security.pam.services.lightdm.enableGnomeKeyring = true;
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   services.fstrim.enable = true;
