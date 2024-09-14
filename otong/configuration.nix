@@ -9,6 +9,7 @@
       ./system/garbagecollect.nix
       ./system/autoupgrade.nix
       ./DE/plasma6.nix
+      ./containers/containers.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
