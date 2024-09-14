@@ -75,8 +75,6 @@
     gnome-disk-utility
     gnome-keyring
     kdePackages.kdeconnect-kde
-    kdePackages.kwallet-pam
-    kdePackages.kwalletmanager
     microsoft-edge
   ];
 
@@ -101,10 +99,10 @@
     };
   };
   virtualisation.oci-containers.backend = "podman";
-#  services.gnome.gnome-keyring.enable = true;
-#  security.pam.services.lightdm.enableGnomeKeyring = true;
-#  services.blueman.enable = true;
-#  hardware.bluetooth.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
   services.fstrim.enable = true;
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [ pkgs.sane-backends ];
