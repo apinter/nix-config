@@ -10,7 +10,7 @@ virtualisation.oci-containers.containers."minecraft" = {
     "minecraft4:/data"
   ];
   environment = {
-    OPS = "adathor __Bendy__";
+    OPS = "adathor, __Bendy__";
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
