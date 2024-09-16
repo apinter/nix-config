@@ -14,7 +14,6 @@
   };   
 
 environment.systemPackages = with pkgs; [
-    albert
     xorg.xhost
     xfce.xfce4-whiskermenu-plugin
     xfce.thunar-archive-plugin
