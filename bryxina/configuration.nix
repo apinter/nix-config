@@ -3,14 +3,14 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./systemd-user/flatpak-auto-update.nix
+      ../common/systemd-user/flatpak-auto-update.nix
       # ./system/gitea-runner.nix
-      ./monitoring/node-exporter.nix
-      ./hardware/accel.nix
-      ./system/garbagecollect.nix
-      ./system/autoupgrade.nix
-      ./DE/plasma6.nix
-      ./containers/containers.nix
+      ../common/monitoring/node-exporter.nix
+      ../common/hardware/accel.nix
+      ../common/system/garbagecollect.nix
+      ../common/system/autoupgrade.nix
+      ../common/DE/plasma6.nix
+      ./containers.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -63,34 +63,6 @@
   ];
 
   users.groups.devops.gid = 5000;
-
-  environment.systemPackages = with pkgs; [
-    ark
-    zip
-    unzip
-    bash
-    vim
-    wget
-    curl
-    ranger
-    git
-    firefox
-    policycoreutils
-    python3
-    distrobox
-    xorg.xhost
-    conmon
-    crun
-    slirp4netns
-    su
-    mesa
-    glxinfo
-    wineWowPackages.stable
-    winetricks
-    gnome-disk-utility
-    gnome-keyring
-    kdePackages.kdeconnect-kde
-  ];
 
   hardware.graphics.enable = true;
   programs.dconf.enable = true;

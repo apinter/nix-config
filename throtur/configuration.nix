@@ -3,14 +3,14 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./monitoring/node-exporter.nix
-      ./systemd-user/flatpak-auto-update.nix
-      ./hardware/accel.nix
-      ./containers/containers.nix
+      ../common/monitoring/node-exporter.nix
+      ../common/systemd-user/flatpak-auto-update.nix
+      ../common/hardware/accel.nix
+      ./containers.nix
       # ./system/gitea-runner.nix
-      ./system/garbagecollect.nix
-      ./system/autoupgrade.nix
-      ./DE/plasma6.nix
+      ../common/system/garbagecollect.nix
+      ../common/system/autoupgrade.nix
+      ../common/DE/plasma6.nix
     ];
     
 
@@ -65,32 +65,6 @@
   ];
   
   users.groups.devops.gid = 5000;
-
-  environment.systemPackages = with pkgs; [
-    zip
-    unzip
-    bash
-    vim
-    mesa
-    glxinfo
-    wineWowPackages.stable
-    winetricks
-    wget
-    curl
-    ranger
-    nfs-utils
-    git
-    firefox
-    python3
-    distrobox
-    conmon
-    crun
-    slirp4netns
-    su
-    microsoft-edge
-    gnome-disk-utility
-    gnome-keyring
-  ];
 
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [ pkgs.sane-backends ];

@@ -3,10 +3,13 @@
 {
   imports =
     [
+      # ./monitoring.nix
+      # ./garbagecollect.nix
+      ../common/monitoring/node-exporter.nix
+      ../common/system/garbagecollect.nix
+      ../common/DE/server_packages.nix
       ./hardware-configuration.nix
-      ./monitoring.nix
       ./autoupgrade.nix
-      ./garbagecollect.nix
       ./containers.nix
       ./systemd.nix
     ];
@@ -42,26 +45,6 @@
   ];
   
   users.groups.devops.gid = 5000;
-
-  environment.systemPackages = with pkgs; [
-    vim 
-    curl
-    htop
-    git
-    ## <podman rootless requirements>
-    conmon
-    crun
-    slirp4netns
-    su
-    ## </podman rootless requirements>
-    dive
-    podman-tui
-    glances
-    python3
-    python312Packages.pip
-    python312Packages.docker
-    python312Packages.pyyaml
-  ];
 
   virtualisation = {
     podman = {

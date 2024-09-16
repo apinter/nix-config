@@ -5,14 +5,17 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
-      ./monitoring.nix
+      # ./monitoring.nix
+      # ./garbagecollect.nix
+      ../common/monitoring/node-exporter.nix
+      ../common/system/garbagecollect.nix
+      ../common/system/gitea-runner.nix
+      ../common/DE/server_packages.nix
       ./autoupgrade.nix
-      ./garbagecollect.nix
       ./disk-config.nix
       ./containers.nix
       ./systemd.nix
       ./wireguard.nix
-      ./gitea-runner.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -51,24 +54,6 @@
   ];
 
   users.groups.devops.gid = 5000;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    curl
-    htop
-    git
-    tmux
-    ## <podman rootless requirements>
-    conmon
-    crun
-    slirp4netns
-    su
-    ## </podman rootless requirements>
-    dive
-    podman-tui
-    glances
-    python3
-  ];
 
   virtualisation = {
     podman = {
