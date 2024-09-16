@@ -5,9 +5,11 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
-      ./monitoring.nix
+      # ./monitoring.nix
+      # ./garbagecollect.nix
+      ../common/monitoring/node-exporter.nix
+      ..common/system/garbagecollect.nix
       ./autoupgrade.nix
-      ./garbagecollect.nix
       ./disk-config.nix
       ./containers.nix
       ./systemd.nix

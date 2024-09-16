@@ -3,10 +3,12 @@
 {
   imports =
     [
+      # ./monitoring.nix
+      # ./garbagecollect.nix
+      ../common/monitoring/node-exporter.nix
+      ..common/system/garbagecollect.nix
       ./hardware-configuration.nix
-      ./monitoring.nix
       ./autoupgrade.nix
-      ./garbagecollect.nix
       ./containers.nix
       ./systemd.nix
     ];
