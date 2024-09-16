@@ -66,32 +66,6 @@
   
   users.groups.devops.gid = 5000;
 
-  environment.systemPackages = with pkgs; [
-    zip
-    unzip
-    bash
-    vim
-    mesa
-    glxinfo
-    wineWowPackages.stable
-    winetricks
-    wget
-    curl
-    ranger
-    nfs-utils
-    git
-    firefox
-    python3
-    distrobox
-    conmon
-    crun
-    slirp4netns
-    su
-    microsoft-edge
-    gnome-disk-utility
-    gnome-keyring
-  ];
-
   hardware.sane.enable = true;
   hardware.sane.extraBackends = [ pkgs.sane-backends ];
   networking.firewall.enable = false;

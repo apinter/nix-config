@@ -64,34 +64,6 @@
 
   users.groups.devops.gid = 5000;
 
-  environment.systemPackages = with pkgs; [
-    ark
-    zip
-    unzip
-    bash
-    vim
-    wget
-    curl
-    ranger
-    git
-    firefox
-    policycoreutils
-    python3
-    distrobox
-    xorg.xhost
-    conmon
-    crun
-    slirp4netns
-    su
-    mesa
-    glxinfo
-    wineWowPackages.stable
-    winetricks
-    gnome-disk-utility
-    gnome-keyring
-    kdePackages.kdeconnect-kde
-  ];
-
   hardware.graphics.enable = true;
   programs.dconf.enable = true;
 
