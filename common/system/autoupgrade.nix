@@ -10,11 +10,7 @@
       "--no-write-lock-file"
       "-L"
       ];
-    allowReboot = true;
+    allowReboot = false;
     randomizedDelaySec = "15min";
-    rebootWindow = {
-      lower = "11:00";
-      upper = "13:00";
-    };
   };
 }
