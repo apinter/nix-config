@@ -31,6 +31,7 @@
     curl
     ranger
     git
+    microsoft-edge
     firefox
     policycoreutils
     python3
