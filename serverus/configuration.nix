@@ -7,7 +7,6 @@
       (modulesPath + "/profiles/qemu-guest.nix")
       # ./monitoring.nix
       # ./garbagecollect.nix
-      ../common/monitoring/node-exporter.nix
       ../common/system/garbagecollect.nix
       ../common/system/gitea-runner.nix
       ../common/DE/server_packages.nix
@@ -16,6 +15,7 @@
       ./containers.nix
       ./systemd.nix
       ./wireguard.nix
+      ./node-exporter.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
