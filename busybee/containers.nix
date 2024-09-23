@@ -388,4 +388,44 @@ systemd.user.services.shopping = {
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.user.services.atuin = {
+    enable = true;
+    description = "atuin-sync-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 120;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm atuin-sync"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres:14"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/atuinsh/atuin:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/atuin-sync.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/atuin-sync.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
