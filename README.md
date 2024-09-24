@@ -1,1 +1,1 @@
-![](homelab_topo.png)
+![](homelab_topo.svg)
