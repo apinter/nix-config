@@ -43,15 +43,8 @@ Serverous [icon: cloud, color: red] {
   }
 
   Office {
-    Throtur (Optiplex 3060) [icon: monitor] {
-        Gitea Runner (offline) [icon: github-actions]
-        Minecraft server [icon: minecraft]
-    }
-    Bryxina (Optiplex 3050) [icon: monitor] {
-        Gitea Runner (offline) [icon: github-actions]
-        Minecraft server [icon: minecraft]
-    }
-
+    Throtur (Optiplex 3060) [icon: monitor]
+    Bryxina (Optiplex 3050) [icon: monitor]
     Kazeshini (AMD custom) [icon: monitor]
     Otong (AMD custom) [icon: monitor]
     Sofie (IdeaPad) [icon: laptop]
@@ -91,10 +84,10 @@ RB260GS 2nd - Kodi TV 3 (RPi3)
 RB260GS 2nd - Mikrotik CRS125-24G-1S-IN (primary)
 RB260GS 3rd - RB260GS 2nd
 RB260GS 3rd - Unifi AC-AP-PRO Staircase
-Busybee (Beelink EQ12) -- Serverous
+Busybee (Beelink EQ12) -- Serverous: mesh vpn
 Busybee (Beelink EQ12) <> Brenda (X11SSL-F File Server)
 RB260GS 1st - Mikrotik CRS125-24G-1S-IN (primary)
-Kazeshini (AMD custom) -- Serverous
+Kazeshini (AMD custom) -- Serverous: mesh vpn
 Sofie (IdeaPad) - RB260GS 1st
 Sofie (IdeaPad) - Unifi AC-AP-PRO Office
 XUND (Macbook) - Unifi AC-AP-PRO Office
