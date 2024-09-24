@@ -1,6 +1,9 @@
 title Homelab
 direction down
 colorMode outline
+//Cloudflare
+Cloudflare [icon: cloudflare]
+
 // Cloud
 Serverous [icon: cloud, color: red] {
   Traefik [icon: traefik]
@@ -100,3 +103,4 @@ Throtur (Optiplex 3060) <> Brenda (X11SSL-F File Server)
 Kodi TV 1 (RPi3) > Brenda (X11SSL-F File Server)
 Kodi TV 2 (RPi3) > Brenda (X11SSL-F File Server)
 Kodi TV 3 (RPi3) > Brenda (X11SSL-F File Server)
+ Serverous < Cloudflare
