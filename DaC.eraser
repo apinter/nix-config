@@ -10,7 +10,7 @@ Serverous [icon: cloud, color: red] {
   Wireguard [icon: lock]
   Gitea Runner [icon: github-actions]
   File share [icon: file-code]
-  Wallabag [icon: save]
+  Wallabag [icon: pocket]
   Uptime-kuma [icon: robot]
   Coturn [icon: phone-call]
   Pihole (wg) [icon: map-pin]
@@ -42,6 +42,7 @@ Serverous [icon: cloud, color: red] {
       ITtools [icon: wrench]
       ShoppingPy [icon: shopping-cart]
       Atuin sync server [icon: gnu-bash]
+      Harbor [icon: layers]
     }
   }
 
@@ -103,4 +104,13 @@ Throtur (Optiplex 3060) <> Brenda (X11SSL-F File Server)
 Kodi TV 1 (RPi3) > Brenda (X11SSL-F File Server)
 Kodi TV 2 (RPi3) > Brenda (X11SSL-F File Server)
 Kodi TV 3 (RPi3) > Brenda (X11SSL-F File Server)
- Serverous < Cloudflare
+Serverous < Cloudflare
+//monitoring
+Sofie (IdeaPad) > Busybee (Beelink EQ12): /metrics
+Crate (IdeaPad) > Busybee (Beelink EQ12): /metrics
+Umbra (X260) > Busybee (Beelink EQ12): /metrics
+Kazeshini (AMD custom) > Busybee (Beelink EQ12): /metrics
+Bryxina (Optiplex 3050) > Busybee (Beelink EQ12): /metrics
+Throtur (Optiplex 3060) > Busybee (Beelink EQ12): /metrics
+Otong (AMD custom) > Busybee (Beelink EQ12): /metrics
+Serverous --> Busybee (Beelink EQ12): /metrics
