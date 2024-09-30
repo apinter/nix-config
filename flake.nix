@@ -40,6 +40,21 @@
           nixos-hardware.nixosModules.common-pc-ssd
           ];
         };
+      sofie = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./sofie/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-intel
+          # nixos-hardware.nixosModules.common-gpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.apinter = import ./home.nix;
+          }
+          ];
+        };
       throtur = lib.nixosSystem {
         inherit system;
         modules = [
