@@ -1,4 +1,5 @@
 { config, pkgs, callPackage, ... }:
+
 {
   imports =
     [
@@ -13,7 +14,6 @@
       ../common/DE/plasma6.nix
       ../common/system/printer.nix
     ];
-    
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   security.rtkit.enable = true;
@@ -73,8 +73,6 @@
   
   users.groups.devops.gid = 5000;
 
-  hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.sane-backends ];
   networking.firewall.enable = false;
   services.blueman.enable = true;
   hardware.bluetooth.enable = true;

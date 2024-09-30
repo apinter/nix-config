@@ -1,4 +1,5 @@
 { config, pkgs, callPackage, ... }:
+
 {
   imports =
     [
@@ -73,8 +74,6 @@
     settings.KbdInteractiveAuthentication = false;
     settings.PermitRootLogin = "no";
   };
-  hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.sane-backends ];
 
   services.flatpak.enable = true;
 
@@ -96,17 +95,6 @@
     pulse.enable = true;
   };
 
-  services.printing.enable = true;
-  services.avahi.enable = true;
-  services.avahi.nssmdns4 = true;
-  services.printing.drivers = [ pkgs.gutenprint ];
-  services.avahi.openFirewall = true;
-  services.avahi.publish.enable = true;
-  services.avahi.publish.userServices = true;
-  services.printing.browsing = true;
-  services.printing.listenAddresses = [ "*:631" ];
-  services.printing.allowFrom = [ "all" ];
-  services.printing.defaultShared = true;
   networking.firewall.enable = false;
 
   services.btrfs.autoScrub = {
