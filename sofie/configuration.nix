@@ -56,14 +56,14 @@
     ];
     linger = true;
   };
-  
+
   security.sudo.extraRules = [
     {
       groups = [ "devops" ];
       commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; } ];
     }
   ];
-  
+ 
   users.groups.devops.gid = 5000;
 
   networking.firewall.enable = false;
@@ -99,15 +99,15 @@
   virtualisation.oci-containers.backend = "podman";
   virtualisation.docker.enable = true;
 
-  fileSystems."/home/throtur/Common" = {
-      device = "172.168.1.3:/shirayuki/Common";
-      fsType = "nfs";
-  };
-
   services.btrfs.autoScrub = {
     enable = true;
     interval = "weekly";
     fileSystems = [ "/" ];
+  };
+
+  fileSystems."/home/sofie/Common" = {
+      device = "172.168.1.3:/shirayuki/Common";
+      fsType = "nfs";
   };
 
   fileSystems."/home/sofie/Reno" = {
@@ -115,11 +115,7 @@
       fsType = "nfs";
   };
 
-  fileSystems."/home/throtur/Reno" = {
-      device = "172.168.1.3:/shirayuki/Home/apinter_jr";
-      fsType = "nfs";
-  };
-  fileSystems."/home/throtur/VMs" = {
+  fileSystems."/home/sofie/VMs" = {
       device = "/dev/disk/by-uuid/4cca616f-6396-4baa-9370-a2b345b9c57c";
       fsType = "btrfs";
       options = [ "compress=zstd:1" ];
