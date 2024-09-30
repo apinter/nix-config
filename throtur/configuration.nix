@@ -118,6 +118,11 @@
     fileSystems = [ "/" ];
   };
 
+  fileSystems."/home/sofie/Reno" = {
+      device = "172.168.1.3:/shirayuki/Home/sofie";
+      fsType = "nfs";
+  };
+
   fileSystems."/home/throtur/Reno" = {
       device = "172.168.1.3:/shirayuki/Home/apinter_jr";
       fsType = "nfs";
