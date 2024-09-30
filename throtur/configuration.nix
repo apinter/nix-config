@@ -38,6 +38,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  users.users.sofie = {
+    initialPassword = "pw123";
+    isNormalUser = true;
+    extraGroups = [ "wheel" "scanner" "lp" ];
+  };
+
   users.users.throtur = {
     initialPassword = "pw123";
     isNormalUser = true;
