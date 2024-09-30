@@ -25,12 +25,13 @@
 
   time.timeZone = "Asia/Jakarta";
 
-  users.users.sofie = {
+  users.users.throtur = {
     initialPassword = "pw123";
     isNormalUser = true;
-    extraGroups = [ "wheel" "scanner" "lp" ];
+    extraGroups = [ "wheel" ];
+    linger = true;
   };
-  
+
   users.users.apinter = {
     isNormalUser = true;
     home = "/home/apinter";

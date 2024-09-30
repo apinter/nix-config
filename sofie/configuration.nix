@@ -45,13 +45,6 @@
     extraGroups = [ "wheel" "scanner" "lp" ];
   };
 
-  users.users.throtur = {
-    initialPassword = "pw123";
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    linger = true;
-  };
-
   users.users.apinter = {
     isNormalUser = true;
     home = "/home/apinter";
