@@ -120,13 +120,13 @@
     fileSystems = [ "/" ];
   };
 
-  fileSystems."/home/sofie/Common" = {
+  fileSystems."/home/throtur/Common" = {
       device = "172.168.1.3:/shirayuki/Common";
       fsType = "nfs";
   };
   
-  fileSystems."/home/sofie/Reno" = {
-      device = "172.168.1.3:/shirayuki/Home/sofie";
+  fileSystems."/home/throtur/Reno" = {
+      device = "172.168.1.3:/shirayuki/Home/apinter_jr";
       fsType = "nfs";
   };
 
