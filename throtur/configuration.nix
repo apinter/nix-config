@@ -56,7 +56,6 @@
     ark
     zip
     unzip
-    albert
     bash
     vim
     wget
