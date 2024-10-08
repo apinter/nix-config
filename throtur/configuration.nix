@@ -20,7 +20,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   zramSwap.enable = true;
-  networking.hostName = "sofie";
+  networking.hostName = "throtur";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Jakarta";
@@ -54,7 +54,6 @@
   
   environment.systemPackages = with pkgs; [
     ark
-    xfce.thunar-archive-plugin
     zip
     unzip
     albert
@@ -68,13 +67,8 @@
     policycoreutils
     python3
     distrobox
-    xfce.xfce4-whiskermenu-plugin
     xorg.xhost
     gnome.gnome-keyring
-    xfce.xfce4-volumed-pulse
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-timer-plugin
-    xfce.xfce4-notes-plugin
     conmon
     crun
     slirp4netns
@@ -96,15 +90,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
   };
-
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    displayManager.defaultSession = "xfce";
-  };   
 
   virtualisation = {
     podman = {
