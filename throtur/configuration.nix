@@ -68,7 +68,7 @@
     python3
     distrobox
     xorg.xhost
-    gnome.gnome-keyring
+    gnome-keyring
     conmon
     crun
     slirp4netns
@@ -81,9 +81,6 @@
     pavucontrol
   ];
   
-  hardware.opengl.enable = true; 
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  hardware.opengl.driSupport32Bit = true;
   services.pipewire = {
       enable = true;
       alsa.enable = true;
