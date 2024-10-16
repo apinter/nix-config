@@ -74,6 +74,8 @@
     fileSystems = [ "/" ];
   };
 
+  services.redis.vmOverCommit = true;
+
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
