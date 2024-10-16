@@ -8,7 +8,7 @@
       # ./monitoring.nix
       # ./garbagecollect.nix
       ../common/system/garbagecollect.nix
-      ../common/system/gitea-runner.nix
+      # ../common/system/gitea-runner.nix
       ../common/DE/server_packages.nix
       ./autoupgrade.nix
       ./disk-config.nix

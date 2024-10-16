@@ -5,7 +5,7 @@
     [
       ./hardware-configuration.nix
       ../common/systemd-user/flatpak-auto-update.nix
-      # ./system/gitea-runner.nix
+      ../common/system/gitea-runner.nix
       ../common/monitoring/node-exporter.nix
       ../common/hardware/accel.nix
       ../common/system/garbagecollect.nix

@@ -31,7 +31,7 @@ systemd.user.services.uptime = {
         "-${pkgs.podman}/bin/podman pod rm uptime-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/louislam/uptime-kuma:1"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/uptime.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/uptime.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/uptime.yml";
         Restart = "always";
         RestartSec=5;
@@ -70,7 +70,7 @@ systemd.services.traefik = {
         "-${pkgs.podman}/bin/podman pod rm traefik-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/traefik:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/traefik.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/traefik.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/traefik.yml";
         Restart = "always";
         RestartSec=5;
@@ -110,7 +110,7 @@ systemd.services.coturn = {
         "-${pkgs.podman}/bin/podman pod rm coturn-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/crate/coturn:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/coturn.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/coturn.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/coturn.yml";
         Restart = "always";
         RestartSec=5;
@@ -149,7 +149,7 @@ systemd.services.pihole = {
         "-${pkgs.podman}/bin/podman pod rm pihole-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/pihole/pihole:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/pihole.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/pihole.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/pihole.yml";
         Restart = "always";
         RestartSec=5;
@@ -188,7 +188,7 @@ systemd.services.pihole_pub = {
         "-${pkgs.podman}/bin/podman pod rm pihole-public-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/pihole/pihole:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/pihole_pub.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/pihole_pub.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/pihole_pub.yml";
         Restart = "always";
         RestartSec=5;
@@ -227,7 +227,7 @@ systemd.user.services.fileshare= {
         "-${pkgs.podman}/bin/podman pod rm file-serve"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/devops/file-serve:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/file-serve.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/file-serve.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/file-serve.yml";
         Restart = "always";
         RestartSec=5;
@@ -268,7 +268,7 @@ systemd.user.services.wallabag= {
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/wallabag/wallabag"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/wallabag.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/wallabag.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/wallabag.yml";
         Restart = "always";
         RestartSec=5;
@@ -307,7 +307,7 @@ systemd.user.services.searxng= {
         "-${pkgs.podman}/bin/podman pod rm searxng-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/searxng/searxng:latest"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play /home/apinter/kube/searxng.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/searxng.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/searxng.yml";
         Restart = "always";
         RestartSec=5;

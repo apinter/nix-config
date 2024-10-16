@@ -8,7 +8,7 @@
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/hardware/accel.nix
       ./containers.nix
-      # ./system/gitea-runner.nix
+      ../common/system/gitea-runner.nix
       ../common/system/garbagecollect.nix
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
