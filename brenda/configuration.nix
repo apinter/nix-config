@@ -55,6 +55,7 @@
     htop
     cryptsetup
     git
+    ranger
   ];
 
   virtualisation = {
