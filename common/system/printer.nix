@@ -14,6 +14,7 @@ nixpkgs.config.allowUnfree = true;
   services.printing.listenAddresses = [ "*:631" ];
   services.printing.allowFrom = [ "all" ];
   services.printing.defaultShared = true;
+  services.printing.cups-pdf.enable = true;
   hardware = {
     sane = {
       brscan5 = {
