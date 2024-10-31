@@ -389,7 +389,7 @@ systemd.user.services.shopping = {
     wantedBy = [ "default.target" ];
 };
 
-systemd.user.services.atuin = {
+systemd.user.services.atuin-syncer = {
     enable = true;
     description = "atuin-sync-pod";
     after = [ "network-online.target" "basic.target" ];
