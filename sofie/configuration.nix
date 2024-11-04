@@ -125,6 +125,8 @@
     pkgs.sane-backends
     pkgs.gutenprint
     pkgs.brlaser
+    pkgs.brscan5
+    pkgs.brscan4
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
