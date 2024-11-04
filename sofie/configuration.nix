@@ -123,6 +123,8 @@
 
   environment.systemPackages = with pkgs; [
     pkgs.sane-backends
+    pkgs.gutenprint
+    pkgs.brlaser
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
