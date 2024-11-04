@@ -48,6 +48,7 @@
     gnome-disk-utility
     gnome-keyring
     kdePackages.kdeconnect-kde
+    pkgs.github-desktop
   ];
 
 }

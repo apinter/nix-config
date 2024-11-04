@@ -50,7 +50,7 @@
     home = "/home/apinter";
     description = "Attila Pinter";
     extraGroups = [ "wheel" "devops" "podman" "docker" ];
-    openssh.authorizedKeys.keys = [ 
+    openssh.authorizedKeys.keys = [
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
     ];
@@ -121,11 +121,11 @@
       options = [ "compress=zstd:1" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    pkgs.github-desktop
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   pkgs.github-desktop
+  # ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;  
-  system.stateVersion = "23.05"; 
+  nixpkgs.config.allowUnfree = true;
+  system.stateVersion = "23.05";
 }
