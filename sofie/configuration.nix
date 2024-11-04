@@ -121,9 +121,9 @@
       options = [ "compress=zstd:1" ];
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   pkgs.github-desktop
-  # ];
+  environment.systemPackages = with pkgs; [
+    pkgs.sane-backends
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
