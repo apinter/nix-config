@@ -459,7 +459,7 @@ systemd.user.services.authentik-svc = {
         "-${pkgs.podman}/bin/podman pod rm authentik-pod"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres:16-alpine"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/redis:alpine"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/goauthentik/server:2024.10.0"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/goauthentik/server:2024.10.1"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/authentik.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/authentik.yml";
