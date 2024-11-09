@@ -97,8 +97,6 @@
     };
   };
   virtualisation.oci-containers.backend = "podman";
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.lightdm.enableGnomeKeyring = true;
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
