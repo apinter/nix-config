@@ -98,6 +98,8 @@
   };
   virtualisation.oci-containers.backend = "podman";
   virtualisation.docker.enable = true;
+  virtualisation.docker.autoPrune.enable = true;
+  virtualisation.docker.autoPrune.flags = [ "--volumes" "--force"  "--all"];
 
   services.btrfs.autoScrub = {
     enable = true;
