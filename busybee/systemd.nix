@@ -58,17 +58,4 @@ systemd.timers.harborw = {
     };
     wantedBy = [ "timers.target" ];
 };
-
-systemd.services.nebula = {
-    enable = true;
-    description = "Nebula VPN";
-    after = [ "network-online.target" "basic.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-        SyslogIdentifier = "nebula";
-        ExecStart = "/data/nebula/nebula -config /data/nebula/config.yml";
-        Restart = "always";
-        RestartSec = "5";
-        };
-    };
 }

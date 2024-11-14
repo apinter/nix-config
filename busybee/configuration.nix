@@ -12,6 +12,7 @@
       ./autoupgrade.nix
       ./containers.nix
       ./systemd.nix
+      ./mesh.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
