@@ -7,9 +7,9 @@ services.nebula.networks.mesh = {
     cert = "/data/nebula/lighthouse.crt"; # The name of this lighthouse is beacon.
     key = "/data/nebula/lighthouse.key";
     ca = "/data/nebula/ca.crt";
-    staticHostMap = [
+    staticHostMap = {
         "17.10.0.1" = ["194.233.75.126:4242"];
-        ]
+        };
     listen.host = "0.0.0.0";
     listen.port = 4242;
     settings = {
