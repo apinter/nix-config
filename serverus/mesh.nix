@@ -17,12 +17,11 @@ services.nebula.networks.mesh = {
             port = "any";
             proto = "icmp";
             host = "any";
-        };
-        {
+
             port = "any";
             proto = "any";
             groups = ["devops" "server"];
-        };
+        }
         ];
     firewall.outbound = [
         {
