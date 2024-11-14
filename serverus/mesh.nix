@@ -17,7 +17,8 @@ services.nebula.networks.mesh = {
             port = "any";
             proto = "icmp";
             host = "any";
-
+        }
+        {
             port = "any";
             proto = "any";
             groups = ["devops" "server"];
@@ -28,7 +29,7 @@ services.nebula.networks.mesh = {
             port = "any";
             proto = "any";
             host = "any";
-        };
+        }
         ];
     settings = {
         punchy = {
