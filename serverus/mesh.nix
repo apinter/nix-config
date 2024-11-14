@@ -4,7 +4,7 @@
 services.nebula.networks.mesh = {
     enable = true;
     isLighthouse = true;
-    cert = "/data/nebula/lighthouse.crt"; # The name of this lighthouse is beacon.
+    cert = "/data/nebula/lighthouse.crt";
     key = "/data/nebula/lighthouse.key";
     ca = "/data/nebula/ca.crt";
     staticHostMap = {
@@ -12,25 +12,24 @@ services.nebula.networks.mesh = {
         };
     listen.host = "0.0.0.0";
     listen.port = 4242;
-    firewall = 
-        inbound = [
-            {
-                port = "any";
-                proto = "icmp";
-                host = "any";
-            };
-            {
-                port = "any";
-                proto = "any";
-                groups = ["devops" "server"];
-            };
+    firewall.inbound = [
+        {
+            port = "any";
+            proto = "icmp";
+            host = "any";
+        };
+        {
+            port = "any";
+            proto = "any";
+            groups = ["devops" "server"];
+        };
         ];
-        outbound = [
-            {
-                port = "any";
-                proto = "any";
-                host = "any";
-            };
+    firewall.outbound = [
+        {
+            port = "any";
+            proto = "any";
+            host = "any";
+        };
         ];
     settings = {
         punchy = {
