@@ -13,7 +13,7 @@
       ./autoupgrade.nix
       ./disk-config.nix
       ./containers.nix
-      ./systemd.nix
+      # ./systemd.nix
       ./wireguard.nix
       ./node-exporter.nix
     ];
