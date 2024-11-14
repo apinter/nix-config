@@ -12,6 +12,26 @@ services.nebula.networks.mesh = {
         };
     listen.host = "0.0.0.0";
     listen.port = 4242;
+    firewall = 
+        inbound = [
+            {
+                port = "any";
+                proto = "icmp";
+                host = "any";
+            };
+            {
+                port = "any";
+                proto = "any";
+                groups = ["devops" "server"];
+            };
+        ];
+        outbound = [
+            {
+                port = "any";
+                proto = "any";
+                host = "any";
+            };
+        ];
     settings = {
         punchy = {
           punch = true;
@@ -38,23 +58,6 @@ services.nebula.networks.mesh = {
             tcp_timeout = 12m;
             udp_timeout = 3m;
             default_timeout = 10m;
-        };
-        firewall.outbound = { 
-            port = any;
-            proto = any;
-            host = any;
-        };
-        firewall.inbound = {
-            - port = any;
-              proto = icmp;
-              host = any;
-            
-            - port = any
-              proto = any
-              groups = [
-                - devops
-                - server
-                ];
         };
     };
   };
