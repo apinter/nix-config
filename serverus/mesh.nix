@@ -43,20 +43,20 @@ services.nebula.networks.mesh = {
         };
         tun = {
             disabled = false;
-            dev = nebula1;
+            dev = "nebula1";
             drop_local_broadcast = false;
             drop_multicast = false;
             tx_queue = 500;
             mtu = 1300;
         };
         logging = {
-            level = info;
-            format = text;
+            level = "info";
+            format = "text";
         };
         firewall.conntrack = {
-            tcp_timeout = 12m;
-            udp_timeout = 3m;
-            default_timeout = 10m;
+            tcp_timeout = "12m";
+            udp_timeout = "3m";
+            default_timeout = "10m";
         };
     };
   };
