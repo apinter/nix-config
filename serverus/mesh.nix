@@ -8,7 +8,7 @@ services.nebula.networks.mesh = {
     key = "/data/nebula/lighthouse.key";
     ca = "/data/nebula/ca.crt";
     staticHostMap = [
-        "17.10.0.1": ["194.233.75.126:4242"]
+        "17.10.0.1" = ["194.233.75.126:4242"];
         ]
     listen.host = "0.0.0.0";
     listen.port = 4242;
@@ -49,11 +49,12 @@ services.nebula.networks.mesh = {
               proto = icmp;
               host = any;
             
-            - port: any
-              proto: any
-              groups:
+            - port = any
+              proto = any
+              groups = [
                 - devops
                 - server
+                ];
         };
     };
   };
