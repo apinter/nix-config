@@ -2,7 +2,7 @@
 
 {
 systemd.services.nebula = {
-    enable = true;
+    enable = false;
     description = "Nebula VPN";
     after = [ "network-online.target" "basic.target" ];
     wantedBy = [ "multi-user.target" ];
