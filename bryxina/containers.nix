@@ -19,12 +19,12 @@ virtualisation.oci-containers.containers."minecraft" = {
     };
   };
 
-virtualisation.oci-containers.containers."minecraft3" = {
+virtualisation.oci-containers.containers."minecraft4" = {
   autoStart = false;
   image = "docker.io/itzg/minecraft-server:latest";
   ports = [ "25570:25565" ];
   volumes = [
-    "minecraft3:/data"
+    "minecraft4:/data"
   ];
   environment = {
     OPS = "adathor,bryxina";
