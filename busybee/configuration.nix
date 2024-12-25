@@ -26,6 +26,10 @@
 
   time.timeZone = "Asia/Jakarta";
 
+  environment.systemPackages = with pkgs; [
+    pkgs.prometheus-systemd-exporter
+  ];
+
   users.users.apinter = {
     isNormalUser = true;
     linger = true;
