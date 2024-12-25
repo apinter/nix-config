@@ -87,6 +87,7 @@
         "timeo=600"
       ];
   };
+  services.prometheus.exporters.systemd.enable = true;
 
   services.openssh = {
     enable = true;
