@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
             export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-            git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
+            git clone https://apinter:{{ secrets.GITHUB_TOKEN }}@github.com/apinter/nix-config
             cd nix-config
             cat flake.nix | grep -i nixpkgs.url
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
@@ -52,7 +52,7 @@ jobs:
         shell: bash
         run: |
             export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-            git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config -b unstable
+            git clone https://apinter:{{ secrets.GITHUB_TOKEN }}@github.com/apinter/nix-config -b unstable
             cd nix-config 
             cat flake.nix | grep -i nixpkgs.url
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
