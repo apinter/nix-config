@@ -12,6 +12,10 @@ jobs:
   flake-update:
     name: Update flakes for stable
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      packages: write
     container:
         image: docker.io/nixos/nix
         env:
