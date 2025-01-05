@@ -23,10 +23,10 @@ virtualisation.oci-containers.containers."minecraft4" = {
   image = "docker.io/itzg/minecraft-server:latest";
   ports = [ "25570:25565" ];
   volumes = [
-    "minecraft4:/data"
+    "minecraft5:/data"
   ];
   environment = {
-    OPS = "adathor";
+    OPS = "adathor,SlicedMother";
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
