@@ -58,7 +58,6 @@ in
     ranger
     screen
     git
-    policycoreutils
     python3
     distrobox
     xorg.xhost

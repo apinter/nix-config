@@ -69,7 +69,6 @@
     ranger
     git
     firefox
-    policycoreutils
     python3
     distrobox
     xorg.xhost

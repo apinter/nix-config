@@ -33,7 +33,6 @@
     git
     microsoft-edge
     firefox
-    policycoreutils
     python3
     distrobox
     xorg.xhost
