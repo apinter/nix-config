@@ -25,10 +25,10 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/edcd4adc-c218-4362-8e30-d28e844eacce";
-      fsType = "btrfs";
-    };
+  # fileSystems."/data" =
+  #   { device = "/dev/disk/by-uuid/edcd4adc-c218-4362-8e30-d28e844eacce";
+  #     fsType = "btrfs";
+  #   };
 
   swapDevices = [ ];
 
