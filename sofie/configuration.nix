@@ -15,7 +15,8 @@
       ../common/system/printer.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   security.rtkit.enable = true;
   zramSwap.enable = true;
   boot.loader.systemd-boot.enable = true;
