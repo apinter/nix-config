@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./containers.nix
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/system/gitea-runner.nix
       ../common/monitoring/node-exporter.nix
@@ -12,7 +13,7 @@
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
       ../common/hardware/fwupd.nix
-      ./containers.nix
+      ../common/system/journald.nix
     ];
 
   #boot.kernelPackages = pkgs.linuxPackages_latest;

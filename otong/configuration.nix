@@ -10,7 +10,7 @@
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
       ../common/hardware/fwupd.nix
-      #./containers.nix
+      ../common/system/journald.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;

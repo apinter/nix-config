@@ -1,0 +1,116 @@
+title Homelab
+direction down
+colorMode outline
+//Cloudflare
+Cloudflare [icon: cloudflare]
+
+// Cloud
+Serverous [icon: cloud, color: red] {
+  Traefik [icon: traefik]
+  Wireguard [icon: lock]
+  Gitea Runner [icon: github-actions]
+  File share [icon: file-code]
+  Wallabag [icon: pocket]
+  Uptime-kuma [icon: robot]
+  Coturn [icon: phone-call]
+  Pihole (wg) [icon: map-pin]
+  Pihole (public) [icon: map]
+}
+
+// 1st Floor
+1st Floor [color: blue, icon: building] {
+  Rack Cabinet [icon: server] {
+    Brenda (X11SSL-F File Server) [icon: storage] {
+      8x10TB [icon: hard-drive]
+      4x256GB [icon: hard-drive]
+      nfs [icon: share]
+      pihole [icon: map]
+      unifi-controller [icon: wifi]
+    }
+    Mikrotik CRS125-24G-1S-IN (primary)  [icon: network]
+    Mikrotik CRS125-24G-1S-IN (secondary) [icon: network]
+    Busybee (Beelink EQ12) [icon: cpu] {
+      Grafana [icon: grafana]
+      Prometheus [icon: prometheus]
+      Gitea [icon: git-branch]
+      Jellyfin [icon: video]
+      Hedgedoc [icon: markdown]
+      Homepage [icon: home]
+      Matrix [icon: chat]
+      Crate [icon: crate]
+      ARA [icon: ansible]
+      ITtools [icon: wrench]
+      ShoppingPy [icon: shopping-cart]
+      Atuin sync server [icon: gnu-bash]
+      Harbor [icon: layers]
+    }
+  }
+
+  Office {
+    Throtur (Optiplex 3060) [icon: monitor]
+    Bryxina (Optiplex 3050) [icon: monitor]
+    Kazeshini (AMD custom) [icon: monitor]
+    Otong (AMD custom) [icon: monitor]
+    Sofie (IdeaPad) [icon: laptop]
+    Umbra (X260) [icon: laptop]
+    XUND (Macbook) [icon: laptop]
+    Crate (IdeaPad) [icon: laptop]
+    Unifi AC-AP-PRO Office [icon: wifi]
+    RB260GS 1st [icon: network-switch]
+  }
+}
+
+// 2nd Floor
+2nd Floor [color: green, icon: building] {
+  Kodi TV 1 (RPi3) [icon: tv]
+  Kodi TV 2 (RPi3) [icon: tv]
+  Kodi TV 3 (RPi3) [icon: tv]
+  Unifi AC-AP-PRO Staircase [icon: wifi]
+  Unifi AC-AP-PRO Livingroom [icon: wifi]
+  RB260GS 2nd [icon: network-switch]
+  RB260GS 3rd [icon: network-switch]
+}
+
+// Connections
+Mikrotik CRS125-24G-1S-IN (primary) - Brenda (X11SSL-F File Server)
+Mikrotik CRS125-24G-1S-IN (primary) - Busybee (Beelink EQ12)
+Mikrotik CRS125-24G-1S-IN (primary) - Unifi AC-AP-PRO Office
+Mikrotik CRS125-24G-1S-IN (primary) - Kazeshini (AMD custom)
+Mikrotik CRS125-24G-1S-IN (primary) - Unifi AC-AP-PRO Livingroom
+Mikrotik CRS125-24G-1S-IN (secondary) - Otong (AMD custom)
+Mikrotik CRS125-24G-1S-IN (secondary) - Throtur (Optiplex 3060)
+Mikrotik CRS125-24G-1S-IN (secondary) - Bryxina (Optiplex 3050)
+Mikrotik CRS125-24G-1S-IN (secondary) - Busybee (Beelink EQ12)
+Mikrotik CRS125-24G-1S-IN (secondary) - Mikrotik CRS125-24G-1S-IN (primary)
+RB260GS 2nd - Kodi TV 1 (RPi3)
+RB260GS 2nd - Kodi TV 2 (RPi3)
+RB260GS 2nd - Kodi TV 3 (RPi3)
+RB260GS 2nd - Mikrotik CRS125-24G-1S-IN (primary)
+RB260GS 3rd - RB260GS 2nd
+RB260GS 3rd - Unifi AC-AP-PRO Staircase
+Busybee (Beelink EQ12) -- Serverous: mesh vpn
+Busybee (Beelink EQ12) <> Brenda (X11SSL-F File Server)
+RB260GS 1st - Mikrotik CRS125-24G-1S-IN (primary)
+Kazeshini (AMD custom) -- Serverous: mesh vpn
+Sofie (IdeaPad) - RB260GS 1st
+Sofie (IdeaPad) - Unifi AC-AP-PRO Office
+XUND (Macbook) - Unifi AC-AP-PRO Office
+Crate (IdeaPad) - RB260GS 1st
+Crate (IdeaPad) - Unifi AC-AP-PRO Office
+Umbra (X260) - Unifi AC-AP-PRO Office
+Kazeshini (AMD custom) <> Brenda (X11SSL-F File Server)
+Bryxina (Optiplex 3050) <> Brenda (X11SSL-F File Server)
+Throtur (Optiplex 3060) <> Brenda (X11SSL-F File Server)
+Kodi TV 1 (RPi3) > Brenda (X11SSL-F File Server)
+Kodi TV 2 (RPi3) > Brenda (X11SSL-F File Server)
+Kodi TV 3 (RPi3) > Brenda (X11SSL-F File Server)
+Serverous < Cloudflare
+//monitoring
+Sofie (IdeaPad) > Busybee (Beelink EQ12): /metrics
+Crate (IdeaPad) > Busybee (Beelink EQ12): /metrics
+Umbra (X260) > Busybee (Beelink EQ12): /metrics
+Kazeshini (AMD custom) > Busybee (Beelink EQ12): /metrics
+Bryxina (Optiplex 3050) > Busybee (Beelink EQ12): /metrics
+Throtur (Optiplex 3060) > Busybee (Beelink EQ12): /metrics
+Otong (AMD custom) > Busybee (Beelink EQ12): /metrics
+Serverous --> Busybee (Beelink EQ12): /metrics

@@ -3,7 +3,8 @@
   description = "Adathor's flake - just manages my fleet";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable"; 
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -13,7 +14,7 @@
 
   };
 
-  outputs = {self, nixpkgs, nixos-hardware, vscode-server, home-manager, disko, ...}:
+  outputs = inputs@{self, nixpkgs, nixpkgs-stable, nixos-hardware, vscode-server, home-manager, disko, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -29,7 +30,6 @@
         modules = [
           ./bryxina/configuration.nix 
           nixos-hardware.nixosModules.common-cpu-intel
-          # nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           ];
         };
@@ -45,7 +45,6 @@
         modules = [
           ./sofie/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
-          # nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
           {
@@ -60,7 +59,6 @@
         modules = [
           ./throtur/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
-          # nixos-hardware.nixosModules.common-gpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
           {
@@ -91,6 +89,12 @@
           nixos-hardware.nixosModules.common-pc-ssd
           ];
         };
+      brenda = lib.nixosSystem {
+        pkgs-stable = import nixpkgs-stable {
+          inherit system;
+        };
+        modules = [ ./brenda/configuration.nix ];
+        };        
       };
     };
 }

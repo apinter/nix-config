@@ -5,15 +5,12 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
-      # ./monitoring.nix
-      # ./garbagecollect.nix
       ../common/system/garbagecollect.nix
-      # ../common/system/gitea-runner.nix
       ../common/DE/server_packages.nix
+      ../common/system/journald.nix
       ./autoupgrade.nix
       ./disk-config.nix
       ./containers.nix
-      # ./systemd.nix
       ./wireguard.nix
       ./node-exporter.nix
       ./mesh.nix
