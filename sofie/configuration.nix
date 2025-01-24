@@ -1,133 +1,109 @@
 { config, pkgs, callPackage, ... }:
+
 {
   imports =
-  [
-    ./hardware-configuration.nix
-    ./monitoring/node-exporter.nix
-    ./systemd-user/flatpak-auto-update.nix
-    ./print/printer.nix
-    ./hardware/accel.nix
-    ./system/garbagecollect.nix
-    ./system/autoupgrade.nix
-  ];
+    [
+      ./hardware-configuration.nix
+      ./containers.nix
+      ../common/monitoring/node-exporter.nix
+      ../common/systemd-user/flatpak-auto-update.nix
+      ../common/hardware/accel.nix
+      ../common/system/gitea-runner.nix
+      ../common/system/garbagecollect.nix
+      ../common/system/autoupgrade.nix
+      ../common/DE/plasma6.nix
+      ../common/system/printer.nix
+      ../common/hardware/fwupd.nix
+      ../common/system/journald.nix
+    ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   security.rtkit.enable = true;
+  zramSwap.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  zramSwap.enable = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
   networking.hostName = "sofie";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Jakarta";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
 
   users.users.sofie = {
     initialPassword = "pw123";
     isNormalUser = true;
     extraGroups = [ "wheel" "scanner" "lp" ];
   };
-  
+
   users.users.apinter = {
     isNormalUser = true;
     home = "/home/apinter";
     description = "Attila Pinter";
-    extraGroups = [ "wheel" "devops" ];
-    openssh.authorizedKeys.keys = [ 
+    extraGroups = [ "wheel" "devops" "podman" "docker" ];
+    openssh.authorizedKeys.keys = [
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
     ];
+    linger = true;
   };
-  
+
   security.sudo.extraRules = [
     {
       groups = [ "devops" ];
       commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; } ];
     }
   ];
-
+ 
   users.groups.devops.gid = 5000;
-  
-  environment.systemPackages = with pkgs; [
-    ark
-    xfce.thunar-archive-plugin
-    zip
-    unzip
-    albert
-    bash
-    vim
-    wget
-    curl
-    ranger
-    git
-    firefox
-    policycoreutils
-    python3
-    distrobox
-    xfce.xfce4-whiskermenu-plugin
-    xorg.xhost
-    gnome.gnome-keyring
-    xfce.xfce4-volumed-pulse
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-timer-plugin
-    xfce.xfce4-notes-plugin
-    conmon
-    crun
-    slirp4netns
-    su
-    microsoft-edge
-    mesa
-    glxinfo
-    wineWowPackages.stable
-    winetricks
-    pavucontrol
-  ];
-  
-  hardware.opengl.enable = true; 
-  hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
-  hardware.opengl.driSupport32Bit = true;
-  services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-  };
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
-    };
-    displayManager.defaultSession = "xfce";
-  };   
+  networking.firewall.enable = false;
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
 
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
-    };
-  };
-  virtualisation.oci-containers.backend = "podman";
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.lightdm.enableGnomeKeyring = true;
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
     settings.PermitRootLogin = "no";
   };
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+
+  programs.dconf.enable = true;
   services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.sane-backends ];
-  networking.firewall.enable = false;
-  services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
+
+  virtualisation = {
+    podman = {
+      enable = true;
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
+    };
+  };
+  virtualisation.oci-containers.backend = "podman";
+  virtualisation.docker.enable = true;
+  virtualisation.docker.autoPrune.enable = true;
+  virtualisation.docker.autoPrune.flags = [ "--volumes" "--force"  "--all"];
+  virtualisation.docker.autoPrune.dates = "daily";
 
   services.btrfs.autoScrub = {
     enable = true;
@@ -139,11 +115,25 @@
       device = "172.168.1.3:/shirayuki/Common";
       fsType = "nfs";
   };
-  
+
   fileSystems."/home/sofie/Reno" = {
       device = "172.168.1.3:/shirayuki/Home/sofie";
       fsType = "nfs";
   };
+
+  fileSystems."/home/sofie/VMs" = {
+      device = "/dev/disk/by-uuid/4cca616f-6396-4baa-9370-a2b345b9c57c";
+      fsType = "btrfs";
+      options = [ "compress=zstd:1" ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    pkgs.sane-backends
+    pkgs.gutenprint
+    pkgs.brlaser
+    pkgs.brscan5
+    pkgs.brscan4
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;

@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - unstable
+      - stable
   schedule:
     - cron: '0 8 * * *'
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
             export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-            git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
+            git clone -b stable https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
             cd nix-config
             cat flake.nix | grep -i nixpkgs.url
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
@@ -41,7 +41,7 @@ jobs:
             fi
 
   flake-update-unstable:
-    name: Update flakes for unstable
+    name: Update flakes
     runs-on: ubuntu-latest
     container:
         image: docker.io/nixos/nix
@@ -52,7 +52,7 @@ jobs:
         shell: bash
         run: |
             export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-            git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config -b unstable
+            git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
             cd nix-config 
             cat flake.nix | grep -i nixpkgs.url
             nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update

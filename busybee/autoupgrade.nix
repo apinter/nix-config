@@ -3,50 +3,18 @@
 {
   system.autoUpgrade = {
     enable = true;
-    dates = "03.15";
+    dates = "02:15";
     persistent = true;
     flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
       ];
     rebootWindow = {
-      lower = "03:00";
-      upper = "05:00";
+      lower = "02:00";
+      upper = "04:00";
     };
     allowReboot = true;
     randomizedDelaySec = "15min";
-  };
-
-  systemd.timers.update-rootful-containers = {
-        enable = true;
-        description = "Enable automatic update of rootfull containers";
-        timerConfig = {
-          OnCalendar = "daily";
-          Persistent = "true";
-        };
-        wantedBy = [ "timers.target" ];
-  };
-
-  systemd.services.update-rootful-containers = {
-      description = "Restart rootful containers for updating them";
-      after = [ "network-online.target" "basic.target" ];
-      environment = {
-          HOME = "/root";
-          LANG = "en_US.UTF-8";
-          USER = "root";
-      };
-      path = [ 
-          "/run/wrappers"
-          pkgs.systemd
-      ];
-      unitConfig = {
-      };
-      serviceConfig = {
-          Type = "oneshot";
-          TimeoutStartSec = 900;
-          ExecStart = "${pkgs.systemd}/bin/systemctl restart pihole";
-          RemainAfterExit = false;
-      };
   };
 
   systemd.user.timers.update-user-containers = {
@@ -76,8 +44,9 @@
       serviceConfig = {
           Type = "oneshot";
           TimeoutStartSec = 900;
-          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart unifi transmission";
+          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart crate jellyfin homepage ara hedgedoc parallel monitoring gitea ittools shopping atuin-syncer authentik-svc";
           RemainAfterExit = false;
       };
   };
+
 }

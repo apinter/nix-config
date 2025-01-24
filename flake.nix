@@ -3,13 +3,17 @@
   description = "Adathor's flake - just manages my fleet";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11"; 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
-  outputs = {self, nixpkgs, nixos-hardware, home-manager, ...}:
+  outputs = {self, nixpkgs, nixpkgs-stable, nixos-hardware, vscode-server, home-manager, disko, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -20,24 +24,70 @@
         inherit system;
         modules = [ ./umbra/configuration.nix ];
         };
-      brenda = lib.nixosSystem {
+      bryxina = lib.nixosSystem {
         inherit system;
-        modules = [ ./brenda/configuration.nix ];
+        modules = [
+          ./bryxina/configuration.nix 
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
+        };
+      otong = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./otong/configuration.nix 
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
         };
       sofie = lib.nixosSystem {
         inherit system;
-        modules = [ ./sofie/configuration.nix ];
+        modules = [
+          ./sofie/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.apinter = import ./home.nix;
+          }
+          ];
         };
-      crate = lib.nixosSystem {
+      throtur = lib.nixosSystem {
         inherit system;
-        modules = [ ./crate/configuration.nix ];
+        modules = [
+          ./throtur/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.apinter = import ./home.nix;
+          }
+          ];
         };
-      };
-    homeConfigurations = {
-      apinter = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./umbra/home.nix ];
+      busybee = lib.nixosSystem {
+        inherit system;
+        modules = [ 
+          ./busybee/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          vscode-server.nixosModules.default
+          ({ config, pkgs, ... }: {
+            services.vscode-server.enable = true;
+          })
+          ];
+        };
+      serverus = lib.nixosSystem {
+        inherit system;
+        modules = [ 
+          ./serverus/configuration.nix
+          disko.nixosModules.disko
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
+        };
       };
     };
-  };
 }
