@@ -5,7 +5,7 @@
     enable = true;
     dates = "03.15";
     persistent = true;
-    flake = "github:apinter/nix-config";
+    flake = "github:apinter/nix-config/stable";
     flags = [ 
       "--no-write-lock-file"
       ];
