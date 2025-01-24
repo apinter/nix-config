@@ -5,7 +5,7 @@
     enable = true;
     dates = "02:15";
     persistent = true;
-    flake = "github:apinter/nix-config/unstable";
+    flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
       ];

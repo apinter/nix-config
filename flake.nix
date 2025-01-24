@@ -14,7 +14,7 @@
 
   };
 
-  outputs = inputs@{self, nixpkgs, nixpkgs-stable, nixos-hardware, vscode-server, home-manager, disko, ...}:
+  outputs = {self, nixpkgs, nixpkgs-stable, nixos-hardware, vscode-server, home-manager, disko, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -89,12 +89,6 @@
           nixos-hardware.nixosModules.common-pc-ssd
           ];
         };
-      brenda = lib.nixosSystem {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-        };
-        modules = [ ./brenda/configuration.nix ];
-        };        
       };
     };
 }
