@@ -13,6 +13,7 @@
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
       ../common/system/printer.nix
+      ../common/hardware/fwupd.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;

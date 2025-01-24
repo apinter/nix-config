@@ -8,6 +8,7 @@
       ../common/monitoring/node-exporter.nix
       ../common/system/garbagecollect.nix
       ../common/DE/server_packages.nix
+      ../common/hardware/fwupd.nix
       ./hardware-configuration.nix
       ./autoupgrade.nix
       ./containers.nix

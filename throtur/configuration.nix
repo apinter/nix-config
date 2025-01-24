@@ -11,7 +11,7 @@
       ../common/system/garbagecollect.nix
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
-    #  ./hardware/accel.nix
+      ../common/hardware/fwupd.nix
   ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;

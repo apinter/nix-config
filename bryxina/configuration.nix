@@ -11,6 +11,7 @@
       ../common/system/garbagecollect.nix
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
+      ../common/hardware/fwupd.nix
       ./containers.nix
     ];
 

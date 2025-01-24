@@ -99,6 +99,7 @@ in
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/system/autoupgrade.nix
       ../common/system/garbagecollect.nix
+      ../common/hardware/accel.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
