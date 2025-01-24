@@ -84,6 +84,7 @@
     settings.PermitRootLogin = "no";
   };
   networking.firewall.enable = false;
+  services.fwupd.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.11";
