@@ -13,7 +13,7 @@
 
   };
 
-  outputs = {self, nixpkgs, nixpkgs-stable, nixos-hardware, vscode-server, home-manager, disko, ...}:
+  outputs = {self, nixpkgs, nixos-hardware, vscode-server, home-manager, disko, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
