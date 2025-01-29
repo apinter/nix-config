@@ -3,11 +3,12 @@
 {
   system.autoUpgrade = {
     enable = true;
-    dates = "03.15";
+    dates = "03:15";
     persistent = true;
     flake = "github:apinter/nix-config/stable";
     flags = [ 
       "--no-write-lock-file"
+      "-L"
       ];
     rebootWindow = {
       lower = "03:00";
