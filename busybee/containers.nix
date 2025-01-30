@@ -469,4 +469,123 @@ systemd.user.services.authentik-svc = {
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.user.services.fileshare= {
+    enable = true;
+    description = "file-serve-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm file-serve"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/devops/file-serve:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/file-serve.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/file-serve.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
+
+systemd.user.services.wallabag= {
+    enable = true;
+    description = "wallabag-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm wallabag"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/redis"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/wallabag/wallabag"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/wallabag.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/wallabag.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
+
+systemd.user.services.searxng= {
+    enable = true;
+    description = "searxng-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm searxng-pod"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/searxng/searxng:latest"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/searxng.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/searxng.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
