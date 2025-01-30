@@ -8,7 +8,7 @@ services.nebula.networks.mesh = {
     key = "/data/nebula/crate.key";
     ca = "/data/nebula/ca.crt";
     staticHostMap = {
-        "17.10.0.1" = ["194.233.75.126:4242"];
+        "17.10.0.1" = ["172.236.137.141:4242"];
         };
     listen.host = "0.0.0.0";
     listen.port = 4242;
@@ -37,7 +37,7 @@ services.nebula.networks.mesh = {
         };
         punchy = {
           punch = true;
-          cipher = "aes";
+          cipher = "chachapoly";
           preferred_ranges = ["172.168.0.0/16"];
         };
         relay = {
