@@ -37,7 +37,7 @@ services.nebula.networks.mesh = {
         };
         punchy = {
           punch = true;
-          cipher = "chachapoly";
+          cipher = "aes";
           preferred_ranges = ["172.168.0.0/16"];
         };
         relay = {
