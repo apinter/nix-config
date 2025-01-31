@@ -12,7 +12,6 @@
     alacritty
     pulseaudio
     pavucontrol
-    configure-gtk
     wayland
     waybar
     wofi
