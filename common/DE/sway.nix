@@ -12,7 +12,6 @@
     alacritty
     pulseaudio
     pavucontrol
-    dbus-sway-environment
     configure-gtk
     wayland
     waybar
