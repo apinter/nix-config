@@ -18,7 +18,7 @@
     xdg-utils
     glib
     dracula-theme
-    gnome3.adwaita-icon-theme
+    adwaita-icon-theme
     swaylock
     swayidle
     grim
@@ -38,7 +38,7 @@
     python3
     distrobox
     xorg.xhost
-    gnome.gnome-keyring
+    gnome-keyring
     conmon
     crun
     slirp4netns
@@ -50,7 +50,7 @@
     yubikey-personalization
     wireguard-tools
     cryfs
-    gnome.nautilus
+    nautilus
     playerctl
     brightnessctl
     pamixer
@@ -59,7 +59,7 @@
   fonts = {
     packages =  with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -67,7 +67,6 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "ShareTechMono" ]; })
   ];
       fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Source Han Serif" ];
