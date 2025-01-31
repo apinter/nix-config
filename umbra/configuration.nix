@@ -20,11 +20,6 @@
   zramSwap.enable = true;
   time.timeZone = "Asia/Jakarta";
 
-  boot {
-    initrd.luks.devices.cryptroot.device = "/dev/disk/by-uuid/";
-    initrd.luks.devices.cryptroot.allowDiscards = true;
-  };
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
