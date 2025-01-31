@@ -8,6 +8,7 @@
       ../common/system/autoupgrade.nix
       ../common/system/garbagecollect.nix
       ../common/hardware/accel.nix
+      ../common/DE/sway.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
