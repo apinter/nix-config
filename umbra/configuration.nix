@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  networking.hostName = "otong";
+  networking.hostName = "umbra";
   networking.networkmanager.enable = true;
   zramSwap.enable = true;
   time.timeZone = "Asia/Jakarta";
