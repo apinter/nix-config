@@ -54,6 +54,26 @@
     playerctl
     brightnessctl
     pamixer
+    ## Archcraft
+    swaybg
+    kanshi
+    foot
+    wf-recorder
+    light
+    yad
+    zathura
+    glow
+    wlogout
+    mpv
+    mdp
+    mpc
+    viewnior
+    imagemagick
+    playerctl
+    pastel
+    pywal
+    rofi-wayland
+    pulsemixer
   ];
 
   fonts = {
