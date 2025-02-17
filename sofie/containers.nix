@@ -30,8 +30,8 @@ virtualisation.oci-containers.containers."minecraft4" = {
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
-    SIMULATION_DISTANCE = "24";
-    VIEW_DISTANCE = "24";
+    SIMULATION_DISTANCE = "32";
+    VIEW_DISTANCE = "32";
     };
   };
 
