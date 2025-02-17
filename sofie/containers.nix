@@ -2,22 +2,22 @@
 
 {
 
-virtualisation.oci-containers.containers."minecraft" = {
-  autoStart = true;
-  image = "docker.io/itzg/minecraft-server:latest";
-  ports = [ "25565:25565" ];
-  volumes = [
-    "minecraft:/data"
-  ];
-  environment = {
-    OPS = "adathor";
-    EULA = "TRUE";
-    MEMORY = "8G";
-    USE_AIKAR_FLAGS = "true";
-    ENABLE_COMMAND_BLOCK = "true" ;
-    };
-  };
-
+# virtualisation.oci-containers.containers."minecraft" = {
+#   autoStart = true;
+#   image = "docker.io/itzg/minecraft-server:latest";
+#   ports = [ "25565:25565" ];
+#   volumes = [
+#     "minecraft:/data"
+#   ];
+#   environment = {
+#     OPS = "adathor";
+#     EULA = "TRUE";
+#     MEMORY = "8G";
+#     USE_AIKAR_FLAGS = "true";
+#     ENABLE_COMMAND_BLOCK = "true" ;
+#     };
+#   };
+#
 virtualisation.oci-containers.containers."minecraft4" = {
   autoStart = true;
   image = "docker.io/itzg/minecraft-server:latest";
@@ -30,6 +30,8 @@ virtualisation.oci-containers.containers."minecraft4" = {
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
+    SIMULATION_DISTANCE = "24";
+    VIEW_DISTANCE = "24";
     };
   };
 
