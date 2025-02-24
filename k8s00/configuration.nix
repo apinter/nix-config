@@ -6,6 +6,7 @@
       # ./hardware-configuration.nix
       ./autoupgrade.nix
       ./systemd.nix
+      ./disk-config.nix
       # ./mesh.nix
       ../common/system/garbagecollect.nix
       ../common/DE/server_packages.nix
