@@ -5,7 +5,7 @@
     [
       # ./hardware-configuration.nix
       ./autoupgrade.nix
-      ./systemd.nix
+      # ./systemd.nix
       ./disk-config.nix
       # ./mesh.nix
       ../common/system/garbagecollect.nix
