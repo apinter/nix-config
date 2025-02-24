@@ -3,7 +3,9 @@
 {
   imports =
     [
-      # ./hardware-configuration.nix
+      (modulesPath + "/installer/scan/not-detected.nix")
+      (modulesPath + "/profiles/qemu-guest.nix")
+      ./hardware-configuration.nix
       ./autoupgrade.nix
       # ./systemd.nix
       ./disk-config.nix
