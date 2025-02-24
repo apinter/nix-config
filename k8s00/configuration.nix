@@ -29,6 +29,10 @@
 
   environment.systemPackages = with pkgs; [
     pkgs.prometheus-systemd-exporter
+    neovim
+    k3s
+    cifs-utils
+    nfs-utils
   ];
 
   users.users.apinter = {
@@ -62,13 +66,6 @@
     };
   };
   virtualisation.docker.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    k3s
-    cifs-utils
-    nfs-utils
-  ];
 
   # services.k3s = {
   #   enable = true;
