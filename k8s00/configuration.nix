@@ -18,9 +18,10 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "nfs" ];
   security.rtkit.enable = true;
   zramSwap.enable = true;
-  networking.hostName = "busybee";
+  networking.hostName = "k8s00";
   networking.networkmanager.enable = true;
   networking.hostId = "681ebfdc";
 
@@ -62,6 +63,30 @@
   };
   virtualisation.docker.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    neovim
+    k3s
+    cifs-utils
+    nfs-utils
+  ];
+
+  # services.k3s = {
+  #   enable = true;
+  #   role = "server";
+  #   tokenFile = /opt/k3s/token;
+  #   extraFlags = toString ([
+	#     "--write-kubeconfig-mode \"0644\""
+	#     "--cluster-init"
+	#     "--disable servicelb"
+	#     "--disable traefik"
+	#     "--disable local-storage"
+  #   ] ++ (if meta.hostname == "k8s00" then [] else [
+	#       "--server https://k8s00:6443"
+  #   ]));
+  #   clusterInit = (meta.hostname == "k8s00");
+  # };
+
+  services.rpcbind.enable = true;
   services.fstrim.enable = true;
   virtualisation.oci-containers.backend = "podman";
   services.xserver.xkb.layout = "us";
@@ -73,22 +98,22 @@
     fileSystems = [ "/" ];
   };
 
-  fileSystems."/data/Crate" = {
-      device = "172.168.1.3:/shirayuki/Crate-data";
-      fsType = "nfs";
-      options = [
-        "timeo=600"
-      ];
-  };
+  # fileSystems."/data/Crate" = {
+  #     device = "172.168.1.3:/shirayuki/Crate-data";
+  #     fsType = "nfs";
+  #     options = [
+  #       "timeo=600"
+  #     ];
+  # };
 
-  fileSystems."/data/Aurora" = {
-      device = "172.168.1.3:/shirayuki/Aurora";
-      fsType = "nfs";
-      options = [
-        "timeo=600"
-      ];
-  };
-  services.prometheus.exporters.systemd.enable = true;
+  # fileSystems."/data/Aurora" = {
+  #     device = "172.168.1.3:/shirayuki/Aurora";
+  #     fsType = "nfs";
+  #     options = [
+  #       "timeo=600"
+  #     ];
+  # };
+  # services.prometheus.exporters.systemd.enable = true;
 
   services.openssh = {
     enable = true;

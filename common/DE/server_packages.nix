@@ -20,6 +20,9 @@
     python312Packages.pip
     python312Packages.docker
     python312Packages.pyyaml
+    cifs-utils
+    nfs-utils
+    neovim
     nebula
   ];
 }
