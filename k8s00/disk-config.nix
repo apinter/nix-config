@@ -48,10 +48,6 @@
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/var";
                   };
-                  "/var" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/var";
-                  };
                   "/root" = {
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/root";
