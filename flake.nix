@@ -90,6 +90,9 @@
         };
       k8s00 = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            meta = { hostname = "k8s00"; };
+        };
         modules = [ 
           ./k8s00/configuration.nix
           disko.nixosModules.disko

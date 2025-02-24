@@ -1,4 +1,4 @@
-{ modulesPath, config, lib, pkgs, ... }:
+{ modulesPath, config, lib, pkgs, meta ... }:
 
 {
   imports =
@@ -70,7 +70,8 @@
   services.k3s = {
     enable = true;
     role = "server";
-    tokenFile = /opt/k3s/token;
+    # tokenFile = /opt/k3s/token;
+    token = "PPWIrPWf8AX7OQL8";
     extraFlags = toString ([
 	    "--write-kubeconfig-mode \"0644\""
 	    "--cluster-init"
