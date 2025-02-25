@@ -83,6 +83,12 @@
     clusterInit = (meta.hostname == "k8s00");
   };
 
+  networking.extraHosts = ''
+    172.168.255.22 k8s00
+    172.168.255.24 k8s01
+    172.168.255.23 k8s02
+  '';
+
   services.rpcbind.enable = true;
   services.fstrim.enable = true;
   virtualisation.oci-containers.backend = "podman";
