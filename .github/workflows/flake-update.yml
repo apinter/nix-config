@@ -17,6 +17,14 @@ jobs:
         env:
           COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
+      - name: Evaluate and test flakes
+        shell: bash
+        run: |
+            export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            git clone -b stable https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
+            cd nix-config
+            cat flake.nix | grep -i nixpkgs.url
+            nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
       - name: Update flakes
         shell: bash
         run: |
@@ -48,6 +56,13 @@ jobs:
         env:
           COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
+      - name: Evaluate and test flakes
+        shell: bash
+        run: |
+            export PATH=/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+            git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
+            cd nix-config 
+            nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
       - name: Update flakes
         shell: bash
         run: |
