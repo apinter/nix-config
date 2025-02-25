@@ -100,6 +100,30 @@
           nixos-hardware.nixosModules.common-pc-ssd
           ];
         };
+      k8s01 = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+            meta = { hostname = "k8s01"; };
+        };
+        modules = [ 
+          ./k8s00/configuration.nix
+          disko.nixosModules.disko
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
+        };
+      k8s02 = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+            meta = { hostname = "k8s02"; };
+        };
+        modules = [ 
+          ./k8s00/configuration.nix
+          disko.nixosModules.disko
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ];
+        };
       };
     };
 }
