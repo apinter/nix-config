@@ -1,4 +1,4 @@
-{ modulesPath, config, lib, pkgs, meta ... }:
+{ modulesPath, config, lib, pkgs, meta, ... }:
 
 {
   imports =
@@ -21,7 +21,7 @@
   boot.supportedFilesystems = [ "nfs" ];
   security.rtkit.enable = true;
   zramSwap.enable = true;
-  networking.hostName = "k8s00";
+  networking.hostName = meta.hostname;
   networking.networkmanager.enable = true;
   networking.hostId = "681ebfdc";
 
@@ -67,21 +67,21 @@
   };
   virtualisation.docker.enable = true;
 
-  # services.k3s = {
-  #   enable = true;
-  #   role = "server";
-  #   # tokenFile = /opt/k3s/token;
-  #   token = "SuperSecretTemporaryTokenPlaceholderForInitAndNotUsedOrCommittedSorryMrHacker";
-  #   extraFlags = toString ([
-	#     "--write-kubeconfig-mode \"0644\""
-	#     "--cluster-init"
-	#     "--disable servicelb"
-	#     "--disable traefik"
-  #   ] ++ (if meta.hostname == "k8s00" then [] else [
-	#       "--server https://k8s00:6443"
-  #   ]));
-  #   clusterInit = (meta.hostname == "k8s00");
-  # };
+  services.k3s = {
+    enable = true;
+    role = "server";
+    # tokenFile = /opt/k3s/token;
+    token = "PPWIrPWf8AX7OQL8";
+    extraFlags = toString ([
+	    "--write-kubeconfig-mode \"0644\""
+	    "--cluster-init"
+	    "--disable servicelb"
+	    "--disable traefik"
+    ] ++ (if meta.hostname == "k8s00" then [] else [
+	      "--server https://k8s00:6443"
+    ]));
+    clusterInit = (meta.hostname == "k8s00");
+  };
 
   services.rpcbind.enable = true;
   services.fstrim.enable = true;

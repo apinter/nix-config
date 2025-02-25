@@ -94,7 +94,7 @@
             meta = { hostname = "k8s00"; };
         };
         modules = [ 
-          ./k8s00/configuration.nix
+          ./k8s/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
@@ -106,7 +106,7 @@
             meta = { hostname = "k8s01"; };
         };
         modules = [ 
-          ./k8s00/configuration.nix
+          ./k8s/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
@@ -118,7 +118,7 @@
             meta = { hostname = "k8s02"; };
         };
         modules = [ 
-          ./k8s00/configuration.nix
+          ./k8s/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd

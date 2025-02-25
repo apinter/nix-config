@@ -22,7 +22,7 @@
     };
 
   environment.systemPackages = with pkgs; [
-    ark
+    kdePackages.ark
     zip
     unzip
     bash

@@ -58,34 +58,7 @@
   ];
 
   users.groups.devops.gid = 5000;
-  
-  environment.systemPackages = with pkgs; [
-    ark
-    zip
-    unzip
-    bash
-    vim
-    wget
-    curl
-    ranger
-    git
-    firefox
-    python3
-    distrobox
-    xorg.xhost
-    gnome-keyring
-    conmon
-    crun
-    slirp4netns
-    su
-    microsoft-edge
-    mesa
-    glxinfo
-    wineWowPackages.stable
-    winetricks
-    pavucontrol
-  ];
-  
+    
   services.pipewire = {
       enable = true;
       alsa.enable = true;
