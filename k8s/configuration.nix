@@ -71,7 +71,7 @@
     enable = true;
     role = "server";
     # tokenFile = /opt/k3s/token;
-    token = "PPWIrPWf8AX7OQL8";
+    token = "SuperSecretTemporaryTokenPlaceholderForInitAndNotUsedOrCommittedSorryMrHacker";
     extraFlags = toString ([
 	    "--write-kubeconfig-mode \"0644\""
 	    "--cluster-init"
