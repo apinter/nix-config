@@ -32,6 +32,7 @@ virtualisation.oci-containers.containers."minecraft4" = {
     USE_AIKAR_FLAGS = "true";
     SIMULATION_DISTANCE = "32";
     VIEW_DISTANCE = "32";
+    DIFFICULTY = "normal";
     };
   };
 
