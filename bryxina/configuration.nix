@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./containers.nix
+      # ./containers.nix
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/system/gitea-runner.nix
       ../common/monitoring/node-exporter.nix
