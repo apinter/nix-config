@@ -14,7 +14,6 @@
       ../common/DE/plasma6.nix
       ../common/hardware/fwupd.nix
       ../common/system/journald.nix
-      ./disk-config.nix
     ];
 
   #boot.kernelPackages = pkgs.linuxPackages_latest;
