@@ -26,7 +26,7 @@ virtualisation.oci-containers.containers."minecraft4" = {
     "minecraft5:/data"
   ];
   environment = {
-    OPS = "adathor,SlicedMother";
+    OPS = "adathor";
     EULA = "TRUE";
     MEMORY = "8G";
     USE_AIKAR_FLAGS = "true";
