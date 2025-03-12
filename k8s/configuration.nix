@@ -6,7 +6,7 @@
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
-      ./autoupgrade.nix
+      # ./autoupgrade.nix
       # ./systemd.nix
       ./disk-config.nix
       # ./mesh.nix
@@ -67,11 +67,16 @@
   };
   virtualisation.docker.enable = true;
 
+  system.activationScripts.createFooFile.text = ''
+      install -m 0644 -o root -g root <(echo "INSTALL_K3S_VERSION=v1.31+k3s1") /etc/k3s.env
+    '';
+
   services.k3s = {
     enable = true;
     role = "server";
     # tokenFile = /opt/k3s/token;
     token = "SuperSecretTemporaryTokenPlaceholderForInitAndNotUsedOrCommittedSorryMrHacker";
+    environmentFile = "/etc/k3s.env";
     extraFlags = toString ([
 	    "--write-kubeconfig-mode \"0644\""
 	    "--cluster-init"
