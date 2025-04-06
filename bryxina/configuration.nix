@@ -119,11 +119,11 @@
       fsType = "nfs";
   };
 
-  fileSystems."/home/bryxina/Steam" =
-    { device = "/dev/disk/by-uuid/af63abd1-5feb-44b7-a012-b9eee36882bb";
-      fsType = "btrfs";
-    };
-  
+  # fileSystems."/home/bryxina/Steam" =
+  #   { device = "/dev/disk/by-uuid/af63abd1-5feb-44b7-a012-b9eee36882bb";
+  #     fsType = "btrfs";
+  #   };
+  # 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true; 
   system.stateVersion = "23.05"; 
