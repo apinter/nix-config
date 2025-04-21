@@ -9,6 +9,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    kitty
     alacritty
     pulseaudio
     pavucontrol
@@ -74,6 +75,8 @@
     pywal
     rofi-wayland
     pulsemixer
+    xdg-user-dirs
+    xdg-desktop-portal
   ];
 
   fonts = {
