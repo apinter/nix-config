@@ -2,7 +2,6 @@
 {
   imports =
   [
-
       ../common/monitoring/node-exporter.nix
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/hardware/accel.nix
