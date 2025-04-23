@@ -1,0 +1,47 @@
+name: tenant
+aqua-server: localhost
+max-db-size: 500MB
+db-verify-interval: 12
+
+routes:
+- name: trivy-reports
+  input: contains(input.ArtifactType, "container_image")
+  actions: [xund-jira]
+  template: trivy-jira-xund
+  plugins:
+    unique-message-props: ["ArtifactName"]
+    unique-message-timeout: 60d
+
+- name: vuls-reports
+  input: any([contains(input.cveContents.nvd[i].cvss2Vector,"AV:N/AC:L/Au:N"),contains(input.cveContents.nvd[i].cvss3Vector,"AV:N/AC:L/PR:N/UI:N")])
+  actions: [xund-jira]
+  template: vuls-jira
+  plugins:
+    unique-message-props: ["digest"]
+    unique-message-timeout: 60d
+
+# Templates are used to format a message
+templates:
+- name: trivy-raw-json
+  rego-package: postee.rawmessage.json
+- name: trivy-jira-xund
+  rego-package: postee.trivy.jira.xund
+- name: vuls-jira
+  rego-package: postee.vuls.jira
+
+# Actions are target services that should consume the messages
+actions:
+- name: stdout
+  type: stdout
+  enable: true
+- name: xund-jira
+  type: jira
+  url: https://xund.atlassian.net
+  project-key: INFRA
+  user: automation@xund.ai
+  password: {{ jira_postee_pw }}
+  issuetype: Bug
+  priority: High
+  unknowns:
+    Responsible squad: "Platform Squad"
+  enable: true

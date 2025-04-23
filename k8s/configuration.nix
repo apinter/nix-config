@@ -13,19 +13,25 @@
       ../common/system/garbagecollect.nix
       ../common/DE/server_packages.nix
       ../common/system/journald.nix
+      ../common/networking/ssh.nix
+      ../common/system/locales.nix
+      ../common/users/adathor.nix
+      ../common/networking/network_manager.nix
+      ../common/system/btrfs.nix
+      ../common/system/docker.nix
+      ../common/system/podman.nix
+      ../common/system/pipewire.nix
+      ../common/system/systemd-boot.nix
+      ../common/system/zram.nix
+      ../common/system/rtkit.nix
+      ../common/networking/fw_off.nix
+      ../common/system/nix_cfg.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "nfs" ];
-  security.rtkit.enable = true;
-  zramSwap.enable = true;
   networking.hostName = meta.hostname;
-  networking.networkmanager.enable = true;
   networking.hostId = "681ebfdc";
-
-  time.timeZone = "Asia/Jakarta";
 
   environment.systemPackages = with pkgs; [
     pkgs.prometheus-systemd-exporter
@@ -34,38 +40,6 @@
     cifs-utils
     nfs-utils
   ];
-
-  users.users.apinter = {
-    isNormalUser = true;
-    password = "pw123";
-    linger = true;
-    home = "/home/apinter";
-    description = "Attila Pinter";
-    extraGroups = [ "wheel" "devops" "podman" "docker"];
-    openssh.authorizedKeys.keys = [ 
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINYgL/PMWtjixH8gzkXuuU03GcgdXFNXfX42HuFGGoHGAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyA" 
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEGr9vLSNBrHSY2RwFHpkXWSCGPtvRqxgVLKduww+1FAAAAABHNzaDo= tw.kazeshini-30-03-2024-adathor-yubikeyC" 
-    ];
-  };
-
-  security.sudo.extraRules = [
-    {
-      groups = [ "devops" ];
-      commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; } ];
-    }
-  ];
-  
-  users.groups.devops.gid = 5000;
-
-  virtualisation = {
-    podman = {
-      enable = true;
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
-    };
-  };
-  virtualisation.docker.enable = true;
 
   system.activationScripts.createFooFile.text = ''
       install -m 0644 -o root -g root <(echo "INSTALL_K3S_VERSION=v1.31+k3s1") /etc/k3s.env
@@ -95,16 +69,9 @@
   '';
 
   services.rpcbind.enable = true;
-  services.fstrim.enable = true;
-  virtualisation.oci-containers.backend = "podman";
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
   services.logind.lidSwitch = "ignore";
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
-  };
 
   # fileSystems."/data/Crate" = {
   #     device = "172.168.1.3:/shirayuki/Crate-data";
@@ -123,14 +90,5 @@
   # };
   # services.prometheus.exporters.systemd.enable = true;
 
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    settings.PermitRootLogin = "no";
-  };
-  networking.firewall.enable = false;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "23.11";
 }
