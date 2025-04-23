@@ -3,6 +3,13 @@
 {
   services.gnome.gnome-keyring.enable = true;
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
+  
+  xdg.mime.enable = true;
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -91,14 +98,10 @@
     dina-font
     proggyfonts
   ];
-      fontconfig.defaultFonts = {
+
+  fontconfig.defaultFonts = {
       serif = [ "Noto Serif" "Source Han Serif" ];
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
   };
 }
