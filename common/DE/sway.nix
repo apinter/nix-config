@@ -96,4 +96,9 @@
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
   };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 }
