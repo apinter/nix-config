@@ -13,6 +13,7 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    wrapperFeatures.base = true;
   };
 
   environment.systemPackages = with pkgs; [
