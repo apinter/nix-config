@@ -3,7 +3,6 @@
 {
   imports =
     [
-      ../common/system/nix_cfg.nix
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/system/gitea-runner.nix
       ../common/monitoring/node-exporter.nix
@@ -28,6 +27,8 @@
       ../common/system/rtkit.nix
       ../common/networking/fw_off.nix
       ../common/hardware/bluetooth.nix
+      ../common/system/nix_cfg.nix
+      ../common/system/flatpak_portals.nix
       ./hardware-configuration.nix
       # ./containers.nix
     ];
