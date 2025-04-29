@@ -3,7 +3,8 @@
 {
   system.autoUpgrade = {
     enable = true;
-    dates = "03:15";
+    # dates = "03:15";
+    dates = "weekly";
     persistent = true;
     flake = "github:apinter/nix-config/stable";
     flags = [ 
