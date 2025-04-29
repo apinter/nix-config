@@ -12,8 +12,8 @@
       "-L"
       ];
     rebootWindow = {
-      lower = "03:00";
-      upper = "05:00";
+      lower = "23:00";
+      upper = "02:00";
     };
     allowReboot = true;
     randomizedDelaySec = "15min";
