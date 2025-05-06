@@ -17,10 +17,13 @@ nixpkgs.config.allowUnfree = true;
   services.printing.cups-pdf.enable = true;
   hardware = {
     sane = {
-      brscan5 = {
+      enable = true;
+      brscan4 = {
         enable = true;
       };
+      extraBackends = [ pkgs.sane-airscan ];
     };
   };
-
+  services.udev.packages = [ pkgs.sane-airscan ];
+  services.ipp-usb.enable=true;
 }
