@@ -2,7 +2,7 @@
 { config, pkgs, callPackage, ... }:
 
 {
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.enableAllFirmware = true;
   services.pulseaudio = {
