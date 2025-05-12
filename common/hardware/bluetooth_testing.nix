@@ -6,8 +6,7 @@
   hardware.bluetooth.enable = true;
 
   hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
+    enable = false;
   };
 
   services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
