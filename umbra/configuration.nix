@@ -9,6 +9,8 @@
       ../common/system/garbagecollect.nix
       ../common/hardware/accel.nix
       ../common/DE/sway.nix
+      ../common/system/pipewire.nix
+      ../common/hardware/bluetooth_testing.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -21,12 +23,6 @@
   time.timeZone = "Asia/Jakarta";
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
@@ -82,8 +78,8 @@
   };
 
   virtualisation.oci-containers.backend = "podman";
-  services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
+  # services.blueman.enable = true;
+  # hardware.bluetooth.enable = true;
   services.fstrim.enable = true;
   services.btrfs.autoScrub = {
     enable = true;
