@@ -10,7 +10,7 @@
       ../common/hardware/accel.nix
       ../common/DE/sway.nix
       ../common/system/pipewire.nix
-      ../common/hardware/bluetooth_testing.nix
+      ../common/hardware/bluetooth.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
