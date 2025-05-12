@@ -1,6 +1,8 @@
 { config, pkgs, callPackage, ... }:
 
 {
+  services.dbus.enable = true;
+
   services.gnome.gnome-keyring.enable = true;
 
   xdg.portal = {
@@ -105,4 +107,17 @@
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
   };
+
+  programs.light.enable = true;
+  programs.sway.extraSessionCommands = ''
+    export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
+    export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+    export SSH_AUTH_SOCK;
+  '';
+  security.pam.services.swaylock.text = ''
+    # PAM configuration file for the swaylock screen locker. By default, it includes
+    # the 'login' configuration file (see /etc/pam.d/login)
+    auth include login
+  '';
 }
