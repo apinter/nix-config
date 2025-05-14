@@ -9,6 +9,7 @@
       ../common/system/garbagecollect.nix
       ../common/hardware/accel.nix
       ../common/DE/sway.nix
+      ../common/DE/greetd.nix
       ../common/system/pipewire.nix
       ../common/hardware/bluetooth.nix
       ../common/system/btrfs.nix
