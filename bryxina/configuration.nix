@@ -11,6 +11,7 @@
       ../common/system/autoupgrade.nix
       # ../common/DE/plasma6.nix
       ../common/DE/sway.nix
+      ../common/DE/greetd.nix
       ../common/hardware/fwupd.nix
       ../common/system/journald.nix
       ../common/networking/ssh.nix
