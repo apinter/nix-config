@@ -43,5 +43,6 @@
       fsType = "nfs";
   };
 
+  hardware.intelgpu.vaapiDriver = "intel-media-driver";
   system.stateVersion = "23.05"; 
 }
