@@ -31,7 +31,6 @@
     curl
     ranger
     git
-    microsoft-edge
     firefox
     python3
     distrobox
