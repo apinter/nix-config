@@ -83,3 +83,28 @@ jobs:
               git commit -m "Automatic flake update"
               git push
             fi
+
+  notify:
+    name: Notify on status
+    runs-on: ubuntu-latest
+    needs: [flake-update, flake-update-unstable]
+    steps:
+      - name: Notification on success
+        uses: lkiesow/matrix-notification@v1
+        if: ${{ always() && needs.flake-update.outputs.status == 'success' && needs.flake-update-unstable.outputs.status == 'success' }}
+        with:
+          server: matrix.adathor.com
+          token: ${{ secrets.MATRIX_TOKEN }}
+          room: '!idoHctmVWleQXBCheb:matrix.adathor.com'
+          message: "🍏 Flakes updated successfully. ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          tool: false
+      - name: Notification on failure
+        uses: lkiesow/matrix-notification@v1
+        if: ${{ always() && (needs.flake-update.outputs.status != 'success' || needs.flake-update-unstable.outputs.status != 'success') }}
+        with:
+          server: matrix.adathor.com
+          token: ${{ secrets.MATRIX_TOKEN }}
+          room: '!idoHctmVWleQXBCheb:matrix.adathor.com'
+          message: "🍎 Flakes update failed. ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          tool: false
+
