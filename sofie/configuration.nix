@@ -31,7 +31,7 @@
       ../common/system/nix_cfg.nix
       ../common/system/flatpak_portals.nix
       ./hardware-configuration.nix
-      ./containers.nix
+      # ./containers.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
