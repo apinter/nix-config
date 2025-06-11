@@ -25,7 +25,6 @@
       ./containers.nix
       ./wireguard.nix
       ./node-exporter.nix
-      ./mesh.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
