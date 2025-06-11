@@ -14,6 +14,7 @@
       ../common/system/locales.nix
       ../common/users/adathor.nix
       ../common/users/throtur.nix
+      ../common/networking/tailscale.nix
       ../common/networking/network_manager.nix
       ../common/system/btrfs.nix
       ../common/system/docker.nix

@@ -17,6 +17,7 @@
       ../common/system/zram.nix
       ../common/system/rtkit.nix
       ../common/networking/network_manager.nix
+      ../common/networking/tailscale.nix
       ../common/networking/fw_off.nix
       ../common/system/nix_cfg.nix
       ./autoupgrade.nix

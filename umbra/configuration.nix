@@ -12,6 +12,7 @@
       ../common/DE/greetd.nix
       ../common/system/pipewire.nix
       ../common/hardware/bluetooth.nix
+      ../common/networking/tailscale.nix
       ../common/system/btrfs.nix
       ../common/system/podman.nix
       ../common/system/nix_cfg.nix

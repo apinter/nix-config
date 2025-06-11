@@ -25,6 +25,7 @@
       ../common/system/zram.nix
       ../common/system/rtkit.nix
       ../common/networking/fw_off.nix
+      ../common/networking/tailscale.nix
       ../common/hardware/bluetooth.nix
       ../common/system/nix_cfg.nix
       ../common/system/flatpak_portals.nix
