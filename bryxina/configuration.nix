@@ -32,6 +32,7 @@
       ../common/system/nix_cfg.nix
       ../common/system/flatpak_portals.nix
       ./hardware-configuration.nix
+      ./tailscale.nix
       # ./containers.nix
     ];
 
