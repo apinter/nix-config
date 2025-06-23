@@ -37,6 +37,7 @@
         modules = [
           ./otong/configuration.nix 
           nixos-hardware.nixosModules.common-pc-ssd
+          nixos-hardware.nixosModules.common-cpu-amd
           ];
         };
       sofie = lib.nixosSystem {
