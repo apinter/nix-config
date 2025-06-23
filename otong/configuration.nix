@@ -32,8 +32,8 @@
       ./containers.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "otong";
 
   fileSystems."/home/nathan/Reno" = {
