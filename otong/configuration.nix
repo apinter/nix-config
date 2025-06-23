@@ -19,7 +19,7 @@
       ../common/system/btrfs.nix
       ../common/system/docker.nix
       ../common/system/podman.nix
-      # ../common/system/kernel.nix
+      ../common/system/kernel.nix
       ../common/system/pipewire.nix
       ../common/system/systemd-boot.nix
       ../common/system/zram.nix
