@@ -39,6 +39,7 @@ systemd.user.services.jellyfin = {
     enable = true;
     description = "Jellyfin-pod";
     after = [ "network-online.target" "basic.target" "data-Aurora.mount" ];
+    requires = [ "data-Aurora.mount" ];
     environment = {
         HOME = "/home/apinter";
         LANG = "en_US.UTF-8";
