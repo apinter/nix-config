@@ -62,6 +62,7 @@ systemd.user.services.jellyfin = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
+        "-${pkgs.bash}/bin/bash -c 'for i in {1..60}; do [ -f /mnt/data-Aurora/imhere ] && exit 0; sleep 2; done; exit 1'"
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest"
         "-${pkgs.podman}/bin/podman pod rm jellyfin-pod"
         ];
