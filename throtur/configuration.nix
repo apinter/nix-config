@@ -17,7 +17,7 @@
       ../common/networking/tailscale.nix
       ../common/networking/network_manager.nix
       ../common/system/btrfs.nix
-      ../common/system/docker.nix
+      # ../common/system/docker.nix
       ../common/system/podman.nix
       ../common/system/kernel.nix
       ../common/system/pipewire.nix
