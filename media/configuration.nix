@@ -22,6 +22,7 @@
       ../common/system/locales.nix
       ../common/system/rtkit.nix
       ../common/system/flatpak_portals.nix
+      ../common/networking/ssh.nix
       ../common/systemd-user/flatpak-auto-update.nix
       ./disk-config.nix
     ];
