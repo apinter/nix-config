@@ -31,6 +31,9 @@
   environment.shells = with pkgs; [ fish ];
   programs.fish.enable = true;
   users.users.apinter.shell = pkgs.fish;
+  environment.systemPackages = with pkgs; [ 
+    pkgs.libcec
+  ];
 
   system.stateVersion = "23.05";
 }
