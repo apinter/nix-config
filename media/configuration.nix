@@ -14,7 +14,7 @@
       ../common/system/pipewire.nix
       ../common/system/autoupgrade.nix
       ../common/system/garbagecollect.nix
-      ../common/system/btrfs.nix
+      # ../common/system/btrfs.nix
       ../common/system/podman.nix
       ../common/system/nix_cfg.nix
       ../common/system/systemd-boot.nix
