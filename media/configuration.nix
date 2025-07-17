@@ -23,6 +23,7 @@
       ../common/system/rtkit.nix
       ../common/system/flatpak_portals.nix
       ../common/systemd-user/flatpak-auto-update.nix
+      ./disk-config.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
