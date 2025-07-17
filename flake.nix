@@ -20,6 +20,10 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
+      media = lib.nixosSystem {
+        inherit system;
+        modules = [ ./media/configuration.nix ];
+        };
       umbra = lib.nixosSystem {
         inherit system;
         modules = [ ./umbra/configuration.nix ];
