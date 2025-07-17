@@ -4,8 +4,8 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      initial_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user mediacenter --time --cmd sway";
         user = "mediacenter";
       };
     };
