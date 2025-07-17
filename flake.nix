@@ -22,7 +22,10 @@
     nixosConfigurations = {
       media = lib.nixosSystem {
         inherit system;
-        modules = [ ./media/configuration.nix ];
+        modules = [ 
+          ./media/configuration.nix
+          disko.nixosModules.disko
+          ];
         };
       umbra = lib.nixosSystem {
         inherit system;

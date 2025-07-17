@@ -3,6 +3,7 @@
 {
   imports =
     [ 
+      (modulesPath + "/installer/scan/not-detected.nix")
       # ./hardware-configuration.nix
       ../common/DE/sway.nix
       ../common/hardware/accel.nix
