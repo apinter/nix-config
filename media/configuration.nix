@@ -36,6 +36,7 @@
   environment.systemPackages = with pkgs; [ 
     pkgs.libcec
   ];
+  documentation.man.generateCaches = false;
 
   system.stateVersion = "23.05";
 }
