@@ -44,6 +44,26 @@
       fsType = "nfs";
   };
 
+  services.borgbackup.job.main = {
+    paths = "/home/bryxina";
+    encryption.mode = "none";
+    repo = "/home/bryxina/Reno";
+    compression = "auto,zstd";
+    startAt = "daily";
+    exclude = [ "/home/bryxina/Reno" ];
+    inhibitsSleep = true;
+    persistentTimer = true;
+    extraCreateArgs = [
+      "--progress"
+      "--stats"
+    ];
+    prune.keep = {
+      daily = 7;
+      weekly = 4;
+      monthly = -1;
+    };
+  }
+
   hardware.intelgpu.vaapiDriver = "intel-media-driver";
   system.stateVersion = "23.05"; 
 }
