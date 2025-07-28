@@ -62,7 +62,7 @@
       weekly = 4;
       monthly = -1;
     };
-  }
+  };
 
   hardware.intelgpu.vaapiDriver = "intel-media-driver";
   system.stateVersion = "23.05"; 
