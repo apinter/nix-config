@@ -44,7 +44,7 @@
       fsType = "nfs";
   };
 
-  services.borgbackup.job.main = {
+  services.borgbackup.jobs.main = {
     paths = "/home/bryxina";
     encryption.mode = "none";
     repo = "/home/bryxina/Reno";
