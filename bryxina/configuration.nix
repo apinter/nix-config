@@ -47,7 +47,7 @@
   services.borgbackup.jobs.main = {
     paths = "/home/bryxina";
     encryption.mode = "none";
-    repo = "/home/bryxina/Reno";
+    repo = "/home/bryxina/Reno/BorgBackup";
     compression = "auto,zstd";
     startAt = "daily";
     exclude = [ "/home/bryxina/Reno" ];
