@@ -510,47 +510,6 @@ systemd.user.services.fileshare= {
     wantedBy = [ "default.target" ];
 };
 
-systemd.user.services.wallabag= {
-    enable = true;
-    description = "wallabag-pod";
-    after = [ "network-online.target" "basic.target" ];
-    environment = {
-        HOME = "/home/apinter";
-        LANG = "en_US.UTF-8";
-        USER = "apinter";
-    };
-    path = [ 
-        "/run/wrappers"
-        pkgs.podman
-        pkgs.bash
-        pkgs.conmon
-        pkgs.crun
-        pkgs.slirp4netns
-        pkgs.su
-        pkgs.shadow
-        pkgs.fuse-overlayfs
-        config.virtualisation.podman.package
-    ];
-    unitConfig = {
-    };
-    serviceConfig = {
-        Type = "simple";
-        TimeoutStartSec = 900;
-        ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/redis"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/wallabag/wallabag"
-        "-${pkgs.podman}/bin/podman pod rm wallabag"
-        ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/wallabag.yml";
-        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/wallabag.yml";
-        Restart = "always";
-        RestartSec=5;
-        RemainAfterExit = true;
-    };
-    wantedBy = [ "default.target" ];
-};
-
 systemd.user.services.searxng= {
     enable = true;
     description = "searxng-pod";
@@ -583,6 +542,47 @@ systemd.user.services.searxng= {
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/searxng.yml";
         ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/searxng.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
+
+systemd.user.services.linkwarden-app= {
+    enable = true;
+    description = "lw-pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/getmeili/meilisearch:v1.12.8"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/postgres:16-alpine"
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/linkwarden/linkwarden:latest"
+        "-${pkgs.podman}/bin/podman pod rm linkwarden"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/linkwarden.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/linkwarden.yml";
         Restart = "always";
         RestartSec=5;
         RemainAfterExit = true;

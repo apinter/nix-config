@@ -44,7 +44,7 @@
       serviceConfig = {
           Type = "oneshot";
           TimeoutStartSec = 900;
-          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart crate jellyfin homepage ara hedgedoc parallel monitoring gitea ittools shopping atuin-syncer authentik-svc mealie-app searxng wallabag fileshare";
+          ExecStart = "${pkgs.systemd}/bin/systemctl --user restart crate jellyfin homepage ara hedgedoc parallel monitoring gitea ittools shopping atuin-syncer authentik-svc mealie-app searxng fileshare linkwarden-app";
           RemainAfterExit = false;
       };
   };
