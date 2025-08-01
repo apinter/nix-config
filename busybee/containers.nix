@@ -629,4 +629,43 @@ systemd.user.services.mealie-app = {
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.user.services.kube-composer-app = {
+    enable = true;
+    description = "kube-composer pod";
+    after = [ "network-online.target" "basic.target" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 120;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/same7ammar/kube-composer:latest"
+        "-${pkgs.podman}/bin/podman pod rm kube-composer"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/kube-composer.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/kube-composer.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
