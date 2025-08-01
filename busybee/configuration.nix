@@ -56,6 +56,37 @@
       ];
   };
   
+  fileSystems."/data/Backup" = {
+      device = "172.168.1.3:/shirayuki/Borg/busybee";
+      fsType = "nfs";
+      options = [
+        "timeo=600"
+      ];
+  };
+
+  services.borgbackup.jobs.main = {
+    paths = "/home";
+    encryption = {
+      mode = "repokey-blake2";
+      passCommand = "cat /root/.secrets/borg_keyfile";
+    };
+    repo = "/data/Backup";
+    compression = "auto,zstd";
+    startAt = "daily";
+    inhibitsSleep = true;
+    persistentTimer = true;
+    extraCreateArgs = [
+      "--progress"
+      "--stats"
+    ];
+    prune.keep = {
+      daily = 7;
+      weekly = 4;
+      monthly = 12;
+      yearly = -1;
+    };
+  };
+
   services.prometheus.exporters.systemd.enable = true;
 
   system.stateVersion = "23.11";
