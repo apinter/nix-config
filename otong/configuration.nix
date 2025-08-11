@@ -8,7 +8,8 @@
       ../common/hardware/accel.nix
       ../common/system/garbagecollect.nix
       ../common/system/autoupgrade.nix
-      ../common/DE/plasma6.nix
+      ../common/DE/gnome.nix
+      # ../common/DE/plasma6.nix
       ../common/hardware/fwupd.nix
       ../common/system/journald.nix
       ../common/networking/ssh.nix
