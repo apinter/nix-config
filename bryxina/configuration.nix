@@ -64,7 +64,14 @@
     };
     postHook = ''
       source /opt/mtx/mtx.env
-      ${pkgs.curl}/bin/curl -X PUT "https://matrix.adathor.com/_matrix/client/r0/rooms/$MY_MTX_ROOMID/send/m.room.message/$(date +%s)?access_token=$MY_MTX_TOKEN" -H "Content-Type: application/json" --data "{\"msgtype\":\"m.text\",\"body\":\"Bryxina's backup status is: $exitStatus\"}"
+
+        if [ "$exitStatus" -eq 0 ]; then
+          borg_status_msg="✅ Success"
+        else
+          borg_status_msg="❌ Failed"
+        fi
+
+      ${pkgs.curl}/bin/curl -X PUT "https://matrix.adathor.com/_matrix/client/r0/rooms/$MY_MTX_ROOMID/send/m.room.message/$(date +%s)?access_token=$MY_MTX_TOKEN" -H "Content-Type: application/json" --data "{\"msgtype\":\"m.text\",\"body\":\"Bryxina's backup status is: $borg_status_msg \"}"
     '';
   };
 
