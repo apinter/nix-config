@@ -16,8 +16,10 @@
 
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
+    adwaita-icon-theme-legacy
     gnomeExtensions.appindicator
     gnome-backgrounds
+    gnome-tweaks
   ];
 
   # nixpkgs.overlays = [
