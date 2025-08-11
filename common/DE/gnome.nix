@@ -6,7 +6,10 @@
     desktopManager.gnome.enable = true;
   }  
 
-  services.udev.packages = [ pkgs.gnome-settings-daemon ];
+  services.udev = {
+    enable = true;
+    packages = [ pkgs.gnome-settings-daemon ];
+  };
 
   services.sysprof.enable = true;
   environment.systemPackages = [ gnome.adwaita-icon-theme ];
