@@ -6,16 +6,18 @@
     desktopManager.gnome.enable = true;
   }  
 
-  # services.udev = {
-  #   enable = true;
-  #   packages = [ pkgs.gnome-settings-daemon ];
-  # };
+  services.udev = {
+    enable = true;
+    packages = [ pkgs.gnome-settings-daemon ];
+  };
 
   services.sysprof.enable = true;
-  environment.systemPackages = [ gnome.adwaita-icon-theme ];
   programs.dconf.enable = true;
 
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  environment.systemPackages = with pkgs; [
+    gnome.adwaita-icon-theme
+    gnomeExtensions.appindicator
+  ];
 
   nixpkgs.overlays = [
     # GNOME 46: triple-buffering-v4-46
@@ -44,5 +46,4 @@
     tali # poker game
     totem # video player
   ]);
-
 }
