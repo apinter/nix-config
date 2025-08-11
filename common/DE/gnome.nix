@@ -13,6 +13,8 @@
 
   services.sysprof.enable = true;
   programs.dconf.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   environment.systemPackages = with pkgs; [
     adwaita-icon-theme
@@ -20,6 +22,7 @@
     gnomeExtensions.appindicator
     gnome-backgrounds
     gnome-tweaks
+    gnome-keyring
   ];
 
   # nixpkgs.overlays = [
