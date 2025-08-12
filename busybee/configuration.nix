@@ -65,6 +65,7 @@
   };
 
   services.borgbackup.jobs.main = {
+    startAt = "*-*-* 05:00:00";
     paths = "/home";
     encryption = {
       mode = "repokey-blake2";
