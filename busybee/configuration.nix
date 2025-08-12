@@ -73,7 +73,6 @@
     };
     repo = "/data/Backup";
     compression = "auto,zstd";
-    startAt = "daily";
     inhibitsSleep = true;
     persistentTimer = true;
     extraCreateArgs = [
