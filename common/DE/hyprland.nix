@@ -88,6 +88,7 @@
     xdg-user-dirs
     xdg-desktop-portal
     xdg-desktop-portal-hyprland
+    hyprpaper
   ];
 
   fonts = {
