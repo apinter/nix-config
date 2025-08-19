@@ -128,4 +128,24 @@
     # the 'login' configuration file (see /etc/pam.d/login)
     auth include login
   '';
+
+  services = {
+    syncthing = {
+      enable = true;
+      group = "mygroupname";
+      user = "apinter";
+      dataDir = "/home/apinter/Project/Syncthing";
+      configDir = "/home/apinter/Project/Syncthing/.config/syncthing";
+      overrideDevices = true;
+      overrideFolders = true;
+      settings = {
+        devices = {
+          "kazeshini" = { id = "XQYSUS5-HNIL4J5-YWGYXM7-TRUCXBD-3U3TPXG-TKMZY5G-7FGTKTY-4J744AL"; };
+        };
+        folders = {
+          };
+        };
+      };
+    };
+  };
 }
