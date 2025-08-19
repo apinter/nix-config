@@ -1,60 +1,19 @@
 { config, pkgs, callPackage, ... }:
 
 {
-
   services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command =
-          "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
-        user = "greeter";
-      };
+    enable = true;                                                         
+    settings = {                                                           
+      default_session = {                                                  
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+        user = "greeter";                                                  
+      };                                                                   
       initial_session = {
         command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-        user = username;
+        user = "greeter";
       };
-    };
+    };                                                                     
   };
-
-  programs.regreet = {
-    enable = true;
-    settings = {
-      background = {
-        path =
-          ../.config/hypr/wallpaper/Simple-Minimalist-Wallpaper-2560x1600-64817.jpg;
-        fit = "Cover";
-      };
-
-      gtk = {
-        application_prefer_dark_theme = true;
-        cursor_theme_name = "Adwaita";
-        font_name = "Cantarell 16";
-        icon_theme_name = "Adwaita";
-        theme_name = "Adwaita";
-      };
-
-      commands = {
-        reboot = [ "systemctl" "reboot" ];
-        poweroff = [ "systemctl" "poweroff" ];
-      };
-
-      cageArgs = {
-        enable = true;
-        cageArgs = [ "-m" "last" ];
-      };
-    };
-  };
-
-  # services.greetd = {
-  #   enable = true;                                                         
-  #   settings = {                                                           
-  #     default_session = {                                                  
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-  #       user = "greeter";                                                  
-  #     };                                                                   
-  #   };                                                                     
-  # };
 
   services.dbus.enable = true;
 
