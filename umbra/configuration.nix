@@ -9,7 +9,6 @@
       ../common/system/garbagecollect.nix
       ../common/hardware/accel.nix
       ../common/system/kernel.nix
-      ../common/DE/greetd.nix
       # ../common/DE/sway.nix
       ../common/DE/hyprland.nix
       ../common/system/pipewire.nix

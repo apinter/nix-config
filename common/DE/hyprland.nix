@@ -1,6 +1,15 @@
 { config, pkgs, callPackage, ... }:
 
 {
+  services.greetd = {
+    enable = true;                                                         
+    settings = {                                                           
+      default_session = {                                                  
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd uwsm start -- hyprland.desktop";
+        user = "greeter";                                                  
+      };                                                                   
+    };                                                                     
+  };
   services.dbus.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
