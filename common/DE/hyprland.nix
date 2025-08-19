@@ -10,12 +10,14 @@
       };                                                                   
     };                                                                     
   };
+
   services.dbus.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
 
   xdg.portal = {
     enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
     wlr.enable = true;
   };
   
