@@ -46,6 +46,14 @@
           "kazeshini" = { id = "XQYSUS5-HNIL4J5-YWGYXM7-TRUCXBD-3U3TPXG-TKMZY5G-7FGTKTY-4J744AL"; };
         };
         folders = {
+          "common" = {
+            id = "kca9y-ijdui";
+            path = "/home/apinter/Project/Syncthing/common";
+            type = "sendreceive";
+            devices = [
+              "kazeshini"
+            ];
+          };
         };
       };
     };
