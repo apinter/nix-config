@@ -1,17 +1,13 @@
-{ config, pkgs, callPackage, meta, ... }:
+{ config, pkgs, callPackage, ... }:
 
 {
   services.greetd = {
     enable = true;                                                         
     settings = {                                                           
       default_session = {                                                  
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         user = "greeter";                                                  
       };                                                                   
-      initial_session = {
-        command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-        user = meta.username;
-      };
     };                                                                     
   };
 

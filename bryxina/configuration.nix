@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, modulesPath, meta, ... }:
+{ config, pkgs, callPackage, modulesPath, ... }:
 
 {
   imports =
