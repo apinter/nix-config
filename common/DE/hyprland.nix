@@ -5,8 +5,7 @@
     enable = true;                                                         
     settings = {                                                           
       default_session = {                                                  
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start -F /run/current-system/sw/bin/Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         user = "greeter";                                                  
       };                                                                   
     };                                                                     
