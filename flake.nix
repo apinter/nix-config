@@ -29,10 +29,16 @@
         };
       umbra = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            meta = { username = "apinter"; };
+        };
         modules = [ ./umbra/configuration.nix ];
         };
       bryxina = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            meta = { username = "bryxina"; };
+        };
         modules = [
           ./bryxina/configuration.nix 
           nixos-hardware.nixosModules.common-cpu-intel
