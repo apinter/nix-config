@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ config, pkgs, callPackage, meta, ... }:
 
 {
   services.greetd = {
