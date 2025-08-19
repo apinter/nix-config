@@ -4,10 +4,10 @@
   services.greetd = {
     enable = true;                                                         
     settings = {                                                           
-      default_session = {                                                  
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
-        user = "greeter";                                                  
-      };                                                                   
+      # default_session = {                                                  
+      #   command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
+      #   user = "greeter";                                                  
+      # };                                                                   
       initial_session = {
         command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
         user = "greeter";
