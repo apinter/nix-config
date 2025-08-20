@@ -99,6 +99,7 @@ systemd.user.services.homepage = {
         HOME = "/home/apinter";
         LANG = "en_US.UTF-8";
         USER = "apinter";
+        DOCKER_CONFIG = "/home/apinter/.docker";
     };
     path = [ 
         "/run/wrappers"
@@ -376,6 +377,7 @@ systemd.user.services.shopping = {
         HOME = "/home/apinter";
         LANG = "en_US.UTF-8";
         USER = "apinter";
+        DOCKER_CONFIG = "/home/apinter/.docker";
     };
     path = [ 
         "/run/wrappers"
