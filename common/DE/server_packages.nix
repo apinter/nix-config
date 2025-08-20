@@ -24,5 +24,6 @@
     nfs-utils
     neovim
     nebula
+    cosign
   ];
 }

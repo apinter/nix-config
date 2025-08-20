@@ -1,6 +1,22 @@
 { config, pkgs, lib, ... }:
 
+let
+
+  cosign_pub = builtins.toFile "cosign.pub" ''
+    -----BEGIN PUBLIC KEY-----
+    MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEwqelXMaoCs40ES5fQj4qsc+sDgLB
+    Rr8QjJW70d1/R5mVBLoTsoEHZ5HLaFwinoAd1+EE/Z1iAu8c8HkOsvnSzA==
+    -----END PUBLIC KEY-----
+  '';
+in
+
 {
+
+system.activationScripts."cosign_pub".text = ''
+  mkdir -p /home/apinter/.secret
+  install -m 0644 -o root -g root ${cosign_pub} /home/apinter/.secret/cosign.pub
+  '';  
+
 systemd.user.services.crate = {
     enable = true;
     description = "Crate";
@@ -103,6 +119,7 @@ systemd.user.services.homepage = {
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/devops/homepage:latest"
+        "${pkgs.cosign}/bin/cosign verify --key=/home/apinter/.secret/cosign.pub registry.adathor.com/devops/homepage:latest"
         "-${pkgs.podman}/bin/podman pod rm homepage-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/homepage.yml";
@@ -499,6 +516,7 @@ systemd.user.services.fileshare= {
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json registry.adathor.com/devops/file-serve:latest"
+        "${pkgs.cosign}/bin/cosign verify --key=/home/apinter/.secret/cosign.pub registry.adathor.com/devops/file-serve:latest"
         "-${pkgs.podman}/bin/podman pod rm file-serve"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/file-serve.yml";
