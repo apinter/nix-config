@@ -29,7 +29,14 @@
         };
       umbra = lib.nixosSystem {
         inherit system;
-        modules = [ ./umbra/configuration.nix ];
+        modules = [ 
+          ./umbra/configuration.nix 
+          home-manager.nixosModules.home-manager 
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          };
+        ];
         };
       bryxina = lib.nixosSystem {
         inherit system;
