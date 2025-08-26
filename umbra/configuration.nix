@@ -21,6 +21,7 @@
       ../common/system/zram.nix
       ../common/system/locales.nix
       ../common/users/adathor.nix
+      ../common/users/sofie.nix
       ../common/system/rtkit.nix
       ../common/system/flatpak_portals.nix
     ];
