@@ -11,6 +11,7 @@
       ../common/system/kernel.nix
       # ../common/DE/sway.nix
       ../common/DE/hyprland.nix
+      ../common/DE/plasma6.nix
       ../common/system/pipewire.nix
       ../common/hardware/bluetooth.nix
       ../common/networking/tailscale.nix

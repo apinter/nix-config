@@ -12,6 +12,7 @@
       # ../common/DE/plasma6.nix
       # ../common/DE/sway.nix
       ../common/DE/hyprland.nix
+      ../common/system/greetd.nix
       ../common/hardware/fwupd.nix
       ../common/system/journald.nix
       ../common/networking/ssh.nix
