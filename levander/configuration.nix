@@ -1,8 +1,10 @@
-{ config, pkgs, callPackage, ... }:
+{ modulesPath, config, lib, pkgs, meta, ... }:
 
 {
   imports =
     [
+      (modulesPath + "/installer/scan/not-detected.nix")
+      (modulesPath + "/profiles/qemu-guest.nix")
       ../common/monitoring/node-exporter.nix
       ../common/systemd-user/flatpak-auto-update.nix
       ../common/hardware/accel.nix
