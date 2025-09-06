@@ -68,6 +68,20 @@
           }
           ];
         };
+      levander = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./levander/configuration.nix
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.apinter = import ./home.nix;
+          }
+          ];
+        };
       throtur = lib.nixosSystem {
         inherit system;
         modules = [
