@@ -11,7 +11,6 @@
       ../common/system/garbagecollect.nix
       ../common/system/autoupgrade.nix
       ../common/DE/plasma6.nix
-      ../common/system/printer.nix
       ../common/hardware/fwupd.nix
       ../common/system/journald.nix
       ../common/networking/ssh.nix
@@ -36,26 +35,7 @@
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  networking.hostName = "sofie";
-
-  fileSystems."/home/sofie/Reno" = {
-      device = "172.168.1.3:/shirayuki/Home/sofie";
-      fsType = "nfs";
-  };
-
-  fileSystems."/home/sofie/VMs" = {
-      device = "/dev/disk/by-uuid/4cca616f-6396-4baa-9370-a2b345b9c57c";
-      fsType = "btrfs";
-      options = [ "compress=zstd:1" ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    pkgs.sane-backends
-    pkgs.gutenprint
-    pkgs.brlaser
-    pkgs.brscan5
-    pkgs.brscan4
-  ];
+  networking.hostName = "levander";
 
   system.stateVersion = "23.05";
 }
