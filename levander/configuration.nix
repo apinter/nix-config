@@ -37,5 +37,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "levander";
 
+  powerManagement.resumeCommands = "${pkgs.kmod}/bin/rmmod atkbd; ${pkgs.kmod}/bin/modprobe atkbd reset=1";
+
   system.stateVersion = "23.05";
 }
