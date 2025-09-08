@@ -46,6 +46,7 @@
     gnome-disk-utility
     gnome-keyring
     kdePackages.kdeconnect-kde
+    kdePackages.print-manager
     pkgs.github-desktop
   ];
 

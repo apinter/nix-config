@@ -9,9 +9,7 @@
       ../common/system/garbagecollect.nix
       ../common/hardware/accel.nix
       ../common/system/kernel.nix
-      # ../common/DE/sway.nix
       ../common/DE/hyprland.nix
-      ../common/DE/plasma6.nix
       ../common/system/pipewire.nix
       ../common/hardware/bluetooth.nix
       ../common/networking/tailscale.nix
@@ -22,7 +20,6 @@
       ../common/system/zram.nix
       ../common/system/locales.nix
       ../common/users/adathor.nix
-      ../common/users/sofie.nix
       ../common/system/rtkit.nix
       ../common/system/flatpak_portals.nix
     ];
