@@ -40,5 +40,6 @@
   powerManagement.resumeCommands = "${pkgs.kmod}/bin/rmmod atkbd; ${pkgs.kmod}/bin/modprobe atkbd reset=1";
   boot.plymouth.enable = true;
 
+  services.printing.enable = true;
   system.stateVersion = "23.05";
 }
