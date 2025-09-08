@@ -30,6 +30,7 @@
       ../common/hardware/bluetooth.nix
       ../common/system/nix_cfg.nix
       ../common/system/flatpak_portals.nix
+      ../common/system/plymouth.nix
       ./containers.nix
     ];
 

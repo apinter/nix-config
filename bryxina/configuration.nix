@@ -31,6 +31,7 @@
       ../common/hardware/bluetooth.nix
       ../common/system/nix_cfg.nix
       ../common/system/flatpak_portals.nix
+      ../common/system/plymouth.nix
       ../common/networking/tailscale.nix
       ./hardware-configuration.nix
       # ./containers.nix

@@ -29,6 +29,7 @@
       ../common/system/nix_cfg.nix
       ../common/system/flatpak_portals.nix
       ../common/networking/ssh.nix
+      ../common/system/plymouth.nix
       ./hardware-configuration.nix
   ];
 
