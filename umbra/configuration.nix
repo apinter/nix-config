@@ -22,6 +22,7 @@
       ../common/users/adathor.nix
       ../common/system/rtkit.nix
       ../common/system/flatpak_portals.nix
+      ../common/system/greetd.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
