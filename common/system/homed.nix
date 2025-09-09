@@ -14,12 +14,12 @@
     enableSSHSupport = true;
   };
 
-  environment.etc."subuid".text = lib.mkForce ''
+  environment.etc."subuid".text = ''
     apinter:100000:65536
     adathor:200000:65536
   '';
 
-  environment.etc."subgid".text = lib.mkForce ''
+  environment.etc."subgid".text = ''
     apinter:100000:65536
     adathor:200000:65536
   '';
