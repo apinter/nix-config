@@ -14,16 +14,13 @@
     enableSSHSupport = true;
   };
 
-  users.users.adathor.subUidRanges = [
-  {
-    count = 165534;
-    startUid = 100001;
-    }
-  ];
-  users.users.adathor.subGidRanges = [
-  {
-    count = 165534;
-    startGid = 100001;
-    }
-  ];
+  environment.etc."subuid".text = lib.mkForce ''
+    apinter:100000:65536
+    adathor:200000:65536
+  '';
+
+  environment.etc."subgid".text = lib.mkForce ''
+    apinter:100000:65536
+    adathor:200000:65536
+  '';
 }
