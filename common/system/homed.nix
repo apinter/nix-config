@@ -14,13 +14,16 @@
     enableSSHSupport = true;
   };
 
-  environment.etc."subuid".text = ''
-    apinter:100000:65536
-    adathor:200000:65536
-  '';
-
-  environment.etc."subgid".text = ''
-    apinter:100000:65536
-    adathor:200000:65536
-  '';
+  users.extraUsers.adathor.subUidRanges = [
+  {
+    count = 65534;
+    startUid = 200000;
+    }
+  ];
+  users.extraUsers.adathor.subGidRanges = [
+  {
+    count = 65534;
+    startGid = 200000;
+    }
+  ];
 }
