@@ -23,7 +23,6 @@
       ../common/system/rtkit.nix
       ../common/system/flatpak_portals.nix
       ../common/system/greetd.nix
-      ../common/system/homed.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
