@@ -18,12 +18,12 @@
   {
     count = 165534;
     startUid = 100001;
-    };
+    }
   ];
   users.users.adathor.subGidRanges = [
   {
     count = 165534;
     startGid = 100001;
-    };
+    }
   ];
 }
