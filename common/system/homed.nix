@@ -14,16 +14,4 @@
     enableSSHSupport = true;
   };
 
-  users.extraUsers.adathor.subUidRanges = [
-  {
-    count = 65534;
-    startUid = 200000;
-    }
-  ];
-  users.extraUsers.adathor.subGidRanges = [
-  {
-    count = 65534;
-    startGid = 200000;
-    }
-  ];
 }
