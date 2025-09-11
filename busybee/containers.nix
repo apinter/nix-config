@@ -36,6 +36,7 @@ systemd.user.services.crate = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -70,6 +71,7 @@ systemd.user.services.jellyfin = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -111,6 +113,7 @@ systemd.user.services.homepage = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -151,6 +154,7 @@ systemd.user.services.ara = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -190,6 +194,7 @@ systemd.user.services.hedgedoc = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -230,6 +235,7 @@ systemd.user.services.parallel = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -269,6 +275,7 @@ systemd.user.services.monitoring = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -308,6 +315,7 @@ systemd.user.services.gitea = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -348,6 +356,7 @@ systemd.user.services.ittools = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -389,6 +398,7 @@ systemd.user.services.shopping = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -428,6 +438,7 @@ systemd.user.services.atuin-syncer = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -468,6 +479,7 @@ systemd.user.services.authentik-svc = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -509,6 +521,7 @@ systemd.user.services.fileshare= {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -549,6 +562,7 @@ systemd.user.services.searxng= {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -588,6 +602,7 @@ systemd.user.services.linkwarden-app= {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -629,6 +644,7 @@ systemd.user.services.mealie-app = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
@@ -669,6 +685,7 @@ systemd.user.services.kube-composer-app = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
