@@ -81,7 +81,6 @@ systemd.user.services.jellyfin = {
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
         "-${pkgs.bash}/bin/bash -c 'for i in {1..30}; do [ -f /mnt/data-Aurora/imhere ] && exit 0; sleep 2; done; exit 1'"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/jellyfin/jellyfin:latest"
         "-${pkgs.podman}/bin/podman pod rm jellyfin-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/jellyfin.yml";
@@ -163,7 +162,6 @@ systemd.user.services.ara = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json quay.io/recordsansible/ara-api:latest"
         "-${pkgs.podman}/bin/podman pod rm ara-api-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/ara.yml";
@@ -203,8 +201,6 @@ systemd.user.services.hedgedoc = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres:13.4-alpine"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json quay.io/hedgedoc/hedgedoc:1.9.9-alpine"
         "-${pkgs.podman}/bin/podman pod rm hedgedoc"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/hedgedoc.yml";
@@ -244,7 +240,6 @@ systemd.user.services.parallel = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/matrixdotorg/synapse:latest"
         "-${pkgs.podman}/bin/podman pod rm parallel-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/parallel.yml";
@@ -284,7 +279,6 @@ systemd.user.services.monitoring = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/matrixdotorg/synapse:latest"
         "-${pkgs.podman}/bin/podman pod rm monitoring"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/monitoring.yml";
@@ -324,8 +318,6 @@ systemd.user.services.gitea = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres:14"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/gitea/gitea:latest-rootless"
         "-${pkgs.podman}/bin/podman pod rm gitea"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/gitea.yml";
@@ -365,7 +357,6 @@ systemd.user.services.ittools = {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/corentinth/it-tools:latest"
         "-${pkgs.podman}/bin/podman pod rm it-tools-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/it-tools.yml";
@@ -407,7 +398,6 @@ systemd.user.services.shopping = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/adathor/shopping-bot:latest"
         "-${pkgs.podman}/bin/podman pod rm shopping-list"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/shopping.yml";
@@ -447,8 +437,6 @@ systemd.user.services.atuin-syncer = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres:14"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/atuinsh/atuin:latest"
         "-${pkgs.podman}/bin/podman pod rm atuin-sync"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/atuin-sync.yml";
@@ -488,9 +476,6 @@ systemd.user.services.authentik-svc = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth2.json docker.io/library/postgres:16-alpine"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth2.json docker.io/library/redis:alpine"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth2.json ghcr.io/goauthentik/server:2024.10.5"
         "-${pkgs.podman}/bin/podman pod rm authentik-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/authentik.yml";
@@ -571,7 +556,6 @@ systemd.user.services.searxng= {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/searxng/searxng:latest"
         "-${pkgs.podman}/bin/podman pod rm searxng-pod"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/searxng.yml";
@@ -611,9 +595,6 @@ systemd.user.services.linkwarden-app= {
         Type = "simple";
         TimeoutStartSec = 900;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/getmeili/meilisearch:v1.12.8"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/postgres:16-alpine"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/linkwarden/linkwarden:latest"
         "-${pkgs.podman}/bin/podman pod rm linkwarden"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/linkwarden.yml";
@@ -653,8 +634,6 @@ systemd.user.services.mealie-app = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/library/postgres:15"
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json ghcr.io/mealie-recipes/mealie:latest"
         "-${pkgs.podman}/bin/podman pod rm mealie"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/mealie.yml";
@@ -694,7 +673,6 @@ systemd.user.services.kube-composer-app = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pull --authfile=/home/apinter/.secret/auth.json docker.io/same7ammar/kube-composer:latest"
         "-${pkgs.podman}/bin/podman pod rm kube-composer"
         ];
         ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/kube-composer.yml";
