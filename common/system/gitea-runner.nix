@@ -20,6 +20,7 @@ systemd.services.gitea-runner = {
         pkgs.su
         pkgs.shadow
         pkgs.fuse-overlayfs
+        pkgs.iptables
         config.virtualisation.podman.package
     ];
     unitConfig = {
