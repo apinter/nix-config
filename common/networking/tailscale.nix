@@ -5,7 +5,7 @@
     enable = true;
     useRoutingFeatures = "both";
     ## leaving it due to build failure
-    package = pkgs.tailscale.overrideAttrs { doCheck = false; };
+    # package = pkgs.tailscale.overrideAttrs { doCheck = false; };
 
   # extraSetFlags = [ ## In case dns resolution is not working
   #   "--accept-dns=false"
