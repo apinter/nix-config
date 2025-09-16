@@ -93,7 +93,7 @@
     playerctl
     pastel
     pywal
-    rofi-wayland
+    rofi
     pulsemixer
     xdg-user-dirs
     xdg-desktop-portal
