@@ -51,5 +51,6 @@
     iagno # go game
     tali # poker game
     totem # video player
+    distrobox
   ]);
 }

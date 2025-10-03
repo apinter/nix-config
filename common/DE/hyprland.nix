@@ -66,7 +66,6 @@
     crun
     slirp4netns
     su
-    distrobox
     skopeo
     buildah
     gnupg
