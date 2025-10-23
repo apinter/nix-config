@@ -7,13 +7,13 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-
+    inputs.sops-nix.url = "github:Mic92/sops-nix";
+    inputs.sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, nixos-hardware, vscode-server, home-manager, disko, ...}:
+  outputs = {self, nixpkgs, nixos-hardware, home-manager, disko, sops-nix, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -103,10 +103,7 @@
           ./busybee/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
-          vscode-server.nixosModules.default
-          ({ config, pkgs, ... }: {
-            services.vscode-server.enable = true;
-          })
+          sops-nix.nixosModules.sops
           ];
         };
       serverus = lib.nixosSystem {

@@ -4,6 +4,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "12:15";
+    operation = "boot";
     persistent = true;
     flake = "github:apinter/nix-config";
     flags = [ 
