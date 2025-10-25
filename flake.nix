@@ -90,6 +90,7 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
+          disko.nixosModules.disko
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
