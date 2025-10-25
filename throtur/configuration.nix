@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ modulesPath, config, pkgs, callPackage, ... }:
 {
   imports =
   [
@@ -17,7 +17,6 @@
       ../common/networking/tailscale.nix
       ../common/networking/network_manager.nix
       ../common/system/btrfs.nix
-      # ../common/system/docker.nix
       ../common/system/podman.nix
       ../common/system/kernel.nix
       ../common/system/pipewire.nix
@@ -30,7 +29,8 @@
       ../common/system/flatpak_portals.nix
       ../common/networking/ssh.nix
       ../common/system/plymouth.nix
-      ./hardware-configuration.nix
+      ./disk-config.nix
+      # ./hardware-configuration.nix
   ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
