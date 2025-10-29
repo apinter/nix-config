@@ -4,25 +4,25 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ../common/systemd-user/flatpak-auto-update.nix
-      ../common/system/autoupgrade.nix
-      ../common/system/garbagecollect.nix
-      ../common/hardware/accel.nix
-      ../common/system/kernel.nix
-      ../common/DE/hyprland.nix
-      ../common/system/pipewire.nix
-      ../common/hardware/bluetooth.nix
-      ../common/networking/tailscale.nix
-      ../common/system/btrfs.nix
-      ../common/system/podman.nix
-      ../common/system/nix_cfg.nix
-      ../common/system/systemd-boot.nix
-      ../common/system/zram.nix
-      ../common/system/locales.nix
-      ../common/users/adathor.nix
-      ../common/system/rtkit.nix
-      ../common/system/flatpak_portals.nix
-      ../common/system/greetd.nix
+      ../modules/systemd-user/flatpak-auto-update.nix
+      ../modules/system/autoupgrade.nix
+      ../modules/system/garbagecollect.nix
+      ../modules/hardware/accel.nix
+      ../modules/system/kernel.nix
+      ../modules/DE/hyprland.nix
+      ../modules/system/pipewire.nix
+      ../modules/hardware/bluetooth.nix
+      ../modules/networking/tailscale.nix
+      ../modules/system/btrfs.nix
+      ../modules/system/podman.nix
+      ../modules/system/nix_cfg.nix
+      ../modules/system/systemd-boot.nix
+      ../modules/system/zram.nix
+      ../modules/system/locales.nix
+      ../modules/users/adathor.nix
+      ../modules/system/rtkit.nix
+      ../modules/system/flatpak_portals.nix
+      ../modules/system/greetd.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;

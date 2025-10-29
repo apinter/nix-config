@@ -10,23 +10,23 @@
       # ./systemd.nix
       ./disk-config.nix
       # ./mesh.nix
-      ../common/system/garbagecollect.nix
-      ../common/DE/server_packages.nix
-      ../common/system/journald.nix
-      ../common/networking/ssh.nix
-      ../common/system/locales.nix
-      ../common/users/adathor.nix
-      ../common/networking/tailscale.nix
-      ../common/networking/network_manager.nix
-      ../common/system/btrfs.nix
-      ../common/system/docker.nix
-      ../common/system/podman.nix
-      ../common/system/pipewire.nix
-      ../common/system/systemd-boot.nix
-      ../common/system/zram.nix
-      ../common/system/rtkit.nix
-      ../common/networking/fw_off.nix
-      ../common/system/nix_cfg.nix
+      ../modules/system/garbagecollect.nix
+      ../modules/DE/server_packages.nix
+      ../modules/system/journald.nix
+      ../modules/networking/ssh.nix
+      ../modules/system/locales.nix
+      ../modules/users/adathor.nix
+      ../modules/networking/tailscale.nix
+      ../modules/networking/network_manager.nix
+      ../modules/system/btrfs.nix
+      ../modules/system/docker.nix
+      ../modules/system/podman.nix
+      ../modules/system/pipewire.nix
+      ../modules/system/systemd-boot.nix
+      ../modules/system/zram.nix
+      ../modules/system/rtkit.nix
+      ../modules/networking/fw_off.nix
+      ../modules/system/nix_cfg.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;

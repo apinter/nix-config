@@ -5,21 +5,21 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
-      ../common/system/garbagecollect.nix
-      ../common/DE/server_packages.nix
-      ../common/system/journald.nix
-      ../common/networking/ssh.nix
-      ../common/system/locales.nix
-      ../common/users/adathor.nix
-      ../common/system/btrfs.nix
-      ../common/system/docker.nix
-      ../common/system/podman.nix
-      ../common/system/zram.nix
-      ../common/system/rtkit.nix
-      ../common/networking/network_manager.nix
-      ../common/networking/tailscale.nix
-      ../common/networking/fw_off.nix
-      ../common/system/nix_cfg.nix
+      ../modules/system/garbagecollect.nix
+      ../modules/DE/server_packages.nix
+      ../modules/system/journald.nix
+      ../modules/networking/ssh.nix
+      ../modules/system/locales.nix
+      ../modules/users/adathor.nix
+      ../modules/system/btrfs.nix
+      ../modules/system/docker.nix
+      ../modules/system/podman.nix
+      ../modules/system/zram.nix
+      ../modules/system/rtkit.nix
+      ../modules/networking/network_manager.nix
+      ../modules/networking/tailscale.nix
+      ../modules/networking/fw_off.nix
+      ../modules/system/nix_cfg.nix
       ./autoupgrade.nix
       ./disk-config.nix
       ./containers.nix

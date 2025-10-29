@@ -5,25 +5,25 @@
     [ 
       (modulesPath + "/installer/scan/not-detected.nix")
       # ./hardware-configuration.nix
-      ../common/DE/sway.nix
-      ../common/hardware/accel.nix
-      ../common/users/adathor.nix
-      ../common/users/media.nix
-      ../common/hardware/bluetooth.nix
-      ../common/networking/tailscale.nix
-      ../common/system/pipewire.nix
-      ../common/system/autoupgrade.nix
-      ../common/system/garbagecollect.nix
-      # ../common/system/btrfs.nix
-      ../common/system/podman.nix
-      ../common/system/nix_cfg.nix
-      ../common/system/systemd-boot.nix
-      ../common/system/zram.nix
-      ../common/system/locales.nix
-      ../common/system/rtkit.nix
-      ../common/system/flatpak_portals.nix
-      ../common/networking/ssh.nix
-      ../common/systemd-user/flatpak-auto-update.nix
+      ../modules/DE/sway.nix
+      ../modules/hardware/accel.nix
+      ../modules/users/adathor.nix
+      ../modules/users/media.nix
+      ../modules/hardware/bluetooth.nix
+      ../modules/networking/tailscale.nix
+      ../modules/system/pipewire.nix
+      ../modules/system/autoupgrade.nix
+      ../modules/system/garbagecollect.nix
+      # ../modules/system/btrfs.nix
+      ../modules/system/podman.nix
+      ../modules/system/nix_cfg.nix
+      ../modules/system/systemd-boot.nix
+      ../modules/system/zram.nix
+      ../modules/system/locales.nix
+      ../modules/system/rtkit.nix
+      ../modules/system/flatpak_portals.nix
+      ../modules/networking/ssh.nix
+      ../modules/systemd-user/flatpak-auto-update.nix
       ./disk-config.nix
     ];
 

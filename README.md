@@ -156,10 +156,10 @@ Import shared modules in your host's `configuration.nix`:
 
 ```nix
 imports = [
-  ../common/DE/hyprland.nix
-  ../common/networking/tailscale.nix
-  ../common/system/autoupgrade.nix
-  ../common/system/garbagecollect.nix
+  ../modules/DE/hyprland.nix
+  ../modules/networking/tailscale.nix
+  ../modules/system/autoupgrade.nix
+  ../modules/system/garbagecollect.nix
 ];
 ```
 

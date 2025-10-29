@@ -3,36 +3,36 @@
 {
   imports =
     [
-      ../common/systemd-user/flatpak-auto-update.nix
-      ../common/system/gitea-runner.nix
-      ../common/monitoring/node-exporter.nix
-      ../common/hardware/accel.nix
-      ../common/system/garbagecollect.nix
-      ../common/system/autoupgrade.nix
-      # ../common/DE/plasma6.nix
-      # ../common/DE/sway.nix
-      ../common/DE/hyprland.nix
-      ../common/hardware/fwupd.nix
-      ../common/system/journald.nix
-      ../common/networking/ssh.nix
-      ../common/system/locales.nix
-      ../common/users/adathor.nix
-      ../common/users/bryxina.nix
-      ../common/networking/network_manager.nix
-      ../common/system/btrfs.nix
-      ../common/system/docker.nix
-      ../common/system/podman.nix
-      ../common/system/kernel.nix
-      ../common/system/pipewire.nix
-      ../common/system/systemd-boot.nix
-      ../common/system/zram.nix
-      ../common/system/rtkit.nix
-      ../common/networking/fw_off.nix
-      ../common/hardware/bluetooth.nix
-      ../common/system/nix_cfg.nix
-      ../common/system/flatpak_portals.nix
-      ../common/system/plymouth.nix
-      ../common/networking/tailscale.nix
+      ../modules/systemd-user/flatpak-auto-update.nix
+      ../modules/system/gitea-runner.nix
+      ../modules/monitoring/node-exporter.nix
+      ../modules/hardware/accel.nix
+      ../modules/system/garbagecollect.nix
+      ../modules/system/autoupgrade.nix
+      # ../modules/DE/plasma6.nix
+      # ../modules/DE/sway.nix
+      ../modules/DE/hyprland.nix
+      ../modules/hardware/fwupd.nix
+      ../modules/system/journald.nix
+      ../modules/networking/ssh.nix
+      ../modules/system/locales.nix
+      ../modules/users/adathor.nix
+      ../modules/users/bryxina.nix
+      ../modules/networking/network_manager.nix
+      ../modules/system/btrfs.nix
+      ../modules/system/docker.nix
+      ../modules/system/podman.nix
+      ../modules/system/kernel.nix
+      ../modules/system/pipewire.nix
+      ../modules/system/systemd-boot.nix
+      ../modules/system/zram.nix
+      ../modules/system/rtkit.nix
+      ../modules/networking/fw_off.nix
+      ../modules/hardware/bluetooth.nix
+      ../modules/system/nix_cfg.nix
+      ../modules/system/flatpak_portals.nix
+      ../modules/system/plymouth.nix
+      ../modules/networking/tailscale.nix
       ./hardware-configuration.nix
       # ./containers.nix
     ];
