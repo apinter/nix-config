@@ -40,7 +40,7 @@
     slirp4netns
     su
     mesa
-    glxinfo
+    mesa-demos 
     wineWowPackages.stable
     winetricks
     gnome-disk-utility
