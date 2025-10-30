@@ -5,7 +5,7 @@
     enable = true;                                                         
     settings = {                                                           
       default_session = {                                                  
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
         user = "greeter";                                                  
       };                                                                   
     };                                                                     
@@ -102,7 +102,7 @@
     packages =  with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     fira-code
     fira-code-symbols

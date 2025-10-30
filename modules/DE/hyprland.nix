@@ -7,8 +7,8 @@
     enable = true;                                                         
     settings = {                                                           
       default_session = {                                                  
-        # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        # command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = "greeter";                                                  
       };                                                                   
     };                                                                     
@@ -106,7 +106,7 @@
     packages =  with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     fira-code
     fira-code-symbols
