@@ -31,6 +31,7 @@
       ../modules/system/plymouth.nix
       ../modules/system/avahi.nix
       ../modules/system/libvirt.nix
+      ../modules/system/cockpit.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
