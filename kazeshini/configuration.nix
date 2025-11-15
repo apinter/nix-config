@@ -2,7 +2,7 @@
 {
   imports =
     [
-      # ./hardware-configuration.nix
+      ./hardware-configuration.nix
       ../modules/monitoring/node-exporter.nix
       ../modules/systemd-user/flatpak-auto-update.nix
       ../modules/hardware/accel.nix
