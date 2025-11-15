@@ -20,6 +20,9 @@
     };
 
   boot.initrd.luks.devices."nixos-crypt".device = "/dev/disk/by-uuid/6c9f33f7-bd96-485a-a8d3-4855bc97f4c9";
+  boot.initrd.luks.devices."Stora0".device = "/dev/disk/by-uuid/4d182351-fad9-44a5-97e0-2ff65b43e620";
+  boot.initrd.luks.devices."Stora1".device = "/dev/disk/by-uuid/361a831d-0a17-49b6-9aff-a7c4b609596d";
+  boot.initrd.luks.devices."Steam".device = "/dev/disk/by-uuid/ea8b590a-66b9-48eb-8523-18ea94fc29f8";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/CC77-66E3";

@@ -30,12 +30,25 @@
       ../modules/system/flatpak_portals.nix
       ../modules/system/plymouth.nix
       ../modules/system/avahi.nix
-      ./containers.nix
+      ../modules/system/libvirt.nix
     ];
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "kazeshini";
+
+  fileSystems."/home/apinter/Steam" = {
+      device = "/dev/disk/by-label/SSData";
+      fsType = "btrfs";
+      options = [ "subvol=Steam" "compress=zstd:1" ];
+  };
+
+  fileSystems."/home/apinter/Storage" = {
+      device = "/dev/disk/by-label/Stora0";
+      fsType = "btrfs";
+      options = [ "subvol=Stora" "compress=zstd:1" ];
+  };
+
 
   system.stateVersion = "25.05";
   hardware.steam-hardware.enable = true;
