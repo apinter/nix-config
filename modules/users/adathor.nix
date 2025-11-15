@@ -3,6 +3,7 @@
 {
   users.users.apinter = {
     isNormalUser = true;
+    initialPassword = "pw123";
     home = "/home/apinter";
     description = "Attila Pinter";
     extraGroups = [ "wheel" "devops" "podman" "docker" "video" ];
