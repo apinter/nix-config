@@ -20,6 +20,14 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
+      kazeshini = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./kazeshini/configuration.nix 
+          nixos-hardware.nixosModules.common-pc-ssd
+          nixos-hardware.nixosModules.common-cpu-amd
+          ];
+        };
       media = lib.nixosSystem {
         inherit system;
         modules = [ 
