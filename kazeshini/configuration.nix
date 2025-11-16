@@ -50,6 +50,13 @@
       options = [ "subvol=Stora" "compress=zstd:1" ];
   };
 
+  services.udev.packages = [ pkgs.yubikey-personalization ];
+  programs.fish.enable = true;
+  users.users.apinter.shell = pkgs.fish;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   system.stateVersion = "25.05";
   hardware.steam-hardware.enable = true;
