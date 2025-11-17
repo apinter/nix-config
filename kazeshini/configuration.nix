@@ -14,6 +14,7 @@
       ../modules/networking/ssh.nix
       ../modules/system/locales.nix
       ../modules/users/adathor.nix
+      ../modules/users/podman.nix
       ../modules/networking/network_manager.nix
       ../modules/system/btrfs.nix
       ../modules/system/docker.nix
