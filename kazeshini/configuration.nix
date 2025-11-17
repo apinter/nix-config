@@ -51,6 +51,7 @@
   };
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.pcscd.enable = true;
   programs.fish.enable = true;
   users.users.apinter.shell = pkgs.fish;
   programs.gnupg.agent = {
