@@ -24,6 +24,15 @@
     gnome-tweaks
     gnome-keyring
     distrobox
+    noto-fonts
+    liberation_ttf
+    hack-font
+    google-fonts
+    roboto
+    roboto-mono
+    noto-fonts
+    ubuntu-sans
+    ubuntu-classic
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
