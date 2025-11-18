@@ -27,7 +27,6 @@
     noto-fonts
     liberation_ttf
     hack-font
-    google-fonts
     roboto
     roboto-mono
     noto-fonts
