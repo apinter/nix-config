@@ -9,6 +9,7 @@
       ../modules/system/garbagecollect.nix
       ../modules/system/autoupgrade.nix
       ../modules/DE/gnome.nix
+      ../modules/system/fonts.nix
       ../modules/hardware/fwupd.nix
       ../modules/system/journald.nix
       ../modules/networking/ssh.nix
