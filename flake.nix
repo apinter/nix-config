@@ -22,6 +22,9 @@
     nixosConfigurations = {
       kazeshini = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            meta = { username = "apinter"; };
+        };
         modules = [
           ./kazeshini/configuration.nix 
           nixos-hardware.nixosModules.common-pc-ssd
