@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ config, pkgs, callPackage, meta, ... }:
 {
   imports =
     [
@@ -39,6 +39,8 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "kazeshini";
+
+  nix.settings.trusted-users = [ "root" meta.username ];
 
   fileSystems."/home/apinter/Steam" = {
       device = "/dev/disk/by-label/SSData";
