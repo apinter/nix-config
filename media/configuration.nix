@@ -4,7 +4,6 @@
   imports =
     [ 
       (modulesPath + "/installer/scan/not-detected.nix")
-      # ./hardware-configuration.nix
       ../modules/DE/sway.nix
       ../modules/hardware/accel.nix
       ../modules/users/adathor.nix
@@ -14,7 +13,6 @@
       ../modules/system/pipewire.nix
       ../modules/system/autoupgrade.nix
       ../modules/system/garbagecollect.nix
-      # ../modules/system/btrfs.nix
       ../modules/system/podman.nix
       ../modules/system/nix_cfg.nix
       ../modules/system/systemd-boot.nix

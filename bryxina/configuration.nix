@@ -37,7 +37,6 @@
       # ./containers.nix
     ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "bryxina";
   
   fileSystems."/home/bryxina/Reno" = {

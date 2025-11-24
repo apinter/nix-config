@@ -36,8 +36,6 @@
       ../modules/system/cockpit.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "kazeshini";
 
   nix.settings.trusted-users = [ "root" meta.username ];

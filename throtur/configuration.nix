@@ -30,10 +30,8 @@
       ../modules/networking/ssh.nix
       ../modules/system/plymouth.nix
       ./disk-config.nix
-      # ./hardware-configuration.nix
   ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "throtur";
   
   fileSystems."/home/throtur/Reno" = {

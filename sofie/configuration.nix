@@ -33,10 +33,8 @@
       ../modules/system/flatpak_portals.nix
       ../modules/system/plymouth.nix
       ./hardware-configuration.nix
-      # ./containers.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "sofie";
 
   fileSystems."/home/sofie/Reno" = {

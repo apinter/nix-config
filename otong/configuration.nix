@@ -9,7 +9,6 @@
       ../modules/system/garbagecollect.nix
       ../modules/system/autoupgrade.nix
       ../modules/DE/gnome.nix
-      # ../modules/DE/plasma6.nix
       ../modules/hardware/fwupd.nix
       ../modules/system/journald.nix
       ../modules/networking/ssh.nix
@@ -35,8 +34,6 @@
       ./containers.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  # boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "otong";
 
   fileSystems."/home/nathan/Reno" = {

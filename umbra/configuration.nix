@@ -25,7 +25,6 @@
       ../modules/system/greetd.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "umbra";
   networking.networkmanager.enable = true;
 

@@ -32,10 +32,8 @@
       ../modules/system/flatpak_portals.nix
       ../modules/system/plymouth.nix
       ./disk-config.nix
-      # ./containers.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "levander";
 
   powerManagement.resumeCommands = "${pkgs.kmod}/bin/rmmod atkbd; ${pkgs.kmod}/bin/modprobe atkbd reset=1";
