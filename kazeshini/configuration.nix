@@ -54,6 +54,11 @@
       options = [ "subvol=Stora" "compress=zstd:1" ];
   };
 
+  fileSystems."/home/apinter/Backup" = {
+      device = "172.168.1.3:/shirayuki/Home/apinter";
+      fsType = "nfs";
+  };
+
   services.udev.packages = [ pkgs.yubikey-personalization ];
   services.pcscd.enable = true;
   programs.fish.enable = true;
