@@ -55,6 +55,7 @@
   fileSystems."/home/apinter/Backup" = {
       device = "172.168.1.3:/shirayuki/Home/apinter";
       fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" ];
   };
 
   services.udev.packages = [ pkgs.yubikey-personalization ];
