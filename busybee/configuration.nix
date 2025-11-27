@@ -7,7 +7,6 @@
       ../modules/system/garbagecollect.nix
       ../modules/DE/server_packages.nix
       ../modules/hardware/fwupd.nix
-      ../modules/system/journald.nix
       ../modules/networking/ssh.nix
       ../modules/system/locales.nix
       ../modules/users/adathor.nix
