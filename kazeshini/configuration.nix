@@ -11,7 +11,6 @@
       ../modules/DE/gnome.nix
       ../modules/system/fonts.nix
       ../modules/hardware/fwupd.nix
-      ../modules/system/journald.nix
       ../modules/networking/ssh.nix
       ../modules/system/locales.nix
       ../modules/users/adathor.nix
