@@ -18,5 +18,8 @@
       /shirayuki/Crate-data         172.168.1.5/32(rw,insecure,sync,no_subtree_check,no_root_squash)
       #/shirayuki/Backup/AutoYaST	  *(ro,subtree_check,root_squash)
       /shirayuki/Borg/busybee       172.168.1.5/32(rw,insecure,no_subtree_check,no_root_squash,sync)
+      /shirayuki/immich             172.168.1.1/32(rw,insecure,sync,no_subtree_check,no_root_squash)
+      /shirayuki/immich             172.168.1.5/32(rw,insecure,sync,no_subtree_check,no_root_squash)
+      /shirayuki/immich             172.168.30.25/32(rw,insecure,sync,no_subtree_check,no_root_squash)
     '';
 }
