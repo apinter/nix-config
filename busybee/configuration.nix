@@ -65,6 +65,14 @@
       ];
   };
 
+  fileSystems."/data/Immich" = {
+      device = "172.168.1.3:/shirayuki/immich";
+      fsType = "nfs";
+      options = [
+        "timeo=600"
+      ];
+  };
+
   fileSystems."/data/Aurora" = {
       device = "172.168.1.3:/shirayuki/Aurora";
       fsType = "nfs";
