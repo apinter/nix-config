@@ -683,4 +683,43 @@ systemd.user.services.kube-composer-app = {
     };
     wantedBy = [ "default.target" ];
 };
+
+systemd.user.services.immich = {
+    enable = true;
+    description = "Immich-pod";
+    after = [ "network-online.target" "basic.target" "data-Immich.mount" ];
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        pkgs.iptables
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    serviceConfig = {
+        Type = "simple";
+        TimeoutStartSec = 900;
+        ExecStartPre = lib.mkBefore [
+        "-${pkgs.podman}/bin/podman pod rm immich-pod"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/immich.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/immich.yml";
+        Restart = "always";
+        RestartSec=5;
+        RemainAfterExit = true;
+    };
+    wantedBy = [ "default.target" ];
+};
 }
