@@ -23,7 +23,10 @@
       kazeshini = lib.nixosSystem {
         inherit system;
         specialArgs = {
-            meta = { username = "apinter"; };
+            meta = { 
+              username = "apinter";
+              greeterDE = "Hyprland"; 
+            };
         };
         modules = [
           ./kazeshini/configuration.nix 
@@ -51,6 +54,12 @@
         };
       bryxina = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            meta = { 
+              username = "bryxina";
+              greeterDE = "Hyprland"; 
+            };
+        };
         modules = [
           ./bryxina/configuration.nix 
           nixos-hardware.nixosModules.common-cpu-intel

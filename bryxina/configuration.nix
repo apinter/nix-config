@@ -9,8 +9,7 @@
       ../modules/hardware/accel.nix
       ../modules/system/garbagecollect.nix
       ../modules/system/autoupgrade.nix
-      # ../modules/DE/plasma6.nix
-      # ../modules/DE/sway.nix
+      ../modules/DE/greetd.nix
       ../modules/DE/hyprland.nix
       ../modules/hardware/fwupd.nix
       ../modules/system/journald.nix
