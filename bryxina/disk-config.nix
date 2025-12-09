@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      disk0 = {
         type = "disk";
         device = "/dev/sdb";
         content = {
@@ -63,8 +63,7 @@
           };
         };
       };
-    };
-      main = {
+      disk1 = {
         type = "disk";
         device = "/dev/sda";
         content = {
@@ -81,6 +80,7 @@
                     mountpoint = "/steam";
                   };
                 # mountpoint = "/partition-root";
+                };
               };
             };
           };
