@@ -74,6 +74,6 @@
     '';
   };
 
-  hardware.intelgpu.vaapiDriver = "intel-media-driver";
+  # hardware.intelgpu.vaapiDriver = "intel-media-driver";
   system.stateVersion = "23.05"; 
 }
