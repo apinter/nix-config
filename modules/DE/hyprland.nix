@@ -21,6 +21,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cliphist
     kitty
     alacritty
     pulseaudio
