@@ -1,9 +1,9 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      disk0 = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/sdb";
         content = {
           type = "gpt";
           partitions = {
@@ -11,13 +11,12 @@
               priority = 1;
               name = "ESP";
               start = "1M";
-              end = "1G";
+              end = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-
               };
             };
             root = {
@@ -59,6 +58,29 @@
                   };
                 };
                 mountpoint = "/partition-root";
+              };
+            };
+          };
+        };
+      };
+      disk1 = {
+        type = "disk";
+        device = "/dev/sda";
+        content = {
+          type = "gpt";
+          partitions = {
+            root = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "/steam" = {
+                    mountOptions = [ "compress=zstd" ];
+                    mountpoint = "/steam";
+                  };
+                # mountpoint = "/partition-root";
+                };
               };
             };
           };

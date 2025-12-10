@@ -107,7 +107,7 @@
         inherit system;
         modules = [
           ./throtur/configuration.nix
-          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
           disko.nixosModules.disko
