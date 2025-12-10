@@ -67,6 +67,11 @@
     enableSSHSupport = true;
   };
 
+  services.xserver = {                                                       
+    enable = true;                                                          
+    xkb.options = "caps:swapescape";
+  };                                                                           
+
   system.stateVersion = "25.05";
   hardware.steam-hardware.enable = true;
 }
