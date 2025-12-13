@@ -23,7 +23,7 @@
       ../modules/system/kernel.nix
       ../modules/system/pipewire.nix
       ../modules/system/systemd-boot.nix
-      ../modules/system/zram.nix
+      # ../modules/system/zram.nix
       ../modules/system/rtkit.nix
       ../modules/networking/fw_off.nix
       ../modules/networking/tailscale.nix
