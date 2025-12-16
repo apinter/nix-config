@@ -5,6 +5,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.hyprlock.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   xdg.portal = {
     enable = true;
