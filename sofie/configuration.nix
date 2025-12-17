@@ -58,7 +58,10 @@
   ];
 
   services.borgbackup.jobs.main = {
-    paths = "/home";
+    paths = [
+      "/home"
+      "/var/lib/containers/storage/volumes"
+    ];
     encryption.mode = "none";
     repo = "/home/sofie/Reno/BorgBackup";
     compression = "auto,zstd";
