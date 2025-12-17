@@ -32,6 +32,7 @@
       ../modules/system/nix_cfg.nix
       ../modules/system/flatpak_portals.nix
       ../modules/system/plymouth.nix
+      ./containers.nix
       ./hardware-configuration.nix
     ];
 
@@ -55,6 +56,40 @@
     pkgs.brscan5
     pkgs.brscan4
   ];
+
+  services.borgbackup.jobs.main = {
+    paths = "/home";
+    encryption.mode = "none";
+    repo = "/home/sofie/Reno/BorgBackup";
+    compression = "auto,zstd";
+    startAt = "daily";
+    exclude = [ 
+      "/home/sofie/Reno"
+      "/home/sofie/VMs"
+    ];
+    inhibitsSleep = true;
+    persistentTimer = true;
+    extraCreateArgs = [
+      "--progress"
+      "--stats"
+    ];
+    prune.keep = {
+      daily = 2;
+      weekly = 4;
+      monthly = -1;
+    };
+    postHook = ''
+      source /opt/mtx/mtx.env
+
+        if [ "$exitStatus" -eq 0 ]; then
+          borg_status_msg="✅ Success"
+        else
+          borg_status_msg="❌ Failed"
+        fi
+
+      ${pkgs.curl}/bin/curl -X PUT "https://matrix.adathor.com/_matrix/client/r0/rooms/$MY_MTX_ROOMID/send/m.room.message/$(date +%s)?access_token=$MY_MTX_TOKEN" -H "Content-Type: application/json" --data "{\"msgtype\":\"m.text\",\"body\":\"$HOSTNAME backup status is: $borg_status_msg \"}"
+    '';
+  };
 
   system.stateVersion = "23.05";
 }
