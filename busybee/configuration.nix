@@ -91,7 +91,7 @@
 
   services.borgbackup.jobs.main = {
     startAt = "*-*-* 05:00:00";
-    paths = "/home";
+    paths = "/.snapshots/HOME-SNAPSHOT";
     encryption = {
       mode = "repokey-blake2";
       passCommand = "cat /root/.secrets/borg_keyfile";
@@ -104,12 +104,18 @@
       "--progress"
       "--stats"
     ];
+
     prune.keep = {
       daily = 7;
       weekly = 4;
       monthly = 12;
       yearly = -1;
     };
+
+    preHook = ''
+      ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot -r /home /.snapshots/HOME-SNAPSHOT
+    '';
+
     postHook = ''
       source /opt/mtx/mtx.env
 
@@ -119,6 +125,7 @@
           borg_status_msg="❌ Failed"
         fi
 
+      ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/HOME-SNAPSHOT
       ${pkgs.curl}/bin/curl -X PUT "https://matrix.adathor.com/_matrix/client/r0/rooms/$MY_MTX_ROOMID/send/m.room.message/$(date +%s)?access_token=$MY_MTX_TOKEN" -H "Content-Type: application/json" --data "{\"msgtype\":\"m.text\",\"body\":\"$HOSTNAME backup status is: $borg_status_msg \"}"
     '';
   };
