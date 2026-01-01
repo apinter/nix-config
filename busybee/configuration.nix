@@ -113,6 +113,14 @@
     };
 
     preHook = ''
+      if [ ! -d "/.snapshots" ]; then
+        ${pkgs.btrfs-progs}/bin/btrfs subvolume create /.snapshots
+      fi
+
+      if [ -d "/.snapshots/HOME-SNAPSHOT" ]; then
+        ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/HOME-SNAPSHOT
+      fi
+
       ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot -r /home /.snapshots/HOME-SNAPSHOT
     '';
 
