@@ -100,6 +100,9 @@
     compression = "auto,zstd";
     inhibitsSleep = true;
     persistentTimer = true;
+    readWritePaths = [
+      "/.snapshots"
+    ];
     extraCreateArgs = [
       "--progress"
       "--stats"
