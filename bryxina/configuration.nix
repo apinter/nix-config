@@ -54,14 +54,16 @@
   };
 
   services.borgbackup.jobs.main = {
-    paths = "/home/bryxina";
+    paths = "/.snapshots/HOME-SNAPSHOT";
     encryption.mode = "none";
     repo = "/home/bryxina/Reno/BorgBackup";
     compression = "auto,zstd";
     startAt = "daily";
-    exclude = [ "/home/bryxina/Reno" ];
     inhibitsSleep = true;
     persistentTimer = true;
+    readWritePaths = [
+      "/.snapshots"
+    ];
     extraCreateArgs = [
       "--progress"
       "--stats"
@@ -71,6 +73,19 @@
       weekly = 4;
       monthly = -1;
     };
+
+    preHook = ''
+      if [ ! -d "/.snapshots" ]; then
+        ${pkgs.btrfs-progs}/bin/btrfs subvolume create /.snapshots
+      fi
+
+      if [ -d "/.snapshots/HOME-SNAPSHOT" ]; then
+        ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/HOME-SNAPSHOT
+      fi
+
+      ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot -r /home /.snapshots/HOME-SNAPSHOT
+    '';
+
     postHook = ''
       source /opt/mtx/mtx.env
 
@@ -80,6 +95,7 @@
           borg_status_msg="❌ Failed"
         fi
 
+      ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/HOME-SNAPSHOT
       ${pkgs.curl}/bin/curl -X PUT "https://matrix.adathor.com/_matrix/client/r0/rooms/$MY_MTX_ROOMID/send/m.room.message/$(date +%s)?access_token=$MY_MTX_TOKEN" -H "Content-Type: application/json" --data "{\"msgtype\":\"m.text\",\"body\":\"$HOSTNAME backup status is: $borg_status_msg \"}"
     '';
   };
