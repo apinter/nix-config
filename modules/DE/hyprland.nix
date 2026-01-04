@@ -7,12 +7,33 @@
   security.pam.services.hyprlock.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+  #   wlr.enable = true;
+  # };
+
+  xdg.autostart.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config = {
+      common = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
+      hyprland = {
+        default = [ "hyprland" "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+        "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
+      };
+    };
   };
-  
+ 
   xdg.mime.enable = true;
 
   programs.hyprland = {
