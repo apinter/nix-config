@@ -22,7 +22,7 @@
       ../modules/users/adathor.nix
       ../modules/system/rtkit.nix
       ../modules/system/flatpak_portals.nix
-      ../modules/system/greetd.nix
+      ../modules/DE/greetd.nix
     ];
 
   networking.hostName = "umbra";
