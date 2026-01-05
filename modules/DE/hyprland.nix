@@ -7,12 +7,6 @@
   security.pam.services.hyprlock.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-  #   wlr.enable = true;
-  # };
-
   xdg.autostart.enable = true;
   xdg.portal = {
     enable = true;

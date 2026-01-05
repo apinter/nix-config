@@ -25,7 +25,7 @@
         specialArgs = {
             meta = { 
               username = "apinter";
-              greeterDE = "Hyprland"; 
+              greeterDE = "start-hyprland"; 
             };
         };
         modules = [
@@ -57,7 +57,7 @@
         specialArgs = {
             meta = { 
               username = "bryxina";
-              greeterDE = "Hyprland"; 
+              greeterDE = "start-hyprland"; 
             };
         };
         modules = [
