@@ -43,6 +43,12 @@
         };
       umbra = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            meta = { 
+              username = "apinter";
+              greeterDE = "start-hyprland"; 
+            };
+        };
         modules = [ 
           ./umbra/configuration.nix 
           home-manager.nixosModules.home-manager 
