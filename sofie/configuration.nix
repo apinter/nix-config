@@ -80,6 +80,10 @@
       weekly = 4;
       monthly = -1;
     };
+    exclude = [ 
+      "**/.cache"
+      "**/.local"
+    ];
 
     preHook = ''
       if [ ! -d "/.snapshots" ]; then
