@@ -83,6 +83,7 @@
     exclude = [ 
       "**/.cache"
       "**/.local"
+      "**/cache"
     ];
 
     preHook = ''
