@@ -68,6 +68,8 @@
     python3
     distrobox
     xorg.xhost
+    adwaita-icon-theme
+    adwaita-icon-theme-legacy
     gnome-keyring
     conmon
     crun
@@ -83,6 +85,7 @@
     playerctl
     brightnessctl
     pamixer
+    xorg.xrandr
     ## Archcraft
     swaybg
     kanshi
@@ -104,8 +107,6 @@
     rofi
     pulsemixer
     xdg-user-dirs
-    xdg-desktop-portal
-    xdg-desktop-portal-hyprland
     hyprpaper
   ];
 
