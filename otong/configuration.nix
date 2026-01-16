@@ -31,7 +31,7 @@
       ../modules/system/flatpak_portals.nix
       ../modules/system/plymouth.nix
       ../modules/system/avahi.nix
-      ./containers.nix
+      # ./containers.nix
     ];
 
   networking.hostName = "otong";

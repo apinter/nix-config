@@ -21,4 +21,19 @@ virtualisation.oci-containers.containers."minecraft-foe" = {
     };
   };
 
+virtualisation.oci-containers.containers."minecraft-crea" = {
+  autoStart = true;
+  image = "docker.io/itzg/minecraft-server:latest";
+  ports = [ "25570:25565" ];
+  volumes = [
+    "minecraft-creative:/data"
+  ];
+  environment = {
+    OPS = "adathor,SlicedMother ";
+    EULA = "TRUE";
+    MEMORY = "8G";
+    USE_AIKAR_FLAGS = "true";
+    ENABLE_COMMAND_BLOCK = "true" ;
+    };
+  };
 }
