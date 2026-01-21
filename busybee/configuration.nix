@@ -91,7 +91,10 @@
 
   services.borgbackup.jobs.main = {
     startAt = "*-*-* 05:00:00";
-    paths = "/.snapshots/HOME-SNAPSHOT";
+    paths = [
+      "/.snapshots/HOME-SNAPSHOT"
+      "/.snapshots/DATA-SNAPSHOT"
+    ];
     encryption = {
       mode = "repokey-blake2";
       passCommand = "cat /root/.secrets/borg_keyfile";
@@ -122,9 +125,11 @@
 
       if [ -d "/.snapshots/HOME-SNAPSHOT" ]; then
         ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/HOME-SNAPSHOT
+        ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/DATA-SNAPSHOT
       fi
 
       ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot -r /home /.snapshots/HOME-SNAPSHOT
+      ${pkgs.btrfs-progs}/bin/btrfs subvolume snapshot -r /data /.snapshots/DATA-SNAPSHOT
     '';
 
     postHook = ''
@@ -137,6 +142,7 @@
         fi
 
       ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/HOME-SNAPSHOT
+        ${pkgs.btrfs-progs}/bin/btrfs subvolume delete /.snapshots/DATA-SNAPSHOT
       ${pkgs.curl}/bin/curl -X PUT "https://matrix.adathor.com/_matrix/client/r0/rooms/$MY_MTX_ROOMID/send/m.room.message/$(date +%s)?access_token=$MY_MTX_TOKEN" -H "Content-Type: application/json" --data "{\"msgtype\":\"m.text\",\"body\":\"$HOSTNAME backup status is: $borg_status_msg \"}"
     '';
   };
