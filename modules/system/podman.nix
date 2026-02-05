@@ -6,6 +6,11 @@
       enable = true;
       autoPrune = {
         enable = true;
+        flags = [ 
+          "--all"
+          "--force"
+          "--volumes"
+        ];
       };
       defaultNetwork.settings = {
         dns_enabled = true;
