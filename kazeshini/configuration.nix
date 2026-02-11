@@ -58,7 +58,14 @@
       options = [ "x-systemd.automount" "noauto" ];
   };
 
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+  services.udev.packages = [ 
+    pkgs.yubikey-personalization
+    pkgs.qmk
+    pkgs.qmk-udev-rules 
+    pkgs.qmk_hid
+    pkgs.via
+    pkgs.vial
+  ];
   services.pcscd.enable = true;
   programs.fish.enable = true;
   users.users.apinter.shell = pkgs.fish;
