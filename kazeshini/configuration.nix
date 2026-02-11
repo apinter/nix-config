@@ -66,6 +66,8 @@
     pkgs.via
     pkgs.vial
   ];
+  environment.systemPackages = with pkgs; [ via ];
+  hardware.keyboard.qmk.enable = true;
   services.pcscd.enable = true;
   programs.fish.enable = true;
   users.users.apinter.shell = pkgs.fish;
