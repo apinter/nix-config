@@ -82,7 +82,7 @@
   };                                                                           
 
   services.borgbackup.jobs.main = {
-    startAt = "daily";
+    startAt = "*-*-* 11:00:00";
     paths = [
       "/.snapshots/HOME-SNAPSHOT"
     ];
