@@ -90,7 +90,7 @@
       mode = "repokey-blake2";
       passCommand = "cat /root/.secrets/borg_keyfile";
     };
-    repo = "/home/apinter/Backup";
+    repo = "/home/apinter/Backup/backup-kazeshini-apinter-nix";
     compression = "auto,zstd";
     inhibitsSleep = true;
     persistentTimer = true;
