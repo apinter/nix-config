@@ -22,6 +22,9 @@ jobs:
         with:
           ref: stable
 
+      - name: Fix permissions
+        run: chown -R $(id -u):$(id -g) $GITHUB_WORKSPACE
+
       - name: Evaluate and test flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
 
@@ -51,6 +54,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Fix permissions
+        run: chown -R $(id -u):$(id -g) $GITHUB_WORKSPACE
 
       - name: Evaluate and test flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
