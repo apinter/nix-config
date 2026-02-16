@@ -13,7 +13,7 @@ jobs:
     name: Update flakes for stable
     runs-on: ubuntu-latest
     container:
-      image: ${{ secrets.DOCKER_USERNAME }}/nix-tw:latest
+      image: docker.io/adathor/nix-tw:latest
       env:
         COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
@@ -45,7 +45,7 @@ jobs:
     name: Update flakes
     runs-on: ubuntu-latest
     container:
-      image: ${{ secrets.DOCKER_USERNAME }}/nix-tw:latest
+      image: docker.io/adathor/nix-tw:latest
       env:
         COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
