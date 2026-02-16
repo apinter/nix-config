@@ -17,25 +17,21 @@ jobs:
       env:
         COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: stable
+
       - name: Evaluate and test flakes
-        shell: bash
-        run: |
-          git clone -b stable https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
-          cd nix-config
-          cat flake.nix | grep -i nixpkgs.url
-          nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
+
       - name: Update flakes
-        shell: bash
-        run: |
-          cd nix-config
-          cat flake.nix | grep -i nixpkgs.url
-          nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+
       - name: Commit and push
-        shell: bash
         run: |
-          cd nix-config
-          git config --global user.email "adathor+flakes@opensuse.org"
-          git config --global user.name "Flake Updater"
+          git config user.email "adathor+flakes@opensuse.org"
+          git config user.name "Flake Updater"
           git add .
           if git diff --cached --quiet; then
             echo "No changes to commit"
@@ -53,24 +49,19 @@ jobs:
       env:
         COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Evaluate and test flakes
-        shell: bash
-        run: |
-          git clone https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config
-          cd nix-config 
-          nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
+
       - name: Update flakes
-        shell: bash
-        run: |
-          cd nix-config 
-          cat flake.nix | grep -i nixpkgs.url
-          nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+
       - name: Commit and push
-        shell: bash
         run: |
-          cd nix-config
-          git config --global user.email "adathor+flakes@opensuse.org"
-          git config --global user.name "Flake Updater (usntable)"
+          git config user.email "adathor+flakes@opensuse.org"
+          git config user.name "Flake Updater (unstable)"
           git add .
           if git diff --cached --quiet; then
             echo "No changes to commit"
