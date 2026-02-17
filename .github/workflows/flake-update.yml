@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.email "adathor+flakes@opensuse.org"
           git config user.name "Flake Updater"
-          git remote set-url origin https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config.git
+          # git remote set-url origin https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config.git
           git add .
           if git diff --cached --quiet; then
             echo "No changes to commit"
@@ -72,7 +72,7 @@ jobs:
         run: |
           git config user.email "adathor+flakes@opensuse.org"
           git config user.name "Flake Updater (unstable)"
-          git remote set-url origin https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config.git
+          # git remote set-url origin https://apinter:$COMMIT_TOKEN_GITHUB@github.com/apinter/nix-config.git
           git add .
           if git diff --cached --quiet; then
             echo "No changes to commit"
