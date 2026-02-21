@@ -21,6 +21,20 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
+      stable-test = nixpkgs-stable.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+            meta = { 
+              hostname = "k8s00";
+            };
+        };
+        modules = [ 
+          ./k8s/configuration.nix
+          disko.nixosModules.disko
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+        ];
+      };
       kazeshini = lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -147,7 +161,6 @@
       k8s00 = lib.nixosSystem {
         inherit system;
         specialArgs = {
-            pkgs = nixpkgs-stable.legacyPackages.${system};
             meta = { 
               hostname = "k8s00";
             };
