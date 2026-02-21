@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -13,7 +14,7 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, nixos-hardware, home-manager, disko, sops-nix, ...}:
+  outputs = {self, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, disko, sops-nix, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -146,7 +147,10 @@
       k8s00 = lib.nixosSystem {
         inherit system;
         specialArgs = {
-            meta = { hostname = "k8s00"; };
+            meta = { 
+              hostname = "k8s00";
+              pkgs = nixpkgs-stable.legacyPackages.${system};
+            };
         };
         modules = [ 
           ./k8s/configuration.nix
