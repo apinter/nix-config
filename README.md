@@ -77,6 +77,25 @@ Systems using **disko** for declarative disk partitioning:
 - k8s00, k8s01, k8s02
 
 ## Usage
+### Local Installation
+
+Download, flash, and boot from the [NixOS](https://nixos.org/download/) installation media.
+
+Ideally there is a `disk-configuration.nix` file for the target system that can be used with `disko`. If there is isn't you need to configure the disk manually, otherwise:
+
+```bash
+sudo nix \
+  --experimental-features "nix-command flakes" \
+  run github:nix-community/disko -- \
+  --mode disko /path/to/my/disko-config.nix
+```
+
+Followed by:
+
+```bash
+cd /mnt
+sudo nixos-install --flake github:apinter/nix-config#hostname
+```
 
 ### Remote Installation with nixos-anywhere
 

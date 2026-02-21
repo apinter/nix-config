@@ -147,9 +147,9 @@
       k8s00 = lib.nixosSystem {
         inherit system;
         specialArgs = {
+            pkgs = nixpkgs-stable.legacyPackages.${system};
             meta = { 
               hostname = "k8s00";
-              pkgs = nixpkgs-stable.legacyPackages.${system};
             };
         };
         modules = [ 
