@@ -3,49 +3,12 @@ on:
   push:
     branches:
       - main
-      - stable
   schedule:
     - cron: "0 8 * * *"
   workflow_dispatch:
 
 jobs:
   flake-update:
-    name: Update flakes for stable
-    runs-on: ubuntu-latest
-    container:
-      image: docker.io/adathor/nix-tw:latest
-      env:
-        COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: stable
-          token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
-
-      - name: Fix permissions
-        run: chown -R $(id -u):$(id -g) $GITHUB_WORKSPACE
-
-      - name: Evaluate and test flakes
-        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build
-
-      - name: Update flakes
-        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
-
-      - name: Commit and push
-        run: |
-          git config user.email "adathor+flakes@opensuse.org"
-          git config user.name "Flake Updater"
-          git add .
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          else
-            git commit -m "Automatic flake update"
-            git push
-          fi
-
-  flake-update-unstable:
     name: Update flakes
     runs-on: ubuntu-latest
     container:
@@ -83,11 +46,11 @@ jobs:
   notify:
     name: Notify on status
     runs-on: ubuntu-latest
-    needs: [flake-update, flake-update-unstable]
+    needs: [flake-update]
     steps:
       - name: Notification on success
         uses: lkiesow/matrix-notification@v1
-        if: ${{ always() && needs.flake-update.result == 'success' && needs.flake-update-unstable.result == 'success' }}
+        if: ${{ always() && needs.flake-update.result == 'success' }}
         with:
           server: matrix.adathor.com
           token: ${{ secrets.MATRIX_TOKEN }}
@@ -96,7 +59,7 @@ jobs:
           tool: false
       - name: Notification on failure
         uses: lkiesow/matrix-notification@v1
-        if: ${{ always() && (needs.flake-update.result != 'success' || needs.flake-update-unstable.result != 'success') }}
+        if: ${{ always() && (needs.flake-update.result != 'success' ) }}
         with:
           server: matrix.adathor.com
           token: ${{ secrets.MATRIX_TOKEN }}
