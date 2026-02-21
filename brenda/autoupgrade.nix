@@ -6,7 +6,7 @@
     # dates = "03:15";
     dates = "weekly";
     persistent = true;
-    flake = "github:apinter/nix-config/stable";
+    flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
       "-L"
