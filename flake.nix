@@ -25,7 +25,6 @@
         inherit system;
         modules = [ ./brenda/configuration.nix ];
         };
-      };
       kazeshini = lib.nixosSystem {
         inherit system;
         specialArgs = {
