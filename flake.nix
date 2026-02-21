@@ -21,19 +21,10 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      stable-test = nixpkgs-stable.lib.nixosSystem {
+      brenda = nixpkgs-stable.lib.nixosSystem {
         inherit system;
-        specialArgs = {
-            meta = { 
-              hostname = "k8s00";
-            };
+        modules = [ ./brenda/configuration.nix ];
         };
-        modules = [ 
-          ./k8s/configuration.nix
-          disko.nixosModules.disko
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-pc-ssd
-        ];
       };
       kazeshini = lib.nixosSystem {
         inherit system;
