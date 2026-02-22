@@ -3,14 +3,14 @@
 {
   system.autoUpgrade = {
     enable = true;
-    dates = "02:15";
+    dates = "weekly";
     persistent = true;
     flake = "github:apinter/nix-config";
     flags = [ 
       "--no-write-lock-file"
       ];
     rebootWindow = {
-      lower = "02:00";
+      lower = "00:00";
       upper = "04:00";
     };
     allowReboot = true;

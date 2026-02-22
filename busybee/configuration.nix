@@ -4,7 +4,7 @@
   imports =
     [
       ../modules/monitoring/node-exporter.nix
-      ../modules/system/garbagecollect.nix
+      # ../modules/system/garbagecollect.nix
       ../modules/DE/server_packages.nix
       ../modules/hardware/fwupd.nix
       ../modules/networking/ssh.nix
