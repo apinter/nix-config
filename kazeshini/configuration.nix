@@ -8,7 +8,6 @@
       ../modules/hardware/accel.nix
       ../modules/system/garbagecollect.nix
       ../modules/system/autoupgrade.nix
-      ../modules/system/printer.nix
       ../modules/DE/gnome.nix
       ../modules/DE/hyprland.nix
       ../modules/system/fonts.nix
@@ -59,14 +58,24 @@
       options = [ "x-systemd.automount" "noauto" ];
   };
 
-  services.udev.packages = [ 
-    pkgs.yubikey-personalization
-    pkgs.qmk
-    pkgs.qmk-udev-rules 
-    pkgs.qmk_hid
-    pkgs.via
-    pkgs.vial
-  ];
+  services = {
+    udev.packages = [ 
+      pkgs.yubikey-personalization
+      pkgs.qmk
+      pkgs.qmk-udev-rules 
+      pkgs.qmk_hid
+      pkgs.via
+      pkgs.vial
+    ];
+    printing = {
+      enable = true;
+      cups-pdf.enable = true;
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+    };
+  };
   environment.systemPackages = with pkgs; [ via ];
   hardware.keyboard.qmk.enable = true;
   services.pcscd.enable = true;
