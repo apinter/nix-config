@@ -25,9 +25,9 @@
     udev = {
       packages = [ pkgs.sane-airscan ];
     };
-    ipp-usb = {
-      enable=true;
-    };
+    # ipp-usb = {
+    #   enable=true;
+    # };
   };
   hardware = {
     sane = {
