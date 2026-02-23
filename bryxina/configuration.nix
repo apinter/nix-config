@@ -31,6 +31,7 @@
       ../modules/system/nix_cfg.nix
       ../modules/system/flatpak_portals.nix
       ../modules/system/plymouth.nix
+      ../modules/system/printer_user.nix
       ../modules/networking/tailscale.nix
       ./hardware-configuration.nix
       # ./containers.nix

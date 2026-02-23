@@ -25,6 +25,7 @@
       ../modules/system/systemd-boot.nix
       ../modules/system/zram.nix
       ../modules/system/rtkit.nix
+      ../modules/system/printer_user.nix
       ../modules/networking/fw_off.nix
       ../modules/networking/tailscale.nix
       ../modules/hardware/bluetooth.nix
@@ -67,14 +68,6 @@
       pkgs.via
       pkgs.vial
     ];
-    printing = {
-      enable = true;
-      cups-pdf.enable = true;
-    };
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-    };
     pcscd = {
       enable = true;
     };
