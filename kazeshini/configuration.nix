@@ -8,6 +8,7 @@
       ../modules/hardware/accel.nix
       ../modules/system/garbagecollect.nix
       ../modules/system/autoupgrade.nix
+      ../modules/system/printer.nix
       ../modules/DE/gnome.nix
       ../modules/DE/hyprland.nix
       ../modules/system/fonts.nix
