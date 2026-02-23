@@ -75,21 +75,22 @@
       enable = true;
       nssmdns4 = true;
     };
+    pcscd = {
+      enable = true;
+    };
+    xserver = {
+      enable = true;
+      xkb.options = "caps:swapescape";
+    };
   };
   environment.systemPackages = with pkgs; [ via ];
   hardware.keyboard.qmk.enable = true;
-  services.pcscd.enable = true;
   programs.fish.enable = true;
   users.users.apinter.shell = pkgs.fish;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
-
-  services.xserver = {                                                       
-    enable = true;                                                          
-    xkb.options = "caps:swapescape";
-  };                                                                           
 
   services.borgbackup.jobs.main = {
     startAt = "*-*-* 11:00:00";
