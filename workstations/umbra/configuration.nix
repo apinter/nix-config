@@ -19,6 +19,7 @@
       ../../modules/system/zram.nix
       ../../modules/system/locales.nix
       ../../modules/users/adathor.nix
+      ../../modules/users/devops_group.nix
       ../../modules/system/rtkit.nix
       ../../modules/system/flatpak_portals.nix
       ../../modules/DE/greetd.nix

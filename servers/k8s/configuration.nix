@@ -12,6 +12,7 @@
       ../../modules/system/journald.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
+      ../../modules/users/devops_group.nix
       ../../modules/users/adathor.nix
       ../../modules/networking/tailscale.nix
       ../../modules/networking/network_manager.nix

@@ -15,6 +15,7 @@
       ../../modules/system/locales.nix
       ../../modules/users/adathor.nix
       ../../modules/users/podman.nix
+      ../../modules/users/devops_group.nix
       ../../modules/networking/network_manager.nix
       ../../modules/system/btrfs.nix
       ../../modules/system/docker.nix

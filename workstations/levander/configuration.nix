@@ -17,6 +17,7 @@
       ../../modules/system/locales.nix
       ../../modules/users/sofie.nix
       ../../modules/users/adathor.nix
+      ../../modules/users/devops_group.nix
       ../../modules/networking/network_manager.nix
       ../../modules/system/btrfs.nix
       ../../modules/system/podman.nix

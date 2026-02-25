@@ -14,6 +14,7 @@
       ../../modules/system/locales.nix
       ../../modules/users/adathor.nix
       ../../modules/users/throtur.nix
+      ../../modules/users/devops_group.nix
       ../../modules/networking/tailscale.nix
       ../../modules/networking/network_manager.nix
       ../../modules/system/btrfs.nix

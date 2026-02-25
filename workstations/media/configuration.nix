@@ -8,6 +8,7 @@
       ../../modules/hardware/accel.nix
       ../../modules/users/adathor.nix
       ../../modules/users/media.nix
+      ../../modules/users/devops_group.nix
       ../../modules/hardware/bluetooth.nix
       ../../modules/networking/tailscale.nix
       ../../modules/system/pipewire.nix

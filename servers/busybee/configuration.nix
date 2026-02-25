@@ -9,6 +9,7 @@
       ../../modules/hardware/fwupd.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
+      ../../modules/users/devops_group.nix
       ../../modules/users/adathor.nix
       ../../modules/networking/network_manager.nix
       ../../modules/system/btrfs.nix
