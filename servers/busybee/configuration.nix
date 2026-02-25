@@ -3,24 +3,24 @@
 {
   imports =
     [
-      ../modules/monitoring/node-exporter.nix
       # ../modules/system/garbagecollect.nix
-      ../modules/DE/server_packages.nix
-      ../modules/hardware/fwupd.nix
-      ../modules/networking/ssh.nix
-      ../modules/system/locales.nix
-      ../modules/users/adathor.nix
-      ../modules/networking/network_manager.nix
-      ../modules/system/btrfs.nix
-      ../modules/system/docker.nix
-      ../modules/system/podman.nix
-      ../modules/system/pipewire.nix
-      ../modules/system/systemd-boot.nix
-      ../modules/system/zram.nix
-      ../modules/system/rtkit.nix
-      ../modules/networking/fw_off.nix
-      ../modules/networking/tailscale.nix
-      ../modules/system/nix_cfg.nix
+      ../../modules/monitoring/node-exporter.nix
+      ../../modules/DE/server_packages.nix
+      ../../modules/hardware/fwupd.nix
+      ../../modules/networking/ssh.nix
+      ../../modules/system/locales.nix
+      ../../modules/users/adathor.nix
+      ../../modules/networking/network_manager.nix
+      ../../modules/system/btrfs.nix
+      ../../modules/system/docker.nix
+      ../../modules/system/podman.nix
+      ../../modules/system/pipewire.nix
+      ../../modules/system/systemd-boot.nix
+      ../../modules/system/zram.nix
+      ../../modules/system/rtkit.nix
+      ../../modules/networking/fw_off.nix
+      ../../modules/networking/tailscale.nix
+      ../../modules/system/nix_cfg.nix
       ./hardware-configuration.nix
       ./autoupgrade.nix
       ./containers.nix

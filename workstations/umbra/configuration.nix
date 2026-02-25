@@ -3,26 +3,26 @@
 {
   imports =
     [ 
+      ../../modules/systemd-user/flatpak-auto-update.nix
+      ../../modules/system/autoupgrade.nix
+      ../../modules/system/garbagecollect.nix
+      ../../modules/hardware/accel.nix
+      ../../modules/system/kernel.nix
+      ../../modules/DE/hyprland.nix
+      ../../modules/system/pipewire.nix
+      ../../modules/hardware/bluetooth.nix
+      ../../modules/networking/tailscale.nix
+      ../../modules/system/btrfs.nix
+      ../../modules/system/podman.nix
+      ../../modules/system/nix_cfg.nix
+      ../../modules/system/systemd-boot.nix
+      ../../modules/system/zram.nix
+      ../../modules/system/locales.nix
+      ../../modules/users/adathor.nix
+      ../../modules/system/rtkit.nix
+      ../../modules/system/flatpak_portals.nix
+      ../../modules/DE/greetd.nix
       ./hardware-configuration.nix
-      ../modules/systemd-user/flatpak-auto-update.nix
-      ../modules/system/autoupgrade.nix
-      ../modules/system/garbagecollect.nix
-      ../modules/hardware/accel.nix
-      ../modules/system/kernel.nix
-      ../modules/DE/hyprland.nix
-      ../modules/system/pipewire.nix
-      ../modules/hardware/bluetooth.nix
-      ../modules/networking/tailscale.nix
-      ../modules/system/btrfs.nix
-      ../modules/system/podman.nix
-      ../modules/system/nix_cfg.nix
-      ../modules/system/systemd-boot.nix
-      ../modules/system/zram.nix
-      ../modules/system/locales.nix
-      ../modules/users/adathor.nix
-      ../modules/system/rtkit.nix
-      ../modules/system/flatpak_portals.nix
-      ../modules/DE/greetd.nix
     ];
 
   networking.hostName = "umbra";

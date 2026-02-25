@@ -3,6 +3,7 @@
 {
 
   nixpkgs.config.allowUnfree = true;
+
   services = {
     printing = {
       enable = true;
@@ -13,6 +14,7 @@
       defaultShared = true;
       cups-pdf.enable = true;
     };
+
     avahi = {
       enable = true;
       nssmdns4 = true;
@@ -22,10 +24,12 @@
         userServices = true;
       };
     };
+
     udev = {
       packages = [ pkgs.sane-airscan ];
     };
   };
+
   hardware = {
     sane = {
       enable = true;

@@ -4,7 +4,6 @@
   users.users.bryxina = {
     initialPassword = "pw123";
     isNormalUser = true;
-    extraGroups = [ "video" "scanner" "lp" ];
+    extraGroups = [ "video" "scanner" "lp" "devops" ];
   };
-
 }

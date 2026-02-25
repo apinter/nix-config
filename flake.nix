@@ -21,10 +21,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
     nixosConfigurations = {
-      brenda = nixpkgs-stable.lib.nixosSystem {
-        inherit system;
-        modules = [ ./brenda/configuration.nix ];
-        };
       kazeshini = lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -34,35 +30,38 @@
             };
         };
         modules = [
-          ./kazeshini/configuration.nix 
+          ./workstations/kazeshini/configuration.nix 
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-amd
-          ];
-        };
+        ];
+      };
+
       media = lib.nixosSystem {
         inherit system;
         modules = [ 
           ./media/configuration.nix
           disko.nixosModules.disko
-          ];
-        };
+        ];
+      };
+
       umbra = lib.nixosSystem {
         inherit system;
         specialArgs = {
             meta = { 
               username = "apinter";
               greeterDE = "start-hyprland"; 
-            };
+          };
         };
         modules = [ 
-          ./umbra/configuration.nix 
+          ./workstations/umbra/configuration.nix 
           home-manager.nixosModules.home-manager 
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
           }
         ];
-        };
+      };
+
       bryxina = lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -72,24 +71,26 @@
             };
         };
         modules = [
-          ./bryxina/configuration.nix 
+          ./workstations/bryxina/configuration.nix 
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
           sops-nix.nixosModules.sops
-          ];
-        };
+        ];
+      };
+
       otong = lib.nixosSystem {
         inherit system;
         modules = [
-          ./otong/configuration.nix 
+          ./workstations/otong/configuration.nix 
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-amd
           ];
-        };
+      };
+
       sofie = lib.nixosSystem {
         inherit system;
         modules = [
-          ./sofie/configuration.nix
+          ./workstations/sofie/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
@@ -98,12 +99,13 @@
             home-manager.useUserPackages = true;
             home-manager.users.apinter = import ./home.nix;
           }
-          ];
-        };
+        ];
+      };
+
       levander = lib.nixosSystem {
         inherit system;
         modules = [
-          ./levander/configuration.nix
+          ./workstations/levander/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
@@ -113,12 +115,13 @@
             home-manager.useUserPackages = true;
             home-manager.users.apinter = import ./home.nix;
           }
-          ];
-        };
+        ];
+      };
+
       throtur = lib.nixosSystem {
         inherit system;
         modules = [
-          ./throtur/configuration.nix
+          ./workstations/throtur/configuration.nix
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
           home-manager.nixosModules.home-manager
@@ -128,26 +131,34 @@
             home-manager.useUserPackages = true;
             home-manager.users.apinter = import ./home.nix;
           }
-          ];
-        };
+        ];
+      };
+
+      brenda = nixpkgs-stable.lib.nixosSystem {
+        inherit system;
+        modules = [ ./servers//brenda/configuration.nix ];
+      };
+
       busybee = lib.nixosSystem {
         inherit system;
         modules = [ 
-          ./busybee/configuration.nix
+          ./servers/busybee/configuration.nix
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           sops-nix.nixosModules.sops
-          ];
-        };
+        ];
+      };
+
       serverus = lib.nixosSystem {
         inherit system;
         modules = [ 
-          ./serverus/configuration.nix
+          ./servers/serverus/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
-          ];
-        };
+        ];
+      };
+
       k8s00 = lib.nixosSystem {
         inherit system;
         specialArgs = {
@@ -156,36 +167,38 @@
             };
         };
         modules = [ 
-          ./k8s/configuration.nix
+          ./servers/k8s/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
-          ];
-        };
+        ];
+      };
+
       k8s01 = lib.nixosSystem {
         inherit system;
         specialArgs = {
             meta = { hostname = "k8s01"; };
         };
         modules = [ 
-          ./k8s/configuration.nix
+          ./servers/k8s/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
-          ];
-        };
+        ];
+      };
+
       k8s02 = lib.nixosSystem {
         inherit system;
         specialArgs = {
             meta = { hostname = "k8s02"; };
         };
         modules = [ 
-          ./k8s/configuration.nix
+          ./servers/k8s/configuration.nix
           disko.nixosModules.disko
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
-          ];
-        };
+        ];
       };
     };
+  };
 }

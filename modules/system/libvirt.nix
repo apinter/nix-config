@@ -10,8 +10,15 @@
   };
 
   programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = [ meta.username ];
-  users.groups.kvm.members = [ meta.username ];
+
+  users = {
+    groups = { 
+      libvirtdmembers = [ meta.username ];
+      kvm = {
+        members = [ meta.username ];
+      };
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     gnome-boxes

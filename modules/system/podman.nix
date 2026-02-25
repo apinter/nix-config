@@ -16,6 +16,6 @@
         dns_enabled = true;
       };
     };
+    oci-containers.backend = "podman";
   };
-  virtualisation.oci-containers.backend = "podman";
 }

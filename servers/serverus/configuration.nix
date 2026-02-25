@@ -5,21 +5,21 @@
     [
       (modulesPath + "/installer/scan/not-detected.nix")
       (modulesPath + "/profiles/qemu-guest.nix")
-      ../modules/system/garbagecollect.nix
-      ../modules/DE/server_packages.nix
-      ../modules/system/journald.nix
-      ../modules/networking/ssh.nix
-      ../modules/system/locales.nix
-      ../modules/users/adathor.nix
-      ../modules/system/btrfs.nix
-      ../modules/system/docker.nix
-      ../modules/system/podman.nix
-      ../modules/system/zram.nix
-      ../modules/system/rtkit.nix
-      ../modules/networking/network_manager.nix
-      ../modules/networking/tailscale.nix
-      ../modules/networking/fw_off.nix
-      ../modules/system/nix_cfg.nix
+      ../../modules/system/garbagecollect.nix
+      ../../modules/DE/server_packages.nix
+      ../../modules/system/journald.nix
+      ../../modules/networking/ssh.nix
+      ../../modules/system/locales.nix
+      ../../modules/users/adathor.nix
+      ../../modules/system/btrfs.nix
+      ../../modules/system/docker.nix
+      ../../modules/system/podman.nix
+      ../../modules/system/zram.nix
+      ../../modules/system/rtkit.nix
+      ../../modules/networking/network_manager.nix
+      ../../modules/networking/tailscale.nix
+      ../../modules/networking/fw_off.nix
+      ../../modules/system/nix_cfg.nix
       ./autoupgrade.nix
       ./disk-config.nix
       ./containers.nix

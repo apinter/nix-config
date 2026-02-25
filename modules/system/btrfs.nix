@@ -1,10 +1,14 @@
 { config, pkgs, callPackage, ... }:
 
 {
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
+  services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [ "/" ];
+    };
+    fstrim = {
+      enable = true;
+    };
   };
-  services.fstrim.enable = true;
 }

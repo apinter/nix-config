@@ -1,17 +1,19 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.homed ={
-    enable = true;
-    settings.Home = {
-      DefaultFileSystemType = "btrfs";
-      DefaultStorage = "luks";
+  services = {
+    homed ={
+      enable = true;
+      settings.Home = {
+        DefaultFileSystemType = "btrfs";
+        DefaultStorage = "luks";
+      };
     };
-  };
 
-  services.userdbd = {
-    enable = true;
-    enableSSHSupport = true;
+    userdbd = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   system.activationScripts.subuidsubgidredo.text = ''
