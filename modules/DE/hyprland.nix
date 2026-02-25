@@ -17,6 +17,11 @@
       services = {
         hyprlock.enableGnomeKeyring = true;
         login.enableGnomeKeyring = true;
+        swaylock.text = ''
+            # PAM configuration file for the swaylock screen locker. By default, it includes
+            # the 'login' configuration file (see /etc/pam.d/login)
+            auth include login
+          '';
       };
     };
   };
@@ -152,12 +157,4 @@
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
   };
-
-
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
-};
 }
