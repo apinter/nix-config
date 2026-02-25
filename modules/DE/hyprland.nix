@@ -5,8 +5,10 @@
     dbus = {
       enable = true;
     };
-    gnome-keyring = {
-      enable = true;
+    gnome = {
+      gnome-keyring = {
+          enable = true;
+      };
     };
   };
 
