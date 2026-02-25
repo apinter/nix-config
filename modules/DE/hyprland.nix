@@ -1,14 +1,28 @@
 { config, pkgs, callPackage, ... }:
 
 {
-  services.dbus.enable = true;
+  services = {
+    dbus = {
+      enable = true;
+    };
+    gnome-keyring = {
+      enable = true;
+    };
+  };
 
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.hyprlock.enableGnomeKeyring = true;
-  security.pam.services.login.enableGnomeKeyring = true;
+  security = {
+    pam ={
+      services = {
+        hyprlock.enableGnomeKeyring = true;
+        login.enableGnomeKeyring = true;
+      };
+    };
+  };
 
-  xdg.autostart.enable = true;
-  xdg.portal = {
+  xdg = {
+    mime.enable = true; 
+    autostart.enable = true;
+    portal = {
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal
@@ -27,13 +41,16 @@
       };
     };
   };
- 
-  xdg.mime.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
+  programs = {
+      hyprland = {
+        enable = true;
+        withUWSM = true;
+        xwayland.enable = true;
+      };
+      light = {
+        enable = true;
+      };
   };
 
   environment.systemPackages = with pkgs; [
@@ -129,11 +146,11 @@
     };
   };
 
-  programs.light.enable = true;
 
   security.pam.services.swaylock.text = ''
     # PAM configuration file for the swaylock screen locker. By default, it includes
     # the 'login' configuration file (see /etc/pam.d/login)
     auth include login
   '';
+};
 }

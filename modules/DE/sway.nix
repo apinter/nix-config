@@ -1,21 +1,50 @@
 { config, pkgs, callPackage, ... }:
 
 {
-  services.dbus.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
+  services ={  
+    dbus ={ 
+       enable = true;
+    };
+    gnome ={  
+      gnome-keyring.enable = true; 
+    };
   };
   
-  xdg.mime.enable = true;
+  xdg = { 
+    portal = {
+      enable = true;
+      wlr.enable = true;
+    }; 
+    mime = { 
+      enable = true; 
+    };
+  };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    wrapperFeatures.base = true;
+  programs = { 
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+      wrapperFeatures.base = true;
+
+      extraSessionCommands = ''
+          export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
+          export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+          eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+          export SSH_AUTH_SOCK;
+        '';
+    };
+
+    light = {
+      enable = true;
+    };
+  };
+
+  security = { 
+    pam.services.swaylock.text = ''
+      # PAM configuration file for the swaylock screen locker. By default, it includes
+      # the 'login' configuration file (see /etc/pam.d/login)
+      auth include login
+    '';
   };
 
   environment.systemPackages = with pkgs; [
@@ -106,17 +135,4 @@
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
   };
-
-  programs.light.enable = true;
-  programs.sway.extraSessionCommands = ''
-    export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
-    export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
-    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
-    export SSH_AUTH_SOCK;
-  '';
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
 }

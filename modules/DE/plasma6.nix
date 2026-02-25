@@ -4,22 +4,38 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
 
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-  services.desktopManager = {
-      plasma6.enable = true;
+  services = {
+
+      xserver = {
+        enable = true;
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
+      };
+
+      desktopManager = {
+        plasma6.enable = true;
+      };
+
+      displayManager = {
+        sddm.enable = true;
+        sddm.wayland.enable = true;
+        defaultSession = "plasma";
+      };
+
+      gnome = {
+        gnome-keyring.enable = true;
+      };
   };
 
-  services.displayManager = {
-      sddm.enable = true;
-      sddm.wayland.enable = true;
-      defaultSession = "plasma";
+  security = {
+    pam = {
+      services = {
+        sddm.enableGnomeKeyring = true;
+      };  
     };
+  };
 
   environment.systemPackages = with pkgs; [
     kdePackages.ark
@@ -49,8 +65,4 @@
     kdePackages.print-manager
     pkgs.github-desktop
   ];
-
-## gnome-keyring
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
 }
