@@ -32,7 +32,7 @@ This repository manages multiple NixOS systems using a centralized flake configu
 .
 ├── flake.nix           # Main flake configuration
 ├── home.nix            # Home-manager user configuration
-├── common/             # Shared modules
+├── modules/             # Shared modules
 │   ├── DE/            # Desktop environments (Hyprland, Sway, Plasma6, GNOME, XFCE)
 │   ├── hardware/      # Hardware configurations (bluetooth, acceleration, fwupd)
 │   ├── networking/    # Network configs (SSH, Tailscale, WireGuard, firewall)
@@ -40,11 +40,16 @@ This repository manages multiple NixOS systems using a centralized flake configu
 │   ├── system/        # System configurations (Docker, Podman, autoupgrade, etc.)
 │   ├── systemd-user/  # User systemd services
 │   └── users/         # User account definitions
-├── <hostname>/        # Per-host configurations
-│   ├── configuration.nix
-│   ├── hardware-configuration.nix
-│   └── ...           # Host-specific modules
-└── k8s/              # Kubernetes nodes configuration
+├── <workstations>/        # Per-host desktop configurations
+    ├── <hostname>/        # Per-host configurations
+    │   ├── configuration.nix
+    │   ├── hardware-configuration.nix
+    │   └── ...           # Host-specific modules
+├── <servers>/        # Per-host server configurations
+    ├── <hostname>/        # Per-host configurations
+    │   ├── configuration.nix
+    │   ├── hardware-configuration.nix
+    │   └── ...           # Host-specific modules
 ```
 
 ## Features

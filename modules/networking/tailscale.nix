@@ -10,9 +10,9 @@
     resolved = {
       enable = true;
     };
+  };
 
-    networking = {
-      search = [ "mining-octatonic.ts.net" ];
-    };
+  networking = {
+    search = [ "mining-octatonic.ts.net" ];
   };
 }
