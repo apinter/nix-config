@@ -13,7 +13,9 @@
 
   users = {
     groups = { 
-      libvirtdmembers = [ meta.username ];
+      libvirtd = {
+        members = [ meta.username ];
+      };
       kvm = {
         members = [ meta.username ];
       };
