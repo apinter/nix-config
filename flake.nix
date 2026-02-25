@@ -136,7 +136,7 @@
 
       brenda = nixpkgs-stable.lib.nixosSystem {
         inherit system;
-        modules = [ ./servers//brenda/configuration.nix ];
+        modules = [ ./servers/brenda/configuration.nix ];
       };
 
       busybee = lib.nixosSystem {
