@@ -39,7 +39,7 @@
       media = lib.nixosSystem {
         inherit system;
         modules = [ 
-          ./media/configuration.nix
+          ./workstations/media/configuration.nix
           disko.nixosModules.disko
         ];
       };
