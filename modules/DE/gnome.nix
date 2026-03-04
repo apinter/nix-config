@@ -22,7 +22,6 @@
     gnomeExtensions.appindicator
     gnome-backgrounds
     gnome-tweaks
-    gnome-keyring
     distrobox
   ];
 

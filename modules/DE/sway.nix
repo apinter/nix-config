@@ -78,7 +78,6 @@
     python3
     distrobox
     xorg.xhost
-    gnome-keyring
     conmon
     crun
     slirp4netns

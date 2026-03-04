@@ -99,7 +99,6 @@
     xorg.xhost
     adwaita-icon-theme
     adwaita-icon-theme-legacy
-    gnome-keyring
     conmon
     crun
     slirp4netns
