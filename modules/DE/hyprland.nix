@@ -60,9 +60,6 @@
         withUWSM = true;
         xwayland.enable = true;
       };
-      light = {
-        enable = true;
-      };
   };
 
   environment.systemPackages = with pkgs; [
