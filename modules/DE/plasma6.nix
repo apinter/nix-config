@@ -50,14 +50,14 @@
     firefox
     python3
     distrobox
-    xorg.xhost
+    xhost
     conmon
     crun
     slirp4netns
     su
     mesa
     mesa-demos 
-    wineWowPackages.stable
+    wineWow64Packages
     winetricks
     gnome-disk-utility
     kdePackages.kdeconnect-kde

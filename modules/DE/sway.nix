@@ -77,7 +77,7 @@
     git
     python3
     distrobox
-    xorg.xhost
+    xhost
     conmon
     crun
     slirp4netns

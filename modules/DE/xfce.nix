@@ -18,7 +18,7 @@
   };   
 
   environment.systemPackages = with pkgs; [
-      xorg.xhost
+      xhost
       xfce.xfce4-whiskermenu-plugin
       xfce.thunar-archive-plugin
       xfce.xfce4-volumed-pulse

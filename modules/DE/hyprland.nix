@@ -96,7 +96,7 @@
     git
     python3
     distrobox
-    xorg.xhost
+    xhost
     adwaita-icon-theme
     adwaita-icon-theme-legacy
     conmon
@@ -113,7 +113,7 @@
     playerctl
     brightnessctl
     pamixer
-    xorg.xrandr
+    xrandr
     ## Archcraft
     swaybg
     kanshi
