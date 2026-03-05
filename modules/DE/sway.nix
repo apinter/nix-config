@@ -33,10 +33,6 @@
           export SSH_AUTH_SOCK;
         '';
     };
-
-    light = {
-      enable = true;
-    };
   };
 
   security = { 
@@ -97,7 +93,6 @@
     kanshi
     foot
     wf-recorder
-    light
     yad
     zathura
     glow
