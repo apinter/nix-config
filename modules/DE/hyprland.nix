@@ -116,7 +116,7 @@
     kanshi
     foot
     wf-recorder
-    light
+    brightnessctl
     yad
     zathura
     glow
