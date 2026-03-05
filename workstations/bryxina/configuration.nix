@@ -45,15 +45,15 @@
       fsType = "nfs";
   };
 
-  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  # sops.age.keyFile = "/var/lib/sops-nix/key.txt";
-  sops.age.generateKey = true;
-  sops.secrets.binary = {
-    sopsFile = ../secrets/binary.ini;
-    path = "/home/apinter/.binary.ini";
-    owner = "apinter";
-    format = "binary";
-  };
+  # sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  # # sops.age.keyFile = "/var/lib/sops-nix/key.txt";
+  # sops.age.generateKey = true;
+  # sops.secrets.binary = {
+  #   sopsFile = ../secrets/binary.ini;
+  #   path = "/home/apinter/.binary.ini";
+  #   owner = "apinter";
+  #   format = "binary";
+  # };
 
   services.borgbackup.jobs.main = {
     paths = "/.snapshots/HOME-SNAPSHOT";
