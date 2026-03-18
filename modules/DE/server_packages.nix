@@ -25,5 +25,6 @@
     nebula
     cosign
     pciutils
+    usbutils
   ];
 }

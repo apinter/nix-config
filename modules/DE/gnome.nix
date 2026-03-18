@@ -24,6 +24,7 @@
     gnome-tweaks
     distrobox
     pciutils
+    usbutils
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
