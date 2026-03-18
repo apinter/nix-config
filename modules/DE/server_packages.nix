@@ -24,5 +24,6 @@
     neovim
     nebula
     cosign
+    pciutils
   ];
 }

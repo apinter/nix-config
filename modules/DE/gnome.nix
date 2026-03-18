@@ -23,6 +23,7 @@
     gnome-backgrounds
     gnome-tweaks
     distrobox
+    pciutils
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
