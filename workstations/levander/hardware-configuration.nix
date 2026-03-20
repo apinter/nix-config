@@ -8,32 +8,74 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/f7b386cd-3685-465f-ae6c-2a54000f4031";
+    { device = "/dev/mapper/nixos-crypt";
       fsType = "btrfs";
-      options = [ "subvol=ROOT" ];
+      options = [ "subvol=rootfs" ];
     };
 
+  boot.initrd.luks.devices."nixos-crypt".device = "/dev/disk/by-uuid/5b7fdd99-c6f7-452c-afbb-f848c9f067ac";
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/394A-318C";
+    { device = "/dev/disk/by-uuid/4FED-6C76";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/etc" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=etc" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+  fileSystems."/opt" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=opt" ];
+    };
+
+  fileSystems."/partition-root" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/root" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+
+  fileSystems."/tmp" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=tmp" ];
+    };
+
+  fileSystems."/var" =
+    { device = "/dev/mapper/nixos-crypt";
+      fsType = "btrfs";
+      options = [ "subvol=var" ];
     };
 
   swapDevices = [ ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
