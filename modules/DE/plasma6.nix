@@ -57,7 +57,7 @@
     su
     mesa
     mesa-demos 
-    wineWow64Packages
+    wineWow64Packages.full
     winetricks
     gnome-disk-utility
     kdePackages.kdeconnect-kde
