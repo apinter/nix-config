@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      vdb = {
+      main = {
         type = "disk";
         device = "/dev/nvme0n1";
         content = {
@@ -11,7 +11,7 @@
               priority = 1;
               name = "ESP";
               start = "1M";
-              end = "2048M";
+              end = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -19,11 +19,18 @@
                 mountpoint = "/boot";
               };
             };
-            root = {
+            luks = {
               size = "100%";
               content = {
+                type = "luks";
+                name = "nixos-crypt";
+                passwordFile = "/tmp/pass";
+                settings = {
+                  allowDiscards = true;
+                };
+              content = {
                 type = "btrfs";
-                extraArgs = [ "-f" ]; # Override existing partition
+                extraArgs = [ "-f" ];
                 subvolumes = {
                   "/rootfs" = {
                     mountpoint = "/";
@@ -65,4 +72,6 @@
       };
     };
   };
+};
 }
+

@@ -3,8 +3,6 @@
 {
   imports =
     [
-      (modulesPath + "/installer/scan/not-detected.nix")
-      (modulesPath + "/profiles/qemu-guest.nix")
       ../../modules/monitoring/node-exporter.nix
       ../../modules/systemd-user/flatpak-auto-update.nix
       ../../modules/hardware/accel.nix
