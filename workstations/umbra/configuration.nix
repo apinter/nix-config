@@ -8,7 +8,7 @@
       ../../modules/system/garbagecollect.nix
       ../../modules/hardware/accel.nix
       ../../modules/system/kernel.nix
-      ../../modules/DE/hyprland.nix
+      ../../modules/DE/sway.nix
       ../../modules/system/pipewire.nix
       ../../modules/hardware/bluetooth.nix
       ../../modules/networking/tailscale.nix
