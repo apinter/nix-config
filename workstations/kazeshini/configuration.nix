@@ -20,7 +20,7 @@
       ../../modules/system/btrfs.nix
       ../../modules/system/docker.nix
       ../../modules/system/podman.nix
-      ../../modules/system/kernel.nix
+      # ../../modules/system/kernel.nix
       ../../modules/system/pipewire.nix
       ../../modules/system/systemd-boot.nix
       ../../modules/system/zram.nix
@@ -37,6 +37,8 @@
       ../../modules/system/cockpit.nix
       ./hardware-configuration.nix
     ];
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "kazeshini";
 
