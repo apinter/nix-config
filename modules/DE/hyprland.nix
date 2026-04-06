@@ -63,6 +63,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    power-profiles-daemon
     usbutils
     pciutils
     cliphist
