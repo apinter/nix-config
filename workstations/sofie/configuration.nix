@@ -77,7 +77,7 @@
       "--stats"
     ];
     prune.keep = {
-      daily = 2;
+      daily = 7;
       weekly = 4;
       monthly = -1;
     };
