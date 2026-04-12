@@ -32,7 +32,7 @@
       ../../modules/system/printer_user.nix
       ../../modules/system/plymouth.nix
       ../../modules/system/avahi.nix
-      ../../modules/system/steam.nix
+      # ../../modules/system/steam.nix
       ./hardware-configuration.nix
     ];
 

@@ -35,7 +35,7 @@
       ../../modules/system/avahi.nix
       ../../modules/system/libvirt.nix
       ../../modules/system/cockpit.nix
-      ../../modules/system/steam.nix
+      # ../../modules/system/steam.nix
       ./hardware-configuration.nix
     ];
 
