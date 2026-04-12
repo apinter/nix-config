@@ -1,4 +1,4 @@
-{ pkgs, … }:
+{ config, pkgs, callPackage, ... }:
  
 {
   programs.steam.enable = true;
