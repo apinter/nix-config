@@ -72,6 +72,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-flatpak": {
+      "locked": {
+        "lastModified": 1771030588,
+        "narHash": "sha256-HdqLaB+u1cQEk9s95P4nWdHP+QAXFkXeAkMG+FdT9m8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "719c0c76fdadab54edb5704bbf9b939570cabbfb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "719c0c76fdadab54edb5704bbf9b939570cabbfb",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1775811116,
@@ -93,6 +109,7 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-flatpak": "nixpkgs-flatpak",
         "nixpkgs-stable": "nixpkgs-stable",
         "sops-nix": "sops-nix"
       }
