@@ -30,7 +30,8 @@
       ../../modules/networking/fw_off.nix
       ../../modules/hardware/bluetooth.nix
       ../../modules/system/nix_cfg.nix
-      ../../modules/system/flatpak_portals.nix
+      # ../../modules/system/flatpak_portals.nix
+      ../../modules/test/flatpak_lock.nix
       ../../modules/system/steam.nix
       ../../modules/system/plymouth.nix
       ../../modules/system/printer_user.nix

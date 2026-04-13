@@ -5,6 +5,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-25.11";
+    nixpkgs-flatpak.url = "github:NixOS/nixpkgs/719c0c76fdadab54edb5704bbf9b939570cabbfb";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -14,11 +15,16 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, disko, sops-nix, ...}:
+  outputs = {self, nixpkgs, nixpkgs-stable, nixpkgs-flatpak, nixos-hardware, home-manager, disko, sops-nix, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+
+      pkgsFlatpak = import nixpkgs-flatpak {
+        inherit system;
+        config = { };
+      };
     in {
     nixosConfigurations = {
       kazeshini = lib.nixosSystem {
@@ -65,6 +71,7 @@
       bryxina = lib.nixosSystem {
         inherit system;
         specialArgs = {
+            pkgsFlatpak = pkgsFlatpak;
             meta = { 
               username = "bryxina";
               greeterDE = "start-hyprland"; 
