@@ -30,6 +30,7 @@
       kazeshini = lib.nixosSystem {
         inherit system;
         specialArgs = {
+            pkgsFlatpak = pkgsFlatpak;
             meta = { 
               username = "apinter";
               greeterDE = "start-hyprland"; 
@@ -87,6 +88,9 @@
 
       otong = lib.nixosSystem {
         inherit system;
+        specialArgs = {
+            pkgsFlatpak = pkgsFlatpak;
+        };
         modules = [
           ./workstations/otong/configuration.nix 
           nixos-hardware.nixosModules.common-pc-ssd
