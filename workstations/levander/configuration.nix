@@ -30,6 +30,7 @@
       ../../modules/system/nix_cfg.nix
       ../../modules/system/flatpak_portals.nix
       ../../modules/system/plymouth.nix
+      ../../modules/system/printer_user.nix
       ./disk-config.nix
     ];
 
