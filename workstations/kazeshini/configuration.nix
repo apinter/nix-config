@@ -30,8 +30,8 @@
       ../../modules/networking/tailscale.nix
       ../../modules/hardware/bluetooth.nix
       ../../modules/system/nix_cfg.nix
-      # ../../modules/system/flatpak_portals.nix
-      ../../modules/test/flatpak_lock.nix
+      ../../modules/system/flatpak_portals.nix
+      # ../../modules/test/flatpak_lock.nix
       ../../modules/system/plymouth.nix
       ../../modules/system/avahi.nix
       ../../modules/system/libvirt.nix
