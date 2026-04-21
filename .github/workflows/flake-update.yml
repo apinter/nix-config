@@ -27,7 +27,7 @@ jobs:
         run: chown -R $(id -u):$(id -g) $GITHUB_WORKSPACE
 
       - name: Evaluate and test flakes
-        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false --show-trace
 
       - name: Update flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
