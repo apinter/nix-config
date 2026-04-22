@@ -13,24 +13,23 @@ jobs:
   flake-update:
     name: Update flakes
     runs-on: ubuntu-latest
-    container:
-      image: docker.io/nixos/nix
-      env:
-        COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
+    env:
+      COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
 
-      - name: Fix permissions
-        run: chown -R $(id -u):$(id -g) $GITHUB_WORKSPACE
-
-      - name: Evaluate and test flakes
-        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false --show-trace
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
 
       - name: Update flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
+
+      - name: Evaluate and test flakes
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false --show-trace
 
       - name: Commit and push
         run: |
