@@ -14,7 +14,7 @@ jobs:
     name: Update flakes
     runs-on: ubuntu-latest
     container:
-      image: docker.io/adathor/nix-tw:latest
+      image: docker.io/nixos/nix
       env:
         COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
