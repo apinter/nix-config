@@ -17,7 +17,7 @@ jobs:
       COMMIT_TOKEN_GITHUB: ${{ secrets.COMMIT_TOKEN_GITHUB }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
 
