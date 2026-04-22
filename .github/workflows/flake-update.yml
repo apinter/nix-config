@@ -32,7 +32,7 @@ jobs:
         id: stage
         run: |
           git config user.email "adathor+flakes@opensuse.org"
-          git config user.name "Flake Updater (unstable)"
+          git config user.name "Flake Updater"
           git add .
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
@@ -48,7 +48,7 @@ jobs:
         if: steps.stage.outputs.changed == 'true'
         run: |
           git config user.email "adathor+flakes@opensuse.org"
-          git config user.name "Flake Updater (unstable)"
+          git config user.name "Flake Updater"
           git add .
           git commit -m "Automatic flake update" || true
           git push
