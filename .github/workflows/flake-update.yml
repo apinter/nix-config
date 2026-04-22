@@ -42,7 +42,7 @@ jobs:
           fi
 
       - name: Evaluate and test flakes
-        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false --show-trace
+        run: nix flake check
 
       - name: Commit and push
         if: steps.stage.outputs.changed == 'true'
