@@ -28,21 +28,30 @@ jobs:
       - name: Update flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
 
-      - name: Evaluate and test flakes
-        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false --show-trace
-
-      - name: Commit and push
+      - name: Configure git, stage changes
+        id: stage
         run: |
           git config user.email "adathor+flakes@opensuse.org"
           git config user.name "Flake Updater (unstable)"
           git add .
           if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
+            echo "changed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "Automatic flake update"
-            git push
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
+
+      - name: Evaluate and test flakes
+        run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake check --no-build --option eval-cache false --show-trace
+
+      - name: Commit and push
+        if: steps.stage.outputs.changed == 'true'
+        run: |
+          git config user.email "adathor+flakes@opensuse.org"
+          git config user.name "Flake Updater (unstable)"
+          git add .
+          git commit -m "Automatic flake update" || true
+          git push
 
   notify:
     name: Notify on status
