@@ -81,7 +81,10 @@
       xkb.options = "caps:swapescape";
     };
   };
-  environment.systemPackages = with pkgs; [ via ];
+  environment.systemPackages = with pkgs; [ 
+    pkgs.via
+    pkgs.fuse3
+  ];
   hardware.keyboard.qmk.enable = true;
   programs.fish.enable = true;
   users.users.apinter.shell = pkgs.fish;
