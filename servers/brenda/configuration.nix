@@ -5,6 +5,7 @@
     [
       ../../modules/users/devops_group.nix
       ../../modules/users/adathor.nix
+      ../../modules/system/sanoid.nix
       ./hardware-configuration.nix
       ./zfs_pool.nix
       ./autoupgrade.nix
