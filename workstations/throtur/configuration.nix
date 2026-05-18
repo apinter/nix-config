@@ -7,6 +7,7 @@
       ../../modules/hardware/accel.nix
       ../../modules/system/garbagecollect.nix
       ../../modules/system/autoupgrade.nix
+      ../../modules/system/fonts.nix
       ../../modules/DE/plasma6.nix
       ../../modules/hardware/fwupd.nix
       ../../modules/system/journald.nix

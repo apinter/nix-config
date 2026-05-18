@@ -9,6 +9,7 @@
       ../../modules/system/gitea-runner.nix
       ../../modules/system/garbagecollect.nix
       ../../modules/system/autoupgrade.nix
+      ../../modules/system/fonts.nix
       ../../modules/DE/plasma6.nix
       ../../modules/system/printer.nix
       ../../modules/hardware/fwupd.nix

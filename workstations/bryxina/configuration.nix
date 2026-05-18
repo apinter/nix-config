@@ -9,6 +9,7 @@
       ../../modules/hardware/accel.nix
       ../../modules/system/garbagecollect.nix
       ../../modules/system/autoupgrade.nix
+      ../../modules/system/fonts.nix
       ../../modules/DE/greetd.nix
       ../../modules/DE/hyprland.nix
       ../../modules/hardware/fwupd.nix
