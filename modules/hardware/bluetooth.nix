@@ -2,7 +2,6 @@
 
 {
   services.blueman.enable = true;
-  services.blueman.withApplet = false;
   hardware.bluetooth.enable = true;
   hardware.enableAllFirmware = true;
 
