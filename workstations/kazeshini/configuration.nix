@@ -84,6 +84,7 @@
   environment.systemPackages = with pkgs; [ 
     pkgs.via
     pkgs.fuse3
+    pkgs.lact
   ];
   hardware.keyboard.qmk.enable = true;
   programs.fish.enable = true;
