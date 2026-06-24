@@ -448,9 +448,9 @@ systemd.user.services.atuin-syncer = {
     wantedBy = [ "default.target" ];
 };
 
-systemd.user.services.authentik-svc = {
+systemd.user.services.oauth2-svc = {
     enable = true;
-    description = "authentik-svc-pod";
+    description = "oauth2-proxy-svc-pod";
     after = [ "network-online.target" "basic.target" ];
     environment = {
         HOME = "/home/apinter";
@@ -476,10 +476,10 @@ systemd.user.services.authentik-svc = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pod rm authentik-pod"
+        "-${pkgs.podman}/bin/podman pod rm oauth2-proxy"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/authentik.yml";
-        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/authentik.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/oauth2-proxy.yaml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/oauth2-proxy.yaml";
         Restart = "always";
         RestartSec=5;
         RemainAfterExit = true;
