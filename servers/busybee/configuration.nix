@@ -38,7 +38,7 @@
   
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
-  services.logind.lidSwitch = "ignore";
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
 
   # nixpkgs.overlays = [
   #   (final: prev: {
