@@ -20,7 +20,7 @@
       roboto-mono
       ubuntu-sans
       ubuntu-classic
-      # cantarell-fonts TEMP disable till afdko is fixed upstream
+      cantarell-fonts
       terminus_font
     ];
   };
