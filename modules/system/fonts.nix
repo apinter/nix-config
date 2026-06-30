@@ -20,7 +20,7 @@
       roboto-mono
       ubuntu-sans
       ubuntu-classic
-      cantarell-fonts
+      # cantarell-fonts
       terminus_font
     ];
   };
