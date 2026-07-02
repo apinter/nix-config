@@ -7,6 +7,7 @@
       (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
       ./disk-config.nix
+      ../../modules/system/mainline_kernel.nix
       ../../modules/system/garbagecollect.nix
       ../../modules/DE/server_packages.nix
       ../../modules/system/journald.nix
@@ -27,7 +28,6 @@
       ../../modules/system/nix_cfg.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "nfs" ];
   networking.hostName = meta.hostname;
   networking.hostId = "681ebfdc";

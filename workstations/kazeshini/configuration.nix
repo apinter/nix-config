@@ -20,7 +20,7 @@
       ../../modules/system/btrfs.nix
       ../../modules/system/docker.nix
       ../../modules/system/podman.nix
-      # ../../modules/system/kernel.nix
+      ../../modules/system/mainline_kernel.nix
       ../../modules/system/pipewire.nix
       ../../modules/system/systemd-boot.nix
       ../../modules/system/zram.nix
@@ -40,10 +40,7 @@
       ./hardware-configuration.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   networking.hostName = "kazeshini";
-
   nix.settings.trusted-users = [ "root" meta.username ];
 
   fileSystems."/home/apinter/Steam" = {

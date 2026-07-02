@@ -4,6 +4,7 @@
   imports =
     [ 
       (modulesPath + "/installer/scan/not-detected.nix")
+      ../../modules/system/mainline_kernel.nix
       ../../modules/DE/sway.nix
       ../../modules/hardware/accel.nix
       ../../modules/users/adathor.nix
@@ -26,7 +27,6 @@
       ./disk-config.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "media";
   networking.networkmanager.enable = true;
 
@@ -36,7 +36,6 @@
   environment.systemPackages = with pkgs; [ 
     pkgs.libcec
   ];
-  # documentation.man.generateCaches = false;
 
   system.stateVersion = "23.05";
 }

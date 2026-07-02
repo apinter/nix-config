@@ -3,7 +3,7 @@
 {
   imports =
     [
-      # ../modules/system/garbagecollect.nix
+      ../../modules/system/server_gc.nix
       ../../modules/monitoring/node-exporter.nix
       ../../modules/DE/server_packages.nix
       ../../modules/hardware/fwupd.nix
@@ -28,7 +28,6 @@
       ./systemd.nix
     ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "busybee";
   networking.hostId = "681ebfdc";
 

@@ -7,7 +7,7 @@
       ../../modules/system/autoupgrade.nix
       ../../modules/system/garbagecollect.nix
       ../../modules/hardware/accel.nix
-      # ../../modules/system/kernel.nix
+      ../../modules/system/mainline_kernel.nix
       ../../modules/DE/sway.nix
       ../../modules/system/pipewire.nix
       ../../modules/hardware/bluetooth.nix

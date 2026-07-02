@@ -15,7 +15,6 @@
       ./containers.nix
     ];
 
-  # boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelPackages = pkgs.linuxPackages;
   boot.loader.grub.enable = true;
   boot.loader.grub.devices = [ "/dev/disk/by-id/ata-RX7_2.5_128GB_AA000000000000000897" ];
