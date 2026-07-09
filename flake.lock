@@ -72,11 +72,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783498993,
-        "narHash": "sha256-6dpRCoUQWFlOQL6HKvzBrtqj0bHuivLv2j/XgIJ3jEA=",
+        "lastModified": 1783587740,
+        "narHash": "sha256-Q+3OLwtqZyc86i6q4B1HxNE+u/7deKPNQPEJEaibusY=",
         "owner": "cjpais",
         "repo": "Handy",
-        "rev": "a201be9161cd3e62934dec98531204beb1a2a062",
+        "rev": "2dd35bbb5a85a0fa46f539a0c2a06d1a246c88fa",
         "type": "github"
       },
       "original": {
@@ -92,11 +92,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783479733,
-        "narHash": "sha256-d/JatqgG+Pmo+IuCTZfnrEAPWU3fdha48GQeXuFO+bE=",
+        "lastModified": 1783550008,
+        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "cee3f0e7fec85d80c149c7afc29926747f7bd3c2",
+        "rev": "f4d01c1d87c7c2ec909549165d5a8338f1bd3315",
         "type": "github"
       },
       "original": {
@@ -126,11 +126,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1783370751,
-        "narHash": "sha256-E+3MIMvKuo9k+K+qLQ9YXzsBzkgHuyVLnsEbN2DFfuc=",
+        "lastModified": 1783582157,
+        "narHash": "sha256-EteIu2AVVbxzkBnBKjrbdknbpjxBkWTMNg02rXj4mgU=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "662bd6e312d2c8b212e32cb377abaee190749320",
+        "rev": "968980fba2c290b5529025636474eae8457b854c",
         "type": "github"
       },
       "original": {
