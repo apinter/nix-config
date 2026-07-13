@@ -21,9 +21,11 @@ jobs:
         with:
           token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
 
-      - uses: cachix/install-nix-action@v31.10.6
+      - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
+          extra_nix_config: |
+            system = x86_64-linux
 
       - name: Update flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
