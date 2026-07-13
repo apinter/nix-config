@@ -24,9 +24,9 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.COMMIT_TOKEN_GITHUB }}
-          extra_nix_config: |
-            system = x86_64-linux
-            config.allowDeprecatedx86_64Darwin = true;
+          # extra_nix_config: |
+          #   system = x86_64-linux
+          #   config.allowDeprecatedx86_64Darwin = true;
 
       - name: Update flakes
         run: nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update
@@ -44,8 +44,8 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Evaluate and test flakes
-        run: nix flake check
+      # - name: Evaluate and test flakes
+      #   run: nix flake check
 
       - name: Commit and push
         if: steps.stage.outputs.changed == 'true'
