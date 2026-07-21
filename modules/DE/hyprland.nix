@@ -108,7 +108,6 @@
     gnupg
     yubikey-personalization
     wireguard-tools
-    cryfs
     nautilus
     playerctl
     brightnessctl
