@@ -72,11 +72,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784533739,
-        "narHash": "sha256-lLG6NmUnwW+gLnVcHHhy9U8+RPhPf+bE8EjgJ4/oE94=",
+        "lastModified": 1784594107,
+        "narHash": "sha256-BJHBnssWC/ArxTA9t9CONMV7QoMd7yeSyeSEb/MUa0Y=",
         "owner": "cjpais",
         "repo": "Handy",
-        "rev": "86616891af0f1ba43620f4f9601593a38e71f320",
+        "rev": "0470d9ad1745ae25af6b50d4cad9affd0d1acc65",
         "type": "github"
       },
       "original": {
@@ -92,11 +92,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1784489491,
-        "narHash": "sha256-j9maqjx1T8+ljAVntAdSI5hSGCm77QNZz64JF1rJNu0=",
+        "lastModified": 1784588016,
+        "narHash": "sha256-ouZe80aWEhMLVMkqICFDN+JUw+0FJtCr/bh+hHtRtMg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3139deb8cafbe73b39b24451255b2fdd3426077e",
+        "rev": "deeb6b7eb7e0c44ae1819c051ce175bd92a85100",
         "type": "github"
       },
       "original": {
