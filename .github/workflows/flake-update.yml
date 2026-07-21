@@ -44,8 +44,8 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      # - name: Evaluate and test flakes
-      #   run: nix flake check
+      - name: Evaluate and test flakes
+        run: nix flake check
 
       - name: Commit and push
         if: steps.stage.outputs.changed == 'true'
