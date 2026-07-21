@@ -90,7 +90,7 @@
     enable = true;
     enableSSHSupport = true;
   };
-  programs.handy.enable = true;
+  # programs.handy.enable = true;
 
   services.borgbackup.jobs.main = {
     startAt = "*-*-* 11:00:00";
