@@ -55,7 +55,6 @@
     wofi
     xdg-utils
     glib
-    dracula-theme
     adwaita-icon-theme
     swaylock
     swayidle
