@@ -35,13 +35,14 @@
     };
     portal = {
       enable = true;
+      xdg.portal.xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-hyprland
         xdg-desktop-portal
       ];
       config = {
         common = {
-          default = [ "gtk" ];
+          default = [ "hyprland" "gtk" ];
           "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
         };
         hyprland = {
