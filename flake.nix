@@ -3,7 +3,7 @@
   description = "Adathor's flake - just manages my fleet";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/370968bf671b4360ed33460dc91191aa8c8ed99d";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     nixpkgs-flatpak.url = "github:NixOS/nixpkgs/719c0c76fdadab54edb5704bbf9b939570cabbfb";
     home-manager.url = "github:nix-community/home-manager/master";
