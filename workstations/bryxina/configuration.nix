@@ -10,7 +10,7 @@
       ../../modules/system/garbagecollect.nix
       ../../modules/system/autoupgrade.nix
       ../../modules/system/fonts.nix
-      ../../modules/DE/greetd.nix
+      ../../modules/system/greetd.nix
       ../../modules/DE/hyprland.nix
       ../../modules/hardware/fwupd.nix
       ../../modules/system/journald.nix
@@ -58,15 +58,6 @@
       fsType = "btrfs";
       options = [ "subvol=STORE" "compress=zstd:1" ];
   };
-  # sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  # # sops.age.keyFile = "/var/lib/sops-nix/key.txt";
-  # sops.age.generateKey = true;
-  # sops.secrets.binary = {
-  #   sopsFile = ../secrets/binary.ini;
-  #   path = "/home/apinter/.binary.ini";
-  #   owner = "apinter";
-  #   format = "binary";
-  # };
 
   services.borgbackup.jobs.main = {
     paths = "/.snapshots/HOME-SNAPSHOT";
@@ -120,6 +111,5 @@
     '';
   };
 
-  # hardware.intelgpu.vaapiDriver = "intel-media-driver";
   system.stateVersion = "23.05"; 
 }

@@ -64,6 +64,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gnome-system-monitor
     power-profiles-daemon
     usbutils
     pciutils

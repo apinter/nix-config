@@ -7,7 +7,6 @@
       ../../modules/hardware/accel.nix
       ../../modules/system/garbagecollect.nix
       ../../modules/system/autoupgrade.nix
-      ../../modules/DE/gnome.nix
       ../../modules/DE/hyprland.nix
       ../../modules/system/fonts.nix
       ../../modules/hardware/fwupd.nix
@@ -31,13 +30,15 @@
       ../../modules/hardware/bluetooth.nix
       ../../modules/system/nix_cfg.nix
       ../../modules/system/flatpak_portals.nix
-      # ../../modules/test/flatpak_lock.nix
       ../../modules/system/plymouth.nix
       ../../modules/system/avahi.nix
       ../../modules/system/libvirt.nix
       ../../modules/system/cockpit.nix
-      # ../../modules/system/steam.nix
+      ../../modules/system/gdm.nix
       ./hardware-configuration.nix
+      # ../../modules/test/flatpak_lock.nix
+      # ../../modules/system/steam.nix
+      # ../../modules/DE/gnome.nix
     ];
 
   networking.hostName = "kazeshini";
@@ -90,7 +91,7 @@
     enable = true;
     enableSSHSupport = true;
   };
-  # programs.handy.enable = true;
+  programs.handy.enable = true;
 
   services.borgbackup.jobs.main = {
     startAt = "*-*-* 11:00:00";

@@ -13,8 +13,8 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    # handy.url = "github:cjpais/Handy";
-    # handy.inputs.nixpkgs.follows = "nixpkgs";
+    handy.url = "github:cjpais/Handy";
+    handy.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {self, nixpkgs, nixpkgs-stable, nixpkgs-flatpak, nixos-hardware, home-manager, disko, sops-nix, ...}:

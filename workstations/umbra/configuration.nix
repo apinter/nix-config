@@ -22,7 +22,7 @@
       ../../modules/users/devops_group.nix
       ../../modules/system/rtkit.nix
       ../../modules/system/flatpak_portals.nix
-      ../../modules/DE/greetd.nix
+      ../../modules/system/greetd.nix
       ./hardware-configuration.nix
     ];
 
