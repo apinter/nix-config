@@ -645,9 +645,9 @@ systemd.user.services.mealie-app = {
     wantedBy = [ "default.target" ];
 };
 
-systemd.user.services.kube-composer-app = {
+systemd.user.services.silverbullet-app = {
     enable = true;
-    description = "kube-composer pod";
+    description = "silverbullet pod";
     after = [ "network-online.target" "basic.target" ];
     environment = {
         HOME = "/home/apinter";
@@ -673,10 +673,10 @@ systemd.user.services.kube-composer-app = {
         Type = "simple";
         TimeoutStartSec = 120;
         ExecStartPre = lib.mkBefore [
-        "-${pkgs.podman}/bin/podman pod rm kube-composer"
+        "-${pkgs.podman}/bin/podman pod rm silverbullet-pod"
         ];
-        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/kube-composer.yml";
-        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/kube-composer.yml";
+        ExecStart = "${pkgs.podman}/bin/podman kube play --authfile=/home/apinter/.secret/auth.json /home/apinter/kube/silverbullet.yml";
+        ExecStop = "${pkgs.podman}/bin/podman kube down /home/apinter/kube/silverbullet.yml";
         Restart = "always";
         RestartSec=5;
         RemainAfterExit = true;
