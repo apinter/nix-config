@@ -22,6 +22,7 @@
       ubuntu-classic
       cantarell-fonts
       terminus_font
+      adwaita-fonts
     ];
   };
 }
