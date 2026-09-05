@@ -1,10 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  services.journald.extraConfig = ''
+  services.journald.settings.Journal = ''
     [Journal]
     Storage=auto
     SystemMaxUse=1G
     RuntimeMaxUse=1G
-   '';
+  '';
 }
