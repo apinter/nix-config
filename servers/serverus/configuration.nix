@@ -7,7 +7,7 @@
       (modulesPath + "/profiles/qemu-guest.nix")
       ../../modules/system/garbagecollect.nix
       ../../modules/DE/server_packages.nix
-      ../../modules/system/journald.nix
+      #../../modules/system/journald.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
       ../../modules/users/devops_group.nix

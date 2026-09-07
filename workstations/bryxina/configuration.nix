@@ -13,7 +13,7 @@
       ../../modules/system/greetd.nix
       ../../modules/DE/hyprland.nix
       ../../modules/hardware/fwupd.nix
-      ../../modules/system/journald.nix
+      #../../modules/system/journald.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
       ../../modules/users/devops_group.nix

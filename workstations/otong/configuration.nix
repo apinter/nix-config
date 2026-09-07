@@ -10,7 +10,7 @@
       ../../modules/system/fonts.nix
       ../../modules/DE/gnome.nix
       ../../modules/hardware/fwupd.nix
-      ../../modules/system/journald.nix
+      #../../modules/system/journald.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
       ../../modules/users/nathan.nix

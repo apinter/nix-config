@@ -11,7 +11,7 @@
       ../../modules/system/fonts.nix
       ../../modules/DE/plasma6.nix
       ../../modules/hardware/fwupd.nix
-      ../../modules/system/journald.nix
+      #../../modules/system/journald.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
       ../../modules/users/sofie.nix

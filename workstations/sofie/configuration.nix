@@ -13,7 +13,7 @@
       ../../modules/DE/plasma6.nix
       ../../modules/system/printer.nix
       ../../modules/hardware/fwupd.nix
-      ../../modules/system/journald.nix
+      #../../modules/system/journald.nix
       ../../modules/networking/ssh.nix
       ../../modules/system/locales.nix
       ../../modules/users/sofie.nix
