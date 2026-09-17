@@ -13,11 +13,11 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    # handy.url = "github:cjpais/Handy";
-    # handy.inputs.nixpkgs.follows = "nixpkgs";
+    handy.url = "github:cjpais/Handy/path?tag=v0.9.6";
+    handy.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {self, nixpkgs, nixpkgs-stable, nixpkgs-flatpak, nixos-hardware, home-manager, disko, sops-nix,  ...}:
+  outputs = {self, nixpkgs, nixpkgs-stable, nixpkgs-flatpak, nixos-hardware, home-manager, disko, sops-nix, handy, ...}:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -42,7 +42,7 @@
           ./workstations/kazeshini/configuration.nix 
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-amd
-          # handy.nixosModules.default
+          handy.nixosModules.default
         ];
       };
 
