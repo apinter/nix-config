@@ -13,9 +13,13 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    # handy.url = "github:cjpais/Handy";
-    handy.url = "git+https://github.com/cjpais/Handy?ref=refs/tags/v0.9.6";
-    handy.inputs.nixpkgs.follows = "nixpkgs";
+    systems.url = "github:nix-systems/triplet";
+    handy = {
+      url = "github:cjpais/Handy/v0.9.6";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+      inputs.bun2nix.inputs.systems.follows = "systems";
+    };
   };
 
   outputs = {self, nixpkgs, nixpkgs-stable, nixpkgs-flatpak, nixos-hardware, home-manager, disko, sops-nix, handy, ...}:
