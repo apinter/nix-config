@@ -17,7 +17,6 @@
     handy = {
       url = "github:cjpais/Handy/v0.9.6";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
       inputs.bun2nix.inputs.systems.follows = "systems";
     };
   };
