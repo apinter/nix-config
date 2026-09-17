@@ -13,7 +13,8 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    handy.url = "github:cjpais/Handy/path?tag=v0.9.6";
+    # handy.url = "github:cjpais/Handy";
+    handy.url = "git+https://github.com/cjpais/Handy?ref=refs/tags/v0.9.6";
     handy.inputs.nixpkgs.follows = "nixpkgs";
   };
 
