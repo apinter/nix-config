@@ -44,6 +44,7 @@
         common = {
           default = [ "hyprland" "gtk" ];
           "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
         };
         hyprland = {
           default = [ "hyprland" "gtk" ];
