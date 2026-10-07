@@ -17,6 +17,46 @@ system.activationScripts."cosign_pub".text = ''
   install -m 0644 -o root -g root ${cosign_pub} /home/apinter/.secret/cosign.pub
   '';  
 
+systemd.user.services.podman-cleanup = {
+    description = "Prune podman storage";
+    environment = {
+        HOME = "/home/apinter";
+        LANG = "en_US.UTF-8";
+        USER = "apinter";
+    };
+    path = [ 
+        "/run/wrappers"
+        pkgs.podman
+        pkgs.bash
+        pkgs.conmon
+        pkgs.crun
+        pkgs.slirp4netns
+        pkgs.su
+        pkgs.shadow
+        pkgs.fuse-overlayfs
+        pkgs.iptables
+        config.virtualisation.podman.package
+    ];
+    unitConfig = {
+    };
+    after = [ "podman.service" ];
+    requires = [ "podman.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.podman}/bin/podman system prune -a -f --volume";
+    };
+};
+
+systemd.user.timers.podman-cleanup = {
+    enable = true;
+    description = "Enable automated podman cleanup";
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = "true";
+    };
+    wantedBy = [ "timers.target" ];
+};
+
 systemd.user.services.crate = {
     enable = true;
     description = "Crate";
