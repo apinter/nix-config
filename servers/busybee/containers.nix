@@ -43,7 +43,7 @@ systemd.user.services.podman-cleanup = {
     requires = [ "podman.service" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.podman}/bin/podman system prune -a -f --volume";
+      ExecStart = "${pkgs.podman}/bin/podman system prune -a -f";
     };
 };
 
