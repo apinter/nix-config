@@ -3,6 +3,7 @@
 {
 
   time.timeZone = "Asia/Jakarta";
+  services.localtimed.enable = true;
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
