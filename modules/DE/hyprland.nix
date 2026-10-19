@@ -2,6 +2,7 @@
 
 {
   services = {
+    libinput.mouse.middleEmulation = false;
     dbus = {
       enable = true;
     };
