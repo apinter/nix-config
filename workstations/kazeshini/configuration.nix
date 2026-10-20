@@ -92,6 +92,7 @@
     enableSSHSupport = true;
   };
   # programs.handy.enable = true;
+  environment.etc."timezone".text = config.time.timeZone;
 
   services.borgbackup.jobs.main = {
     startAt = "*-*-* 11:00:00";
