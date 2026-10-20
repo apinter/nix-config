@@ -104,7 +104,7 @@
     imagemagick
     playerctl
     pastel
-    pywal
+    # pywal
     rofi
     pulsemixer
     xdg-user-dirs
