@@ -3,7 +3,7 @@
 {
 
   time.timeZone = "Asia/Jakarta";
-  services.localtimed.enable = true;
+  environment.variables.TZ = "${config.time.timeZone}";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
