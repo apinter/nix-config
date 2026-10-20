@@ -1,4 +1,4 @@
-{ config, pkgs, callPackage, ... }:
+{ config, lib, pkgs, callPackage, ... }:
 
 {
 
