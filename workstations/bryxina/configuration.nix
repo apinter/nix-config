@@ -38,6 +38,7 @@
       ../../modules/networking/tailscale.nix
       ./hardware-configuration.nix
       # ./containers.nix
+      ./secret.nix
     ];
 
   networking.hostName = "bryxina";

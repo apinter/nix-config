@@ -1,6 +1,6 @@
 keys:
   - &server_bryxina age1laj5ys9pevm6q64x9507pgvrd3zc86rn9f34k3c7yz880cczh50sj82h86
-  - &admin_apinter age1snxzzv973hhufae5ru88qduy0rfk8un407jer2hrgu7hd6d2wpmsc3r3ee
+  - &admin_apinter age1hlcelfm83phl9dmd5my3g3uulvv05hvnc930hk78mgd2qe9v7saszluhl8
 
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
