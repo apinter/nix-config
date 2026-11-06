@@ -9,7 +9,7 @@
     mode = "0400";
   };
   sops.secrets."another" = {
-    sopsFile = ../../secrets/test.yaml;
+    sopsFile = ../../secrets/test;
     format = "binary";
     owner = "bryxina";
     mode = "0400";
