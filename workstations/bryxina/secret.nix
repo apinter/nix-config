@@ -14,4 +14,10 @@
     owner = "bryxina";
     mode = "0400";
   };
+  sops.secrets."who" = {
+    sopsFile = ../../secrets/test;
+    format = "binary";
+    owner = "bryxina";
+    mode = "0400";
+  };
 }
