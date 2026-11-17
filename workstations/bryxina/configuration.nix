@@ -112,20 +112,5 @@
     '';
   };
 
-  systemd.tmpfiles.settings."99-testapp" = {
-    "/opt/extra/config.conf"."C+" = {
-      user = "root"; group = "root"; mode = "0640";
-      argument = "${../../secrets/file.tst}";
-    };
-    "/opt/extra/rules.json"."C+" = {
-      user = "root"; group = "root"; mode = "0644";
-      argument = "${../../secrets/file2.tst}";
-    };
-    # parent dir, created if missing
-    "/opt/extra"."d" = {
-      user = "root"; group = "root"; mode = "0755";
-    };
-  };
-
   system.stateVersion = "23.05"; 
 }
