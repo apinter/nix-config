@@ -112,5 +112,27 @@
     '';
   };
 
+  systemd.services.copy-config-testrun = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    after = [ "sops-install-secrets.service" ];
+
+    unitConfig.ConditionPathIsDirectory = "/opt";
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 3";
+    };
+
+    script = ''
+      set -eu
+
+      ${pkgs.coreutils}/bin/install -m 0644 -o root -g root \
+        ${../../secrets/file.tst} /opt/test1
+      ${pkgs.coreutils}/bin/install -m 0644 -o root -g root \
+        /run/secrets/justatest.yaml /opt/test.yaml
+    '';
+  };
+
   system.stateVersion = "23.05"; 
 }
