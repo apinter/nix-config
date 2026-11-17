@@ -5,19 +5,19 @@
     useSystemdActivation = true;
   };
 
-  sops.secrets."justatest" = {
+  sops.secrets."justatest.yaml" = {
     sopsFile = ../../secrets/hello.ini.enc;
     format = "binary";
     owner = "bryxina";
     mode = "0400";
   };
-  sops.secrets."another" = {
+  sops.secrets."another.json" = {
     sopsFile = ../../secrets/test;
     format = "binary";
     owner = "bryxina";
     mode = "0400";
   };
-  sops.secrets."who" = {
+  sops.secrets."who.txt" = {
     sopsFile = ../../secrets/test;
     format = "binary";
     owner = "bryxina";
