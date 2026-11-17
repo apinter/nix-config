@@ -114,7 +114,7 @@
 
   systemd.tmpfiles.settings."99-testapp" = {
     "/opt/extra/config.conf"."C+" = {
-      user = "myapp"; group = "myapp"; mode = "0640";
+      user = "root"; group = "root"; mode = "0640";
       argument = "${../../secrets/file.tst}";
     };
     "/opt/extra/rules.json"."C+" = {
